@@ -1,15 +1,17 @@
 FROM node:20-alpine AS build
-WORKDIR /app
+WORKDIR /workspace
 
-COPY package*.json ./
-RUN npm install --no-audit --no-fund
+COPY package.json package-lock.json ./
+COPY apps/web/package.json ./apps/web/package.json
+RUN npm ci --workspace @dromero/web --include-workspace-root=false --no-audit --no-fund
 
-COPY . .
+COPY apps/web ./apps/web
+WORKDIR /workspace/apps/web
 RUN npm run build
 
-FROM nginx:1.27-alpine AS runtime
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=build /app/dist /usr/share/nginx/html
+FROM nginxinc/nginx-unprivileged:1.27-alpine AS runtime
+COPY apps/web/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build --chown=101:101 /workspace/apps/web/dist /usr/share/nginx/html
 
 EXPOSE 8080
 

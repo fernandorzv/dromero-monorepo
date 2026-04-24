@@ -11,7 +11,10 @@
   "scripts": {
     "dev": "npm run dev --workspace @dromero/web",
     "build": "npm run build --workspace @dromero/web",
+    "lint": "npm run lint --workspace @dromero/web",
+    "test": "npm run test --workspace @dromero/web",
     "preview": "npm run preview --workspace @dromero/web",
+    "audit": "npm audit --audit-level=high",
     "docker:build": "docker compose build web",
     "docker:up": "docker compose up -d web",
     "docker:down": "docker compose down"
