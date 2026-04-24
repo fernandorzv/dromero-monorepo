@@ -1,0 +1,19 @@
+{
+  "name": "dromero-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "npm run dev --workspace @dromero/web",
+    "build": "npm run build --workspace @dromero/web",
+    "preview": "npm run preview --workspace @dromero/web",
+    "docker:build": "docker compose build web",
+    "docker:up": "docker compose up -d web",
+    "docker:down": "docker compose down"
+  }
+}

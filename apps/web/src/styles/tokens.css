@@ -1,0 +1,12 @@
+:root {
+  --surface-background: #f2eee6;
+  --surface-card: #ffffff;
+  --surface-muted: #e5dece;
+  --text-primary: #1f2833;
+  --text-secondary: #4e5f72;
+  --accent-primary: #ad5a2d;
+  --accent-strong: #7f3d18;
+  --border-color: #d8cebe;
+  --radius-medium: 14px;
+  --shadow-soft: 0 16px 30px rgba(31, 40, 51, 0.1);
+}
