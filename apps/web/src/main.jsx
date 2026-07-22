@@ -5,9 +5,11 @@ import App from './App'
 import './styles/tokens.css'
 import './styles/global.css'
 
+const isGitHubPages = import.meta.env.BASE_URL !== '/'
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={isGitHubPages ? import.meta.env.BASE_URL : undefined}>
       <App />
     </BrowserRouter>
   </StrictMode>
