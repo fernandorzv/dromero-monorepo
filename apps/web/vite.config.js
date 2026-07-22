@@ -1,7 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
+const isGitHubPages = process.env.GITHUB_PAGES === 'true'
+const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1] ?? 'dromero-monorepo'
+
 export default defineConfig({
+  base: isGitHubPages ? '/' + repoName + '/' : '/',
   plugins: [react()],
   server: {
     host: '0.0.0.0',
