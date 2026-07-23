@@ -4,6 +4,14 @@ import homeRecommendation from '../assets/home/home-recommendation.png'
 import homeThumb01 from '../assets/home/home-thumb-01.png'
 import homeThumb02 from '../assets/home/home-thumb-02.png'
 import homeThumb03 from '../assets/home/home-thumb-03.png'
+import servicesApproach from '../assets/services/services-approach.png'
+import servicesHero from '../assets/services/services-hero.png'
+import servicesProcessDesign from '../assets/services/services-process-design.png'
+import servicesProcessDocumentation from '../assets/services/services-process-documentation.png'
+import servicesProcessManagement from '../assets/services/services-process-management.png'
+import servicesProcessSupervision from '../assets/services/services-process-supervision.png'
+import servicesProcessUnderstanding from '../assets/services/services-process-understanding.png'
+import servicesStatement from '../assets/services/services-statement.png'
 import commercialOffice from '../assets/projects/commercial/project-commercial-office.png'
 import commercialRetailHospitality from '../assets/projects/commercial/project-commercial-retail-hospitality.png'
 import culturalMuseum from '../assets/projects/cultural/project-cultural-museum.png'
@@ -49,4 +57,18 @@ export const projectMedia = {
     bridge: infrastructureBridge,
     transitHub: infrastructureTransitHub
   }
+}
+
+
+export const servicesMedia = {
+  hero: servicesHero,
+  approach: servicesApproach,
+  process: {
+    understanding: servicesProcessUnderstanding,
+    design: servicesProcessDesign,
+    documentation: servicesProcessDocumentation,
+    management: servicesProcessManagement,
+    supervision: servicesProcessSupervision
+  },
+  statement: servicesStatement
 }

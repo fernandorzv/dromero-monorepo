@@ -1,10 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
-import { NavLink } from 'react-router-dom'
-import LanguageToggle from '../components/LanguageToggle'
 import ResponsiveImage from '../components/ResponsiveImage'
+import SiteNavbar from '../components/SiteNavbar'
 import { projectsById } from '../data/projects'
-import symetrisHomeLogo from '../images/RA-LogoB.png'
 
 function ProjectsPage({ copy, language, languageLabels, onLanguageChange }) {
   const { common, nav, projects } = copy
@@ -98,31 +96,15 @@ function ProjectsPage({ copy, language, languageLabels, onLanguageChange }) {
   return (
     <main className="gate1-page projects-page">
       <section className="projects-shell" aria-label={projects.pageAria}>
-        <header className="hero-nav projects-nav" aria-label={projects.navigationAria}>
-          <NavLink className="brand" to="/" aria-label={common.homeAria}>
-            <img className="brand-logo" src={symetrisHomeLogo} alt={common.logoAlt} />
-          </NavLink>
-
-          <nav aria-label={common.primaryNav}>
-            <ul className="nav-list">
-              <li>
-                <NavLink className="nav-link" to="/">
-                  {nav.home}
-                </NavLink>
-              </li>
-              <li>{nav.service}</li>
-              <li>
-                <NavLink className="nav-link nav-link-active" to="/projects">
-                  {nav.project}
-                </NavLink>
-              </li>
-              <li>{nav.team}</li>
-              <li>{nav.contact}</li>
-            </ul>
-          </nav>
-
-          <LanguageToggle labels={languageLabels} language={language} onChange={onLanguageChange} />
-        </header>
+        <SiteNavbar
+          className="projects-nav"
+          common={common}
+          language={language}
+          languageLabels={languageLabels}
+          nav={nav}
+          navigationAria={projects.navigationAria}
+          onLanguageChange={onLanguageChange}
+        />
 
         <section className="projects-intro" aria-label={projects.introAria}>
           <p className="projects-eyebrow">{projects.eyebrow}</p>

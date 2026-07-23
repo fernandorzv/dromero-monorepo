@@ -4,7 +4,10 @@ import translations from './i18n'
 import { getInitialLanguage } from './language'
 import { routerBaseName } from './router'
 import HomePage from './pages/HomePage'
+import ContactPage from './pages/ContactPage'
 import ProjectsPage from './pages/ProjectsPage'
+import ServicesPage from './pages/ServicesPage'
+import StudioPage from './pages/StudioPage'
 
 const languageLabels = {
   en: { short: 'EN', name: 'English' },
@@ -45,6 +48,19 @@ function App() {
             />
           }
         />
+        <Route
+          path="/services"
+          element={
+            <ServicesPage
+              copy={copy}
+              language={language}
+              languageLabels={languageLabels}
+              onLanguageChange={setLanguage}
+            />
+          }
+        />
+        <Route path="/studio" element={<StudioPage />} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
     </BrowserRouter>

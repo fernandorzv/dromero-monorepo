@@ -4,7 +4,7 @@ const translations = {
     alternateLanguage: 'ES',
     nav: {
       home: 'Home',
-      service: 'Service',
+      service: 'Services',
       project: 'Project',
       team: 'Team',
       contact: 'Contact'
@@ -55,6 +55,113 @@ const translations = {
       socialAria: 'Social media section',
       socialTitle: 'Follow Us',
       socialLinksAria: 'Social media links'
+    },
+    footer: {
+      navigationAria: 'Footer navigation',
+      copyright: 'D’Romero Architecture. All rights reserved.'
+    },
+    services: {
+      navigationAria: 'Services navigation',
+      hero: {
+        sectionAria: 'Services introduction',
+        title: 'Services',
+        subtitle: 'Integrated architecture that transforms\nideas into lasting spaces.',
+        imageAlt:
+          'Contemporary stone and wood residence surrounding a landscaped courtyard at dusk'
+      },
+      approach: {
+        title: 'Our approach',
+        body:
+          'We guide every project from beginning to end through an integrated perspective, sensitivity to context and a commitment to quality at every stage of the process.',
+        imageAlt:
+          'Open contemporary residence with tropical gardens and a reflecting pool'
+      },
+      process: {
+        title: 'Our process',
+        listAria: 'Five stages of our architectural process',
+        items: {
+          understanding: {
+            title: 'Understanding',
+            body:
+              'We listen to your objectives and study the context to define the most appropriate strategy for your project.',
+            imageAlt:
+              'Architects reviewing plans and a scale model during a project meeting'
+          },
+          design: {
+            title: 'Design',
+            body:
+              'We create architectural proposals that integrate beauty, functionality and sustainability.',
+            imageAlt:
+              'Architect sketching beside material samples and an architectural model'
+          },
+          documentation: {
+            title: 'Documentation',
+            body:
+              'We develop clear plans, details and specifications to support precise execution.',
+            imageAlt:
+              'Architect marking technical floor plans at a workstation'
+          },
+          management: {
+            title: 'Management',
+            body:
+              'We manage permits and approvals while coordinating all applicable regulatory requirements.',
+            imageAlt:
+              'Project team reviewing permit documents and coordinated plans'
+          },
+          supervision: {
+            title: 'Execution and supervision',
+            body:
+              'We supervise construction to ensure quality, compliance and attention to every detail.',
+            imageAlt:
+              'Architects reviewing construction drawings on an active building site'
+          }
+        }
+      },
+      areas: {
+        title: 'Service areas',
+        items: {
+          architecturalDesign: {
+            title: 'Architectural design',
+            body:
+              'Residential, commercial, institutional and industrial projects.'
+          },
+          sustainableArchitecture: {
+            title: 'Sustainable architecture',
+            body:
+              'Bioclimatic design and responsible use of resources and materials.'
+          },
+          interiorDesign: {
+            title: 'Interior design',
+            body:
+              'Interiors that express the essence of each project and the people who inhabit it.'
+          },
+          masterPlanning: {
+            title: 'Master planning and urban design',
+            body: 'Planning for developments and large-scale projects.'
+          },
+          renovations: {
+            title: 'Renovations and extensions',
+            body:
+              'We update and expand spaces to improve their performance and useful life.'
+          },
+          consulting: {
+            title: 'Architectural consulting',
+            body: 'Technical and strategic guidance for better project decisions.'
+          }
+        }
+      },
+      statement: {
+        sectionAria: 'Architectural philosophy',
+        text:
+          'More than constructing buildings,\nwe create places that connect people,\nnature and purpose.',
+        imageAlt:
+          'Stone garden wall reflected in a pool beneath mature trees'
+      },
+      cta: {
+        title: 'Do you have a project in mind?',
+        body: 'Let’s talk about how we can bring it to life.',
+        button: 'Contact us'
+      }
     },
     projects: {
       pageAria: 'Projects page',
@@ -287,6 +394,114 @@ const translations = {
       socialAria: 'Sección de redes sociales',
       socialTitle: 'Síguenos',
       socialLinksAria: 'Enlaces de redes sociales'
+    },
+    footer: {
+      navigationAria: 'Navegación del pie de página',
+      copyright: 'D’Romero Architecture. Todos los derechos reservados.'
+    },
+    services: {
+      navigationAria: 'Navegación de servicios',
+      hero: {
+        sectionAria: 'Introducción a los servicios',
+        title: 'Servicios',
+        subtitle: 'Arquitectura integral para transformar\nideas en espacios duraderos.',
+        imageAlt:
+          'Residencia contemporánea de piedra y madera alrededor de un patio ajardinado al atardecer'
+      },
+      approach: {
+        title: 'Nuestro enfoque',
+        body:
+          'Acompañamos cada proyecto de principio a fin con una mirada integral, sensibilidad por el contexto y compromiso con la calidad en cada etapa del proceso.',
+        imageAlt:
+          'Residencia contemporánea abierta con jardines tropicales y espejo de agua'
+      },
+      process: {
+        title: 'Nuestro proceso',
+        listAria: 'Cinco etapas de nuestro proceso arquitectónico',
+        items: {
+          understanding: {
+            title: 'Entendimiento',
+            body:
+              'Escuchamos tus objetivos y analizamos el contexto para definir la mejor estrategia para tu proyecto.',
+            imageAlt:
+              'Arquitectos revisando planos y una maqueta durante una reunión de proyecto'
+          },
+          design: {
+            title: 'Diseño',
+            body:
+              'Creamos propuestas arquitectónicas que integran belleza, funcionalidad y sostenibilidad.',
+            imageAlt:
+              'Arquitecto dibujando junto a muestras de materiales y una maqueta arquitectónica'
+          },
+          documentation: {
+            title: 'Documentación',
+            body:
+              'Desarrollamos planos, detalles y especificaciones claras para una ejecución precisa.',
+            imageAlt:
+              'Arquitecto marcando planos técnicos en una estación de trabajo'
+          },
+          management: {
+            title: 'Gestión',
+            body:
+              'Tramitamos permisos y licencias, coordinando todos los requisitos normativos.',
+            imageAlt:
+              'Equipo de proyecto revisando permisos y planos coordinados'
+          },
+          supervision: {
+            title: 'Ejecución y supervisión',
+            body:
+              'Supervisamos la obra para garantizar calidad, cumplimiento y atención a cada detalle.',
+            imageAlt:
+              'Arquitectos revisando planos de construcción en una obra activa'
+          }
+        }
+      },
+      areas: {
+        title: 'Áreas de servicio',
+        items: {
+          architecturalDesign: {
+            title: 'Diseño arquitectónico',
+            body:
+              'Proyectos residenciales, comerciales, institucionales e industriales.'
+          },
+          sustainableArchitecture: {
+            title: 'Arquitectura sostenible',
+            body:
+              'Diseño bioclimático y uso responsable de recursos y materiales.'
+          },
+          interiorDesign: {
+            title: 'Interiorismo',
+            body:
+              'Interiores que reflejan la esencia del proyecto y de quienes lo habitan.'
+          },
+          masterPlanning: {
+            title: 'Master planning y urbanismo',
+            body: 'Planeación de desarrollos y proyectos de gran escala.'
+          },
+          renovations: {
+            title: 'Remodelación y ampliaciones',
+            body:
+              'Actualizamos y ampliamos espacios para mejorar su vida útil.'
+          },
+          consulting: {
+            title: 'Consultoría arquitectónica',
+            body:
+              'Asesoría técnica y estratégica para tomar mejores decisiones.'
+          }
+        }
+      },
+      statement: {
+        sectionAria: 'Filosofía arquitectónica',
+        text:
+          'Más que construir edificios,\ncreamos lugares que conectan personas,\nnaturaleza y propósito.',
+        imageAlt:
+          'Muro de piedra en un jardín reflejado en un estanque bajo árboles maduros'
+      },
+      cta: {
+        title: '¿Tienes un proyecto en mente?',
+        body: 'Conversemos sobre cómo podemos hacerlo realidad.',
+        button: 'Contactar'
+      }
     },
     projects: {
       pageAria: 'Página de proyectos',

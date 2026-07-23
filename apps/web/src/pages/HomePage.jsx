@@ -1,9 +1,7 @@
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter, FaYoutube } from 'react-icons/fa6'
-import { NavLink } from 'react-router-dom'
-import LanguageToggle from '../components/LanguageToggle'
 import ResponsiveImage from '../components/ResponsiveImage'
+import SiteNavbar from '../components/SiteNavbar'
 import { homeMedia } from '../data/media'
-import symetrisHomeLogo from '../images/RA-LogoB.png'
 
 function HomePage({ copy, language, languageLabels, onLanguageChange }) {
   const { common, home, nav } = copy
@@ -20,31 +18,14 @@ function HomePage({ copy, language, languageLabels, onLanguageChange }) {
         />
         <div className="hero-overlay" aria-hidden="true" />
 
-        <header className="hero-nav" aria-label={home.navigationAria}>
-          <NavLink className="brand" to="/" aria-label={common.homeAria}>
-            <img className="brand-logo" src={symetrisHomeLogo} alt={common.logoAlt} />
-          </NavLink>
-
-          <nav aria-label={common.primaryNav}>
-            <ul className="nav-list">
-              <li>
-                <NavLink className="nav-link" to="/">
-                  {nav.home}
-                </NavLink>
-              </li>
-              <li>{nav.service}</li>
-              <li>
-                <NavLink className="nav-link" to="/projects">
-                  {nav.project}
-                </NavLink>
-              </li>
-              <li>{nav.team}</li>
-              <li>{nav.contact}</li>
-            </ul>
-          </nav>
-
-          <LanguageToggle labels={languageLabels} language={language} onChange={onLanguageChange} />
-        </header>
+        <SiteNavbar
+          common={common}
+          language={language}
+          languageLabels={languageLabels}
+          nav={nav}
+          navigationAria={home.navigationAria}
+          onLanguageChange={onLanguageChange}
+        />
 
         <div className="hero-content-grid">
           <section className="hero-copy">

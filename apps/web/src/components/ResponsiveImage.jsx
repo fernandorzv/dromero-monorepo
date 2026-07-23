@@ -4,7 +4,10 @@ function ResponsiveImage({
   className,
   loading = 'lazy',
   fetchPriority,
-  objectPosition
+  height,
+  objectPosition,
+  sizes,
+  width
 }) {
   return (
     <img
@@ -12,8 +15,11 @@ function ResponsiveImage({
       className={className}
       decoding="async"
       fetchpriority={fetchPriority}
+      height={height}
       loading={loading}
+      sizes={sizes}
       src={src}
+      width={width}
       style={objectPosition ? { objectPosition } : undefined}
     />
   )
