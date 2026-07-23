@@ -6,7 +6,7 @@ const translations = {
       home: 'Home',
       service: 'Services',
       project: 'Project',
-      team: 'Team',
+      team: 'Studio',
       contact: 'Contact'
     },
     common: {
@@ -57,8 +57,26 @@ const translations = {
       socialLinksAria: 'Social media links'
     },
     footer: {
+      logoAlt: 'D’Romero Architecture',
+      brandStatement:
+        'Contemporary architecture shaped by identity, functionality and respect for its surroundings.',
+      navigationTitle: 'Navigation',
       navigationAria: 'Footer navigation',
-      copyright: 'D’Romero Architecture. All rights reserved.'
+      servicesTitle: 'Services',
+      contactTitle: 'Contact',
+      contactUnavailable:
+        'Verified contact details will appear here once approved for publication.',
+      socialsAria: 'D’Romero social media',
+      legal: 'D’Romero Architecture. All rights reserved.',
+      closingStatement: 'We design spaces that inspire and endure.',
+      socialLabels: {
+        facebook: 'D’Romero on Facebook',
+        instagram: 'D’Romero on Instagram',
+        x: 'D’Romero on X',
+        youtube: 'D’Romero on YouTube',
+        whatsapp: 'Contact D’Romero on WhatsApp',
+        email: 'Email D’Romero'
+      }
     },
     services: {
       navigationAria: 'Services navigation',
@@ -160,6 +178,189 @@ const translations = {
       cta: {
         title: 'Do you have a project in mind?',
         body: 'Let’s talk about how we can bring it to life.',
+        button: 'Contact us'
+      }
+    },
+    studioProcess: {
+      navigationAria: 'Studio navigation',
+      hero: {
+        sectionAria: 'Studio and process introduction',
+        title: 'Studio & Process',
+        subtitle: 'We think, design and build\nspaces with purpose.',
+        imageAlt:
+          'Contemporary stone studio entrance illuminated at dusk within a tropical garden'
+      },
+      story: {
+        title: 'Our story',
+        paragraphs: [
+          'D’Romero Architecture was founded on the belief that architecture can improve people’s lives and the environments they inhabit.',
+          'From the beginning, we have worked with an integrated vision, combining aesthetic sensitivity, functionality and sustainability to create timeless and meaningful spaces.'
+        ],
+        imageAlt:
+          'Contemporary studio courtyard with stone walls, warm wood and tropical vegetation'
+      },
+      team: {
+        title: 'Leadership and team',
+        intro:
+          'A focused team with direct senior involvement throughout every stage of the project.',
+        verificationNotice:
+          'Names, roles and biographies are intentionally withheld until the studio confirms them for publication.',
+        profilePending: 'Profile information pending studio verification.',
+        portraitAlts: [
+          'Unverified portrait asset of a man seated in an architecture studio',
+          'Unverified portrait asset of a woman drawing architectural plans',
+          'Unverified portrait asset of a man working on an architectural model'
+        ]
+      },
+      process: {
+        title: 'How we work',
+        listAria: 'Four phases of the D’Romero project process',
+        imageAlts: [
+          'Architectural drawings, material samples and landscape studies arranged for coordination',
+          'Architecture studio workspace with drawings, models and digital visualization'
+        ],
+        phases: {
+          strategy: {
+            title: 'Strategy',
+            body:
+              'We define outcomes, scope, constraints, investment, schedule and measures of success before design begins.',
+            outputs: [
+              'Project brief',
+              'Site analysis',
+              'Investment parameters',
+              'Success criteria'
+            ]
+          },
+          design: {
+            title: 'Design',
+            body:
+              'We establish the architectural language, spatial organization and experience that will guide the project.',
+            outputs: [
+              'Concept design',
+              'Zoning and circulation',
+              'Material direction',
+              'Preliminary plans'
+            ]
+          },
+          development: {
+            title: 'Development',
+            body:
+              'We coordinate drawings, details, specifications and disciplines to turn the concept into a buildable solution.',
+            outputs: [
+              'Construction drawings',
+              'Coordinated disciplines',
+              'Details and specifications',
+              'Digital model'
+            ]
+          },
+          delivery: {
+            title: 'Delivery',
+            body:
+              'We supervise progress, quality, decisions and changes to protect the design throughout construction.',
+            outputs: [
+              'Site supervision',
+              'Quality reviews',
+              'Change control',
+              'Project closeout'
+            ]
+          }
+        }
+      },
+      principles: {
+        title: 'Working principles',
+        items: {
+          clarity: {
+            title: 'Clarity before complexity',
+            body:
+              'We establish clear objectives, responsibilities and criteria before increasing the level of detail.'
+          },
+          context: {
+            title: 'Context before style',
+            body:
+              'The site, climate, users and project purpose shape the architectural response.'
+          },
+          coordination: {
+            title: 'Coordination before construction',
+            body:
+              'We align disciplines, decisions and details before they become costly construction changes.'
+          },
+          continuity: {
+            title: 'Quality through continuity',
+            body:
+              'Senior architectural involvement continues from the first conversation through delivery.'
+          }
+        }
+      },
+      capabilities: {
+        title: 'Capabilities and collaborators',
+        intro:
+          'We combine core architectural capabilities and coordinate appropriate specialists according to each project’s scale, complexity and technical requirements.',
+        items: {
+          architecturalDesign: {
+            title: 'Architectural design',
+            body: 'Integrated design for residential, commercial and institutional projects.'
+          },
+          interiorDesign: {
+            title: 'Interior architecture',
+            body: 'Interior environments aligned with the architecture and ways people use them.'
+          },
+          technicalDocumentation: {
+            title: 'Technical documentation',
+            body: 'Clear drawings, details and specifications for precise project execution.'
+          },
+          projectCoordination: {
+            title: 'Project coordination',
+            body: 'Coordination of project information, decisions and specialist contributions.'
+          },
+          permitManagement: {
+            title: 'Permit management',
+            body: 'Organization and follow-up of applicable permits and regulatory requirements.'
+          },
+          constructionSupervision: {
+            title: 'Construction supervision',
+            body: 'Architectural review of progress, quality and design intent during construction.'
+          }
+        }
+      },
+      tools: {
+        title: 'Tools and methods',
+        items: {
+          digitalModeling: {
+            title: 'Digital modeling and visualization',
+            body: 'Models, views and studies used to evaluate decisions before construction.'
+          },
+          coordinatedDocumentation: {
+            title: 'Coordinated documentation',
+            body: 'Drawings, details and specifications organized for clearer execution.'
+          },
+          milestoneReviews: {
+            title: 'Milestone reviews',
+            body: 'Structured reviews at key project milestones.'
+          },
+          riskTracking: {
+            title: 'Risk and decision tracking',
+            body: 'Tracking of agreements, constraints, changes and open issues.'
+          },
+          clientApprovals: {
+            title: 'Client approvals',
+            body: 'Clear decision points that preserve alignment and control.'
+          },
+          constructionControl: {
+            title: 'Construction progress control',
+            body: 'Monitoring progress, quality and compliance during construction.'
+          }
+        }
+      },
+      statement: {
+        sectionAria: 'Studio philosophy',
+        text:
+          'We believe in clear processes,\ntrusted relationships\nand results that endure.',
+        imageAlt:
+          'Reflecting pool beside an illuminated stone garden wall at sunset'
+      },
+      cta: {
+        title: 'Ready to shape your project?',
+        body: 'Let’s talk about your idea and create purposeful spaces together.',
         button: 'Contact us'
       }
     },
@@ -409,7 +610,7 @@ const translations = {
       home: 'Inicio',
       service: 'Servicios',
       project: 'Proyectos',
-      team: 'Equipo',
+      team: 'Estudio',
       contact: 'Contacto'
     },
     common: {
@@ -460,8 +661,26 @@ const translations = {
       socialLinksAria: 'Enlaces de redes sociales'
     },
     footer: {
+      logoAlt: 'D’Romero Arquitectura',
+      brandStatement:
+        'Arquitectura contemporánea con identidad, funcionalidad y respeto por el entorno.',
+      navigationTitle: 'Navegación',
       navigationAria: 'Navegación del pie de página',
-      copyright: 'D’Romero Architecture. Todos los derechos reservados.'
+      servicesTitle: 'Servicios',
+      contactTitle: 'Contacto',
+      contactUnavailable:
+        'Los datos de contacto verificados aparecerán aquí cuando se autoricen para publicación.',
+      socialsAria: 'Redes sociales de D’Romero',
+      legal: 'D’Romero Arquitectura. Todos los derechos reservados.',
+      closingStatement: 'Diseñamos espacios que inspiran y perduran.',
+      socialLabels: {
+        facebook: 'D’Romero en Facebook',
+        instagram: 'D’Romero en Instagram',
+        x: 'D’Romero en X',
+        youtube: 'D’Romero en YouTube',
+        whatsapp: 'Contactar a D’Romero por WhatsApp',
+        email: 'Enviar correo a D’Romero'
+      }
     },
     services: {
       navigationAria: 'Navegación de servicios',
@@ -564,6 +783,189 @@ const translations = {
       cta: {
         title: '¿Tienes un proyecto en mente?',
         body: 'Conversemos sobre cómo podemos hacerlo realidad.',
+        button: 'Contactar'
+      }
+    },
+    studioProcess: {
+      navigationAria: 'Navegación del estudio',
+      hero: {
+        sectionAria: 'Introducción al estudio y proceso',
+        title: 'Estudio y Proceso',
+        subtitle: 'Pensamos, diseñamos y construimos\nespacios con propósito.',
+        imageAlt:
+          'Acceso de un estudio contemporáneo de piedra iluminado al atardecer dentro de un jardín tropical'
+      },
+      story: {
+        title: 'Nuestra historia',
+        paragraphs: [
+          'D’Romero Arquitectura nace de la convicción de que la arquitectura puede mejorar la vida de las personas y el entorno que habitan.',
+          'Desde nuestros inicios, hemos trabajado con una visión integral, combinando sensibilidad estética, funcionalidad y sustentabilidad para crear espacios atemporales y significativos.'
+        ],
+        imageAlt:
+          'Patio de un estudio contemporáneo con muros de piedra, madera cálida y vegetación tropical'
+      },
+      team: {
+        title: 'Liderazgo y equipo',
+        intro:
+          'Un equipo enfocado con participación directa de liderazgo senior en cada etapa del proyecto.',
+        verificationNotice:
+          'Los nombres, cargos y semblanzas se omiten intencionalmente hasta que el estudio los confirme para publicación.',
+        profilePending: 'Perfil pendiente de verificación por el estudio.',
+        portraitAlts: [
+          'Recurso de retrato no verificado de un hombre sentado en un estudio de arquitectura',
+          'Recurso de retrato no verificado de una mujer dibujando planos arquitectónicos',
+          'Recurso de retrato no verificado de un hombre trabajando en una maqueta arquitectónica'
+        ]
+      },
+      process: {
+        title: 'Cómo trabajamos',
+        listAria: 'Cuatro fases del proceso de proyectos de D’Romero',
+        imageAlts: [
+          'Planos arquitectónicos, muestras de materiales y estudios de paisaje organizados para coordinación',
+          'Mesa de trabajo de un estudio con planos, maquetas y visualización digital'
+        ],
+        phases: {
+          strategy: {
+            title: 'Estrategia',
+            body:
+              'Definimos resultados, alcance, restricciones, inversión, tiempos y criterios de éxito antes de diseñar.',
+            outputs: [
+              'Brief del proyecto',
+              'Análisis del sitio',
+              'Parámetros de inversión',
+              'Criterios de éxito'
+            ]
+          },
+          design: {
+            title: 'Diseño',
+            body:
+              'Establecemos el lenguaje arquitectónico, la organización espacial y la experiencia que guiarán el proyecto.',
+            outputs: [
+              'Diseño conceptual',
+              'Zonificación y circulación',
+              'Dirección de materiales',
+              'Planos preliminares'
+            ]
+          },
+          development: {
+            title: 'Desarrollo',
+            body:
+              'Coordinamos planos, detalles, especificaciones y especialidades para convertir el concepto en una solución construible.',
+            outputs: [
+              'Planos constructivos',
+              'Especialidades coordinadas',
+              'Detalles y especificaciones',
+              'Modelo digital'
+            ]
+          },
+          delivery: {
+            title: 'Ejecución',
+            body:
+              'Supervisamos avances, calidad, decisiones y cambios para proteger el diseño durante la construcción.',
+            outputs: [
+              'Supervisión de obra',
+              'Revisiones de calidad',
+              'Control de cambios',
+              'Cierre del proyecto'
+            ]
+          }
+        }
+      },
+      principles: {
+        title: 'Principios de trabajo',
+        items: {
+          clarity: {
+            title: 'Claridad antes de complejidad',
+            body:
+              'Establecemos objetivos, responsabilidades y criterios claros antes de aumentar el nivel de detalle.'
+          },
+          context: {
+            title: 'Contexto antes de estilo',
+            body:
+              'El sitio, el clima, los usuarios y el propósito del proyecto definen la respuesta arquitectónica.'
+          },
+          coordination: {
+            title: 'Coordinación antes de construcción',
+            body:
+              'Alineamos disciplinas, decisiones y detalles antes de que se conviertan en cambios costosos en obra.'
+          },
+          continuity: {
+            title: 'Calidad mediante continuidad',
+            body:
+              'La participación arquitectónica senior se mantiene desde la primera conversación hasta la entrega.'
+          }
+        }
+      },
+      capabilities: {
+        title: 'Capacidades y colaboradores',
+        intro:
+          'Integramos capacidades arquitectónicas esenciales y coordinamos especialistas adecuados según la escala, complejidad y necesidades técnicas de cada proyecto.',
+        items: {
+          architecturalDesign: {
+            title: 'Diseño arquitectónico',
+            body: 'Diseño integral para proyectos residenciales, comerciales e institucionales.'
+          },
+          interiorDesign: {
+            title: 'Interiorismo',
+            body: 'Ambientes interiores alineados con la arquitectura y la forma de habitarlos.'
+          },
+          technicalDocumentation: {
+            title: 'Documentación técnica',
+            body: 'Planos, detalles y especificaciones claras para una ejecución precisa.'
+          },
+          projectCoordination: {
+            title: 'Coordinación de proyecto',
+            body: 'Coordinación de información, decisiones y aportaciones de especialistas.'
+          },
+          permitManagement: {
+            title: 'Gestión de permisos',
+            body: 'Organización y seguimiento de permisos y requisitos normativos aplicables.'
+          },
+          constructionSupervision: {
+            title: 'Supervisión de obra',
+            body: 'Revisión arquitectónica de avances, calidad e intención de diseño durante la obra.'
+          }
+        }
+      },
+      tools: {
+        title: 'Herramientas y métodos',
+        items: {
+          digitalModeling: {
+            title: 'Modelado digital y visualización',
+            body: 'Modelos, vistas y estudios para evaluar decisiones antes de construir.'
+          },
+          coordinatedDocumentation: {
+            title: 'Documentación coordinada',
+            body: 'Planos, detalles y especificaciones organizados para una ejecución más clara.'
+          },
+          milestoneReviews: {
+            title: 'Revisiones por hitos',
+            body: 'Validaciones estructuradas en los momentos clave del proyecto.'
+          },
+          riskTracking: {
+            title: 'Seguimiento de riesgos y decisiones',
+            body: 'Registro de acuerdos, restricciones, cambios y temas pendientes.'
+          },
+          clientApprovals: {
+            title: 'Aprobaciones del cliente',
+            body: 'Puntos de decisión claros para mantener alineación y control.'
+          },
+          constructionControl: {
+            title: 'Control de avance de obra',
+            body: 'Seguimiento de progreso, calidad y cumplimiento durante la ejecución.'
+          }
+        }
+      },
+      statement: {
+        sectionAria: 'Filosofía del estudio',
+        text:
+          'Creemos en procesos claros,\nrelaciones de confianza\ny resultados que trascienden.',
+        imageAlt:
+          'Espejo de agua junto a un muro de piedra iluminado al atardecer'
+      },
+      cta: {
+        title: '¿Listo para dar forma a tu proyecto?',
+        body: 'Hablemos sobre tu idea y creemos juntos espacios con propósito.',
         button: 'Contactar'
       }
     },

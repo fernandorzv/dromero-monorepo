@@ -30,7 +30,7 @@ const projectTypeOptions = [
 
 function ContactPage({ copy, language, languageLabels, onLanguageChange }) {
   const formHeadingRef = useRef(null)
-  const { common, contact, footer, nav } = copy
+  const { common, contact, nav } = copy
 
   function focusContactForm() {
     const heading = formHeadingRef.current
@@ -228,7 +228,7 @@ function ContactPage({ copy, language, languageLabels, onLanguageChange }) {
         </section>
       </main>
 
-      <SiteFooter common={common} footer={footer} nav={nav} />
+      <SiteFooter copy={copy} />
     </>
   )
 }

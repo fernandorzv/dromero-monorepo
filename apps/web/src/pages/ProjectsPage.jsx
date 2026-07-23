@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import ResponsiveImage from '../components/ResponsiveImage'
+import SiteFooter from '../components/SiteFooter'
 import SiteNavbar from '../components/SiteNavbar'
 import { projectsById } from '../data/projects'
 
@@ -94,7 +95,8 @@ function ProjectsPage({ copy, language, languageLabels, onLanguageChange }) {
   }
 
   return (
-    <main className="gate1-page projects-page">
+    <>
+      <main className="gate1-page projects-page">
       <section className="projects-shell" aria-label={projects.pageAria}>
         <SiteNavbar
           className="projects-nav"
@@ -215,7 +217,10 @@ function ProjectsPage({ copy, language, languageLabels, onLanguageChange }) {
           </aside>
         </div>
       ) : null}
-    </main>
+      </main>
+
+      <SiteFooter copy={copy} />
+    </>
   )
 }
 

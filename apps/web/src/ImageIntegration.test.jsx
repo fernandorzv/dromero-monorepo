@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, within } from '@testing-library/react'
 import App from './App'
 
 beforeEach(() => {
@@ -34,7 +34,7 @@ describe('local architectural imagery', () => {
   it('uses local project images and localized alt text', () => {
     render(<App />)
 
-    fireEvent.click(screen.getByRole('link', { name: /project/i }))
+    fireEvent.click(within(screen.getByRole('navigation', { name: /primary/i })).getByRole('link', { name: /project/i }))
 
     const englishImage = screen.getByAltText(
       /contemporary residence in concrete and wood surrounded by tropical vegetation/i

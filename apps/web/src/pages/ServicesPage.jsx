@@ -7,7 +7,7 @@ import { serviceAreas, serviceProcessSteps } from '../data/services'
 import '../styles/services.css'
 
 function ServicesPage({ copy, language, languageLabels, onLanguageChange }) {
-  const { common, footer, nav, services } = copy
+  const { common, nav, services } = copy
 
   return (
     <>
@@ -144,7 +144,7 @@ function ServicesPage({ copy, language, languageLabels, onLanguageChange }) {
         </section>
       </main>
 
-      <SiteFooter common={common} footer={footer} nav={nav} />
+      <SiteFooter copy={copy} />
     </>
   )
 }

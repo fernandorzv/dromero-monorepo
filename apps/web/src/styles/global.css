@@ -191,13 +191,6 @@ thead {
   font-weight: 700;
 }
 
-.app-footer {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  margin-top: 28px;
-  text-align: center;
-}
-
 .architecture-landing {
   display: grid;
   gap: 20px;

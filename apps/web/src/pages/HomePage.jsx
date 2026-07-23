@@ -1,5 +1,5 @@
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter, FaYoutube } from 'react-icons/fa6'
 import ResponsiveImage from '../components/ResponsiveImage'
+import SiteFooter from '../components/SiteFooter'
 import SiteNavbar from '../components/SiteNavbar'
 import { homeMedia } from '../data/media'
 
@@ -7,7 +7,8 @@ function HomePage({ copy, language, languageLabels, onLanguageChange }) {
   const { common, home, nav } = copy
 
   return (
-    <main className="gate1-page">
+    <>
+      <main className="gate1-page">
       <section className="hero-shell" aria-label={home.heroAria}>
         <ResponsiveImage
           alt={home.heroImageAlt}
@@ -115,38 +116,10 @@ function HomePage({ copy, language, languageLabels, onLanguageChange }) {
         </article>
       </section>
 
-      <section className="social-strip" aria-label={home.socialAria}>
-        <p className="social-title">{home.socialTitle}</p>
+      </main>
 
-        <ul className="social-list" aria-label={home.socialLinksAria}>
-          <li>
-            <a className="social-link" href="#" aria-label="Instagram">
-              <FaInstagram aria-hidden="true" focusable="false" />
-            </a>
-          </li>
-          <li>
-            <a className="social-link" href="#" aria-label="Facebook">
-              <FaFacebookF aria-hidden="true" focusable="false" />
-            </a>
-          </li>
-          <li>
-            <a className="social-link" href="#" aria-label="X">
-              <FaXTwitter aria-hidden="true" focusable="false" />
-            </a>
-          </li>
-          <li>
-            <a className="social-link" href="#" aria-label="LinkedIn">
-              <FaLinkedinIn aria-hidden="true" focusable="false" />
-            </a>
-          </li>
-          <li>
-            <a className="social-link" href="#" aria-label="YouTube">
-              <FaYoutube aria-hidden="true" focusable="false" />
-            </a>
-          </li>
-        </ul>
-      </section>
-    </main>
+      <SiteFooter copy={copy} />
+    </>
   )
 }
 

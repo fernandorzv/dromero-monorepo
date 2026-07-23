@@ -59,7 +59,17 @@ function App() {
             />
           }
         />
-        <Route path="/studio" element={<StudioPage />} />
+        <Route
+          path="/studio"
+          element={
+            <StudioPage
+              copy={copy}
+              language={language}
+              languageLabels={languageLabels}
+              onLanguageChange={setLanguage}
+            />
+          }
+        />
         <Route
           path="/contact"
           element={

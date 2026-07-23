@@ -15,6 +15,14 @@ import servicesProcessManagement from '../assets/services/services-process-manag
 import servicesProcessSupervision from '../assets/services/services-process-supervision.png'
 import servicesProcessUnderstanding from '../assets/services/services-process-understanding.png'
 import servicesStatement from '../assets/services/services-statement.png'
+import studioHero from '../assets/studio/studio-hero.png'
+import studioProcess01 from '../assets/studio/studio-process-01.png'
+import studioProcess02 from '../assets/studio/studio-process-02.png'
+import studioStatement from '../assets/studio/studio-statement.png'
+import studioStory from '../assets/studio/studio-story.png'
+import studioTeam01 from '../assets/studio/studio-team-01.png'
+import studioTeam02 from '../assets/studio/studio-team-02.png'
+import studioTeam03 from '../assets/studio/studio-team-03.png'
 import commercialOffice from '../assets/projects/commercial/project-commercial-office.png'
 import commercialRetailHospitality from '../assets/projects/commercial/project-commercial-retail-hospitality.png'
 import culturalMuseum from '../assets/projects/cultural/project-cultural-museum.png'
@@ -68,6 +76,14 @@ export const projectMedia = {
   }
 }
 
+
+export const studioMedia = {
+  hero: studioHero,
+  story: studioStory,
+  team: [studioTeam01, studioTeam02, studioTeam03],
+  process: [studioProcess01, studioProcess02],
+  statement: studioStatement
+}
 
 export const servicesMedia = {
   hero: servicesHero,

@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, within } from '@testing-library/react'
 import App from './App'
 
 const originalLanguages = Object.getOwnPropertyDescriptor(window.navigator, 'languages')
@@ -91,18 +91,11 @@ describe('App', () => {
     ).toBeInTheDocument()
   })
 
-  it('renders gate 4 social media row', () => {
-    render(<App />)
-
-    expect(screen.getByText(/follow us/i)).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /instagram/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /youtube/i })).toBeInTheDocument()
-  })
 
   it('opens projects page from nav project link', () => {
     render(<App />)
 
-    fireEvent.click(screen.getByRole('link', { name: /project/i }))
+    fireEvent.click(within(screen.getByRole('navigation', { name: /primary/i })).getByRole('link', { name: /project/i }))
 
     expect(
       screen.getByRole('heading', {
@@ -115,7 +108,7 @@ describe('App', () => {
     render(<App />)
 
     fireEvent.click(screen.getByRole('button', { name: /switch language to español/i }))
-    fireEvent.click(screen.getByRole('link', { name: /proyectos/i }))
+    fireEvent.click(within(screen.getByRole('navigation', { name: /principal/i })).getByRole('link', { name: /proyectos/i }))
 
     expect(
       screen.getByRole('heading', {
@@ -128,7 +121,7 @@ describe('App', () => {
   it('filters by tab and opens details drawer', () => {
     render(<App />)
 
-    fireEvent.click(screen.getByRole('link', { name: /project/i }))
+    fireEvent.click(within(screen.getByRole('navigation', { name: /primary/i })).getByRole('link', { name: /project/i }))
     fireEvent.click(screen.getByRole('tab', { name: /commercial/i }))
 
     expect(screen.getByText(/office environments/i)).toBeInTheDocument()
