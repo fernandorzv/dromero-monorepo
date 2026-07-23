@@ -32,7 +32,7 @@ describe('Services page', () => {
 
     fireEvent.click(screen.getByRole('link', { name: /^contactar$/i }))
 
-    expect(screen.getByRole('heading', { name: /contact intake placeholder/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 1, name: /^contacto$/i })).toBeInTheDocument()
   })
 
   it('marks Services active in the shared navigation', () => {

@@ -60,7 +60,17 @@ function App() {
           }
         />
         <Route path="/studio" element={<StudioPage />} />
-        <Route path="/contact" element={<ContactPage />} />
+        <Route
+          path="/contact"
+          element={
+            <ContactPage
+              copy={copy}
+              language={language}
+              languageLabels={languageLabels}
+              onLanguageChange={setLanguage}
+            />
+          }
+        />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
     </BrowserRouter>

@@ -163,6 +163,70 @@ const translations = {
         button: 'Contact us'
       }
     },
+    contact: {
+      navigationAria: 'Contact navigation',
+      hero: {
+        sectionAria: 'Contact introduction',
+        title: 'Contact',
+        subtitle:
+          'Let’s talk about your project.\nWe are ready to listen and collaborate\nto create meaningful spaces.',
+        imageAlt:
+          'Contemporary stone residence illuminated at dusk and surrounded by tropical landscaping'
+      },
+      intro: {
+        title: 'Tell us about your project',
+        body:
+          'Complete the form or use our contact information. We will get back to you as soon as possible.'
+      },
+      form: {
+        formAria: 'Project contact form',
+        fullName: 'Full name',
+        email: 'Email',
+        phone: 'Phone',
+        projectType: 'Project type',
+        projectTypePrompt: 'Select a project type',
+        message: 'Message',
+        submit: 'Send message',
+        integrationNotice:
+          'Message delivery will be enabled after a verified contact endpoint is provided.',
+        options: {
+          residential: 'Residential',
+          commercial: 'Commercial',
+          institutional: 'Institutional',
+          interiorDesign: 'Interior design',
+          renovation: 'Renovation',
+          other: 'Other'
+        }
+      },
+      info: {
+        title: 'Contact information',
+        pending:
+          'Verified contact details will appear here once they are confirmed for publication.',
+        unavailable: 'Pending confirmation',
+        imageAlt:
+          'Warm contemporary residence opening onto a tropical garden at dusk',
+        items: {
+          email: 'Email',
+          phone: 'Phone',
+          location: 'Location',
+          schedule: 'Schedule'
+        }
+      },
+      map: {
+        title: 'Where are we?',
+        locationPending: 'The verified studio location is pending confirmation.',
+        placeholderAria: 'Map placeholder awaiting a verified studio location',
+        placeholderText: 'Map available after location confirmation'
+      },
+      cta: {
+        sectionAria: 'Start a project',
+        title: 'Ready to get started?',
+        body: 'Let’s talk and bring your project to life.',
+        button: 'Contact us',
+        imageAlt:
+          'Contemporary architectural courtyard with warm lighting at sunset'
+      }
+    },
     projects: {
       pageAria: 'Projects page',
       navigationAria: 'Projects navigation',
@@ -501,6 +565,71 @@ const translations = {
         title: '¿Tienes un proyecto en mente?',
         body: 'Conversemos sobre cómo podemos hacerlo realidad.',
         button: 'Contactar'
+      }
+    },
+    contact: {
+      navigationAria: 'Navegación de contacto',
+      hero: {
+        sectionAria: 'Introducción de contacto',
+        title: 'Contacto',
+        subtitle:
+          'Hablemos de tu proyecto.\nEstamos listos para escucharte y colaborar\npara crear espacios significativos.',
+        imageAlt:
+          'Residencia contemporánea de piedra iluminada al atardecer y rodeada de vegetación tropical'
+      },
+      intro: {
+        title: 'Cuéntanos sobre tu proyecto',
+        body:
+          'Completa el formulario o utiliza nuestros datos de contacto. Nos pondremos en contacto contigo lo antes posible.'
+      },
+      form: {
+        formAria: 'Formulario de contacto para proyectos',
+        fullName: 'Nombre completo',
+        email: 'Correo electrónico',
+        phone: 'Teléfono',
+        projectType: 'Tipo de proyecto',
+        projectTypePrompt: 'Selecciona un tipo de proyecto',
+        message: 'Mensaje',
+        submit: 'Enviar mensaje',
+        integrationNotice:
+          'El envío de mensajes se habilitará cuando se proporcione un canal de contacto verificado.',
+        options: {
+          residential: 'Residencial',
+          commercial: 'Comercial',
+          institutional: 'Institucional',
+          interiorDesign: 'Interiorismo',
+          renovation: 'Remodelación',
+          other: 'Otro'
+        }
+      },
+      info: {
+        title: 'Información de contacto',
+        pending:
+          'Los datos de contacto verificados aparecerán aquí cuando sean confirmados para su publicación.',
+        unavailable: 'Pendiente de confirmación',
+        imageAlt:
+          'Residencia contemporánea de ambiente cálido abierta hacia un jardín tropical al atardecer',
+        items: {
+          email: 'Correo electrónico',
+          phone: 'Teléfono',
+          location: 'Ubicación',
+          schedule: 'Horario'
+        }
+      },
+      map: {
+        title: '¿Dónde estamos?',
+        locationPending: 'La ubicación verificada del estudio está pendiente de confirmación.',
+        placeholderAria:
+          'Espacio para mapa pendiente de una ubicación verificada del estudio',
+        placeholderText: 'Mapa disponible al confirmar la ubicación'
+      },
+      cta: {
+        sectionAria: 'Iniciar un proyecto',
+        title: '¿Listo para empezar?',
+        body: 'Conversemos y hagamos realidad tu proyecto.',
+        button: 'Contactar',
+        imageAlt:
+          'Patio arquitectónico contemporáneo con iluminación cálida al atardecer'
       }
     },
     projects: {
