@@ -432,175 +432,29 @@ const translations = {
       pageAria: 'Projects page',
       navigationAria: 'Projects navigation',
       introAria: 'Projects introduction',
-      eyebrow: 'Our Project',
-      heading: 'Explore Our Projects: A Journey of Design and Innovation',
       categoriesAria: 'Project categories',
       showcaseAria: 'Project showcase',
-      controlsAria: 'Carousel controls',
-      paginationAria: 'Carousel pagination',
-      previousProjects: 'Previous projects',
-      nextProjects: 'Next projects',
-      viewDetails: 'View Details',
+      gridAria: 'Additional projects',
       close: 'Close',
       dialogTitle: 'Project details',
-      goTo: 'Go to',
-      categories: [
-        {
-          id: 'residential',
-          label: 'Residential',
-          description:
-            'Designed for habitation, including single-family homes, multifamily housing, condominiums, and apartment complexes.',
-          slides: [
-            {
-              id: 'residential-single-family',
-              subtype: 'Single-Family Homes',
-              note: 'Private dwellings optimized for comfort, daylight, and neighborhood context.',
-              details:
-                'These homes prioritize privacy, natural ventilation, and a strong indoor-outdoor connection through patios, gardens, and shaded openings.',
-              alt:
-                'Contemporary residence in concrete and wood surrounded by tropical vegetation'
-            },
-            {
-              id: 'residential-multifamily',
-              subtype: 'Multifamily Housing',
-              note: 'Efficient apartment and condo layouts for high-density urban living.',
-              details:
-                'Multifamily buildings balance shared amenities, circulation efficiency, and acoustic comfort while maximizing usable floor area.',
-              alt:
-                'Multilevel residential building with landscaped balconies'
-            }
-          ]
-        },
-        {
-          id: 'commercial',
-          label: 'Commercial',
-          description:
-            'Focused on economic activity and services, such as offices, retail stores, shopping centers, and hotels.',
-          slides: [
-            {
-              id: 'commercial-office',
-              subtype: 'Office Environments',
-              note: 'Flexible workplaces built for collaboration, focus, and brand identity.',
-              details:
-                'Commercial office design integrates modular meeting areas, adaptable workstations, and biophilic strategies to improve productivity.',
-              alt:
-                'Contemporary office with wood, glass and interior gardens'
-            },
-            {
-              id: 'commercial-retail',
-              subtype: 'Retail and Hospitality',
-              note: 'Customer-first spaces with clear flow, visibility, and experiential zoning.',
-              details:
-                'Retail and hotel architecture emphasizes circulation sequencing, storefront presence, and memorable interiors that support conversion and retention.',
-              alt:
-                'Hospitality lounge with warm lighting and integrated vegetation'
-            }
-          ]
-        },
-        {
-          id: 'institutional-public',
-          label: 'Institutional or Public',
-          description:
-            'Created for social well-being and administration, covering schools, hospitals, libraries, and government buildings.',
-          slides: [
-            {
-              id: 'institutional-education',
-              subtype: 'Education Facilities',
-              note: 'Schools and campuses planned for inclusive, adaptable learning.',
-              details:
-                'Institutional education projects combine intuitive wayfinding, safe circulation, and multi-use spaces for teaching, community events, and recreation.',
-              alt:
-                'Educational building organized around a tree-filled courtyard'
-            },
-            {
-              id: 'institutional-healthcare',
-              subtype: 'Healthcare and Civic',
-              note: 'Public-service buildings balancing accessibility, resilience, and dignity.',
-              details:
-                'Healthcare and civic architecture requires efficient zoning, hygienic material systems, and clear public interfaces for high daily throughput.',
-              alt:
-                'Accessible institutional center with natural stone and an illuminated entrance'
-            }
-          ]
-        },
-        {
-          id: 'cultural',
-          label: 'Cultural',
-          description:
-            'Spaces for art and social interaction, including museums, theaters, community centers, and auditoriums.',
-          slides: [
-            {
-              id: 'cultural-museum',
-              subtype: 'Museums and Galleries',
-              note: 'Exhibition-oriented environments that control light, flow, and storytelling.',
-              details:
-                'Cultural institutions use neutral envelope design, lighting hierarchy, and curated procession routes to frame artistic narratives.',
-              alt:
-                'Contemporary concrete museum with a courtyard and reflecting pool'
-            },
-            {
-              id: 'cultural-performance',
-              subtype: 'Performance Venues',
-              note: 'Acoustically tuned theaters and auditoriums for immersive events.',
-              details:
-                'Performance buildings integrate acoustic shell geometry, audience sightlines, and backstage logistics for operational excellence.',
-              alt:
-                'Contemporary auditorium lined with wooden acoustic panels'
-            }
-          ]
-        },
-        {
-          id: 'industrial',
-          label: 'Industrial',
-          description:
-            'Structures for production and manufacturing, including factories, warehouses, and processing plants.',
-          slides: [
-            {
-              id: 'industrial-factory',
-              subtype: 'Manufacturing Plants',
-              note: 'Process-driven facilities engineered for throughput and safety.',
-              details:
-                'Industrial plants rely on robust structural grids, heavy-load logistics paths, and ventilation systems sized for specialized machinery.',
-              alt:
-                'Modern manufacturing plant with organized industrial circulation'
-            },
-            {
-              id: 'industrial-warehouse',
-              subtype: 'Logistics Warehouses',
-              note: 'High-bay storage and distribution hubs optimized for rapid movement.',
-              details:
-                'Warehouse architecture prioritizes truck court layout, dock efficiencies, and adaptable rack systems to support changing supply chains.',
-              alt:
-                'Contemporary logistics center with loading docks'
-            }
-          ]
-        },
-        {
-          id: 'infrastructure',
-          label: 'Infrastructure',
-          description: 'Essential civil works such as bridges, transport stations, and airports.',
-          slides: [
-            {
-              id: 'infrastructure-bridge',
-              subtype: 'Bridge Systems',
-              note: 'Civil structures connecting regions with structural clarity and resilience.',
-              details:
-                'Bridge projects demand advanced load analysis, durable materials, and phased construction planning to reduce service disruption.',
-              alt:
-                'Cable-stayed bridge crossing a mountainous valley'
-            },
-            {
-              id: 'infrastructure-hub',
-              subtype: 'Transit and Airport Hubs',
-              note: 'Passenger-focused transport nodes with high-capacity circulation.',
-              details:
-                'Transit infrastructure balances wayfinding legibility, crowd management, and multimodal integration to improve user experience.',
-              alt:
-                'Contemporary transit terminal with a broad roof and glass facade'
-            }
-          ]
-        }
-      ]
+      header: { title: 'Projects', statement: 'Architecture that responds\nto context, people\nand place.' },
+      filters: { all: 'All', residential: 'Residential', commercial: 'Commercial', institutional: 'Institutional', cultural: 'Cultural', industrial: 'Industrial', infrastructure: 'Infrastructure' },
+      labels: { featured: 'Featured project', conceptual: 'Conceptual visualization based on the project category.', viewProject: 'View project' },
+      cta: { sectionAria: 'Start a project', title: 'Have a project in mind?', body: 'Let’s create spaces with purpose.', button: 'Contact us' },
+      items: {
+        residentialSingleFamily: { title: 'Single-family residence', location: 'Residential concept', summary: 'A private dwelling shaped around daylight, privacy and a direct relationship with landscape.', details: 'This residential concept prioritizes natural ventilation, shaded openings and a calm indoor-outdoor sequence for everyday living.', alt: 'Contemporary residence in concrete and wood surrounded by tropical vegetation' },
+        commercialOffice: { title: 'Office environment', location: 'Commercial concept', summary: 'A flexible workplace balancing collaboration, concentration and a composed material identity.', details: 'The office concept organizes meeting areas, adaptable workstations and biophilic cues to support focus, movement and team interaction.', alt: 'Contemporary office with wood, glass and interior gardens' },
+        culturalMuseum: { title: 'Museum and gallery', location: 'Cultural concept', summary: 'An exhibition environment where controlled light and sequence guide the visitor experience.', details: 'This cultural concept uses neutral architectural massing, curated thresholds and measured daylight to frame art and public gathering.', alt: 'Contemporary concrete museum with a courtyard and reflecting pool' },
+        residentialMultifamily: { title: 'Multifamily housing', location: 'Residential concept', summary: 'Efficient urban housing with shared amenities, clear circulation and usable private terraces.', details: 'The multifamily concept balances density, acoustic comfort and community areas while preserving access to light and exterior space.', alt: 'Multilevel residential building with landscaped balconies' },
+        commercialRetailHospitality: { title: 'Retail and hospitality', location: 'Commercial concept', summary: 'Customer-facing spaces organized around flow, visibility and a memorable interior atmosphere.', details: 'This commercial concept emphasizes circulation sequencing, storefront presence and interior warmth for service and hospitality uses.', alt: 'Hospitality lounge with warm lighting and integrated vegetation' },
+        institutionalEducation: { title: 'Education facility', location: 'Institutional concept', summary: 'Learning spaces planned for intuitive movement, flexible use and safe daily operation.', details: 'The education concept combines legible wayfinding, protected courtyards and adaptable rooms for teaching, community and recreation.', alt: 'Educational building organized around a tree-filled courtyard' },
+        institutionalHealthcareCivic: { title: 'Healthcare and civic center', location: 'Institutional concept', summary: 'A public-service environment balancing accessibility, resilience and dignified arrival.', details: 'This institutional concept studies efficient zoning, durable materials and clear public interfaces for high daily use.', alt: 'Accessible institutional center with natural stone and an illuminated entrance' },
+        culturalPerformance: { title: 'Performance venue', location: 'Cultural concept', summary: 'An immersive venue concept organized around acoustic presence and audience sightlines.', details: 'The performance concept integrates acoustic shell geometry, backstage logistics and a clear audience journey.', alt: 'Contemporary auditorium lined with wooden acoustic panels' },
+        industrialManufacturing: { title: 'Manufacturing plant', location: 'Industrial concept', summary: 'A process-driven facility planned for throughput, safety and durable operation.', details: 'This industrial concept relies on robust structural grids, logistics paths and ventilation sized for specialized production needs.', alt: 'Modern manufacturing plant with organized industrial circulation' },
+        industrialWarehouse: { title: 'Logistics warehouse', location: 'Industrial concept', summary: 'A storage and distribution environment optimized for rapid movement and future adaptation.', details: 'The warehouse concept prioritizes truck court layout, dock efficiency and adaptable systems for changing supply chains.', alt: 'Contemporary logistics center with loading docks' },
+        infrastructureBridge: { title: 'Bridge system', location: 'Infrastructure concept', summary: 'A civil structure concept connecting terrain with structural clarity and resilience.', details: 'This infrastructure concept considers load behavior, durable materials and construction sequencing to reduce disruption.', alt: 'Cable-stayed bridge crossing a mountainous valley' },
+        infrastructureTransitHub: { title: 'Transit hub', location: 'Infrastructure concept', summary: 'A passenger-focused transport node with clear wayfinding and high-capacity movement.', details: 'The transit concept balances crowd management, legible routes and multimodal connections for smoother public travel.', alt: 'Contemporary transit terminal with a broad roof and glass facade' }
+      }
     }
   },
   es: {
@@ -1038,175 +892,29 @@ const translations = {
       pageAria: 'Página de proyectos',
       navigationAria: 'Navegación de proyectos',
       introAria: 'Introducción de proyectos',
-      eyebrow: 'Nuestro proyecto',
-      heading: 'Explora nuestros proyectos: un recorrido de diseño e innovación',
       categoriesAria: 'Categorías de proyectos',
       showcaseAria: 'Galería de proyectos',
-      controlsAria: 'Controles del carrusel',
-      paginationAria: 'Paginación del carrusel',
-      previousProjects: 'Proyectos anteriores',
-      nextProjects: 'Proyectos siguientes',
-      viewDetails: 'Ver detalles',
+      gridAria: 'Proyectos adicionales',
       close: 'Cerrar',
       dialogTitle: 'Detalles del proyecto',
-      goTo: 'Ir a',
-      categories: [
-        {
-          id: 'residential',
-          label: 'Residencial',
-          description:
-            'Diseñado para la vivienda, incluyendo casas unifamiliares, vivienda multifamiliar, condominios y complejos de departamentos.',
-          slides: [
-            {
-              id: 'residential-single-family',
-              subtype: 'Casas unifamiliares',
-              note: 'Viviendas privadas optimizadas para confort, luz natural y contexto urbano.',
-              details:
-                'Estas casas priorizan privacidad, ventilación natural y una conexión interior-exterior mediante patios, jardines y vanos sombreados.',
-              alt:
-                'Residencia contemporánea de concreto, madera y vegetación tropical'
-            },
-            {
-              id: 'residential-multifamily',
-              subtype: 'Vivienda multifamiliar',
-              note: 'Departamentos y condominios eficientes para vida urbana de alta densidad.',
-              details:
-                'Los edificios multifamiliares equilibran amenidades compartidas, circulación eficiente y confort acústico mientras maximizan el área útil.',
-              alt:
-                'Edificio residencial de varios niveles con balcones ajardinados'
-            }
-          ]
-        },
-        {
-          id: 'commercial',
-          label: 'Comercial',
-          description:
-            'Enfocado en actividad económica y servicios, como oficinas, tiendas, centros comerciales y hoteles.',
-          slides: [
-            {
-              id: 'commercial-office',
-              subtype: 'Entornos de oficina',
-              note: 'Espacios flexibles para colaboración, concentración e identidad de marca.',
-              details:
-                'El diseño de oficinas integra salas modulares, estaciones adaptables y estrategias biofílicas para mejorar la productividad.',
-              alt:
-                'Oficina contemporánea con madera, cristal y jardines interiores'
-            },
-            {
-              id: 'commercial-retail',
-              subtype: 'Retail y hospitalidad',
-              note: 'Espacios centrados en el cliente con flujo claro, visibilidad y zonas experienciales.',
-              details:
-                'La arquitectura para retail y hoteles enfatiza circulación, presencia de fachada e interiores memorables que impulsan conversión y retención.',
-              alt:
-                'Salón de hospitalidad con iluminación cálida y vegetación integrada'
-            }
-          ]
-        },
-        {
-          id: 'institutional-public',
-          label: 'Institucional o público',
-          description:
-            'Creado para bienestar social y administración, incluyendo escuelas, hospitales, bibliotecas y edificios gubernamentales.',
-          slides: [
-            {
-              id: 'institutional-education',
-              subtype: 'Instalaciones educativas',
-              note: 'Escuelas y campus planeados para aprendizaje inclusivo y adaptable.',
-              details:
-                'Los proyectos educativos combinan orientación intuitiva, circulación segura y espacios multiuso para enseñanza, comunidad y recreación.',
-              alt:
-                'Edificio educativo organizado alrededor de un patio arbolado'
-            },
-            {
-              id: 'institutional-healthcare',
-              subtype: 'Salud y espacios cívicos',
-              note: 'Edificios de servicio público que equilibran accesibilidad, resiliencia y dignidad.',
-              details:
-                'La arquitectura de salud y cívica requiere zonificación eficiente, materiales higiénicos e interfaces públicas claras para alto flujo diario.',
-              alt:
-                'Centro institucional accesible con piedra natural y entrada iluminada'
-            }
-          ]
-        },
-        {
-          id: 'cultural',
-          label: 'Cultural',
-          description:
-            'Espacios para arte e interacción social, incluyendo museos, teatros, centros comunitarios y auditorios.',
-          slides: [
-            {
-              id: 'cultural-museum',
-              subtype: 'Museos y galerías',
-              note: 'Ambientes expositivos que controlan luz, recorrido y narrativa.',
-              details:
-                'Las instituciones culturales usan envolventes neutras, jerarquía lumínica y recorridos curados para enmarcar narrativas artísticas.',
-              alt:
-                'Museo contemporáneo de concreto con patio y espejo de agua'
-            },
-            {
-              id: 'cultural-performance',
-              subtype: 'Recintos escénicos',
-              note: 'Teatros y auditorios acústicamente calibrados para experiencias inmersivas.',
-              details:
-                'Los edificios escénicos integran geometría acústica, visuales del público y logística tras bambalinas para excelencia operativa.',
-              alt:
-                'Auditorio contemporáneo revestido con paneles acústicos de madera'
-            }
-          ]
-        },
-        {
-          id: 'industrial',
-          label: 'Industrial',
-          description:
-            'Estructuras para producción y manufactura, incluyendo fábricas, almacenes y plantas de procesamiento.',
-          slides: [
-            {
-              id: 'industrial-factory',
-              subtype: 'Plantas de manufactura',
-              note: 'Instalaciones guiadas por procesos y diseñadas para productividad y seguridad.',
-              details:
-                'Las plantas industriales dependen de retículas estructurales robustas, rutas de carga pesada y ventilación para maquinaria especializada.',
-              alt:
-                'Planta de manufactura moderna con circulación industrial organizada'
-            },
-            {
-              id: 'industrial-warehouse',
-              subtype: 'Almacenes logísticos',
-              note: 'Centros de almacenamiento y distribución optimizados para movimiento rápido.',
-              details:
-                'La arquitectura de almacenes prioriza patios de maniobra, eficiencia de andenes y sistemas de racks adaptables a cadenas de suministro cambiantes.',
-              alt:
-                'Centro logístico contemporáneo con andenes de carga'
-            }
-          ]
-        },
-        {
-          id: 'infrastructure',
-          label: 'Infraestructura',
-          description: 'Obras civiles esenciales como puentes, estaciones de transporte y aeropuertos.',
-          slides: [
-            {
-              id: 'infrastructure-bridge',
-              subtype: 'Sistemas de puentes',
-              note: 'Estructuras civiles que conectan regiones con claridad estructural y resiliencia.',
-              details:
-                'Los puentes requieren análisis avanzado de cargas, materiales durables y construcción por fases para reducir interrupciones.',
-              alt:
-                'Puente atirantado atravesando un valle montañoso'
-            },
-            {
-              id: 'infrastructure-hub',
-              subtype: 'Centros de transporte y aeropuertos',
-              note: 'Nodos de transporte orientados al pasajero con circulación de alta capacidad.',
-              details:
-                'La infraestructura de transporte equilibra orientación clara, manejo de multitudes e integración multimodal para mejorar la experiencia.',
-              alt:
-                'Terminal de transporte contemporánea con gran cubierta y fachada de cristal'
-            }
-          ]
-        }
-      ]
+      header: { title: 'Proyectos', statement: 'Arquitectura que responde\nal contexto, a las personas\ny al lugar.' },
+      filters: { all: 'Todos', residential: 'Residencial', commercial: 'Comercial', institutional: 'Institucional', cultural: 'Cultural', industrial: 'Industrial', infrastructure: 'Infraestructura' },
+      labels: { featured: 'Proyecto destacado', conceptual: 'Visualización conceptual basada en la categoría del proyecto.', viewProject: 'Ver proyecto' },
+      cta: { sectionAria: 'Iniciar un proyecto', title: '¿Tienes un proyecto en mente?', body: 'Creemos espacios con propósito.', button: 'Contactar' },
+      items: {
+        residentialSingleFamily: { title: 'Residencia unifamiliar', location: 'Concepto residencial', summary: 'Una vivienda privada definida por luz natural, privacidad y relación directa con el paisaje.', details: 'Este concepto residencial prioriza ventilación natural, vanos sombreados y una secuencia interior-exterior serena para la vida diaria.', alt: 'Residencia contemporánea de concreto, madera y vegetación tropical' },
+        commercialOffice: { title: 'Entorno de oficina', location: 'Concepto comercial', summary: 'Un espacio de trabajo flexible que equilibra colaboración, concentración e identidad material.', details: 'El concepto organiza salas de reunión, estaciones adaptables y recursos biofílicos para apoyar enfoque, movimiento e interacción.', alt: 'Oficina contemporánea con madera, cristal y jardines interiores' },
+        culturalMuseum: { title: 'Museo y galería', location: 'Concepto cultural', summary: 'Un ambiente expositivo donde la luz controlada y el recorrido guían la experiencia del visitante.', details: 'Este concepto cultural usa masa arquitectónica neutra, umbrales curados y luz medida para enmarcar arte y encuentro público.', alt: 'Museo contemporáneo de concreto con patio y espejo de agua' },
+        residentialMultifamily: { title: 'Vivienda multifamiliar', location: 'Concepto residencial', summary: 'Vivienda urbana eficiente con amenidades compartidas, circulación clara y terrazas privadas útiles.', details: 'El concepto multifamiliar equilibra densidad, confort acústico y áreas comunitarias sin perder luz ni espacio exterior.', alt: 'Edificio residencial de varios niveles con balcones ajardinados' },
+        commercialRetailHospitality: { title: 'Retail y hospitalidad', location: 'Concepto comercial', summary: 'Espacios orientados al cliente, organizados por flujo, visibilidad y una atmósfera interior memorable.', details: 'Este concepto comercial enfatiza secuencia de circulación, presencia de fachada y calidez interior para usos de servicio y hospitalidad.', alt: 'Salón de hospitalidad con iluminación cálida y vegetación integrada' },
+        institutionalEducation: { title: 'Instalación educativa', location: 'Concepto institucional', summary: 'Espacios de aprendizaje planeados para movimiento intuitivo, uso flexible y operación diaria segura.', details: 'El concepto educativo combina orientación clara, patios protegidos y aulas adaptables para enseñanza, comunidad y recreación.', alt: 'Edificio educativo organizado alrededor de un patio arbolado' },
+        institutionalHealthcareCivic: { title: 'Centro de salud y cívico', location: 'Concepto institucional', summary: 'Un entorno de servicio público que equilibra accesibilidad, resiliencia y llegada digna.', details: 'Este concepto institucional estudia zonificación eficiente, materiales durables e interfaces públicas claras para uso diario intenso.', alt: 'Centro institucional accesible con piedra natural y entrada iluminada' },
+        culturalPerformance: { title: 'Recinto escénico', location: 'Concepto cultural', summary: 'Un concepto inmersivo organizado por presencia acústica y visuales para la audiencia.', details: 'El concepto escénico integra geometría acústica, logística tras bambalinas y una experiencia clara para el público.', alt: 'Auditorio contemporáneo revestido con paneles acústicos de madera' },
+        industrialManufacturing: { title: 'Planta de manufactura', location: 'Concepto industrial', summary: 'Una instalación guiada por procesos, planeada para productividad, seguridad y operación durable.', details: 'Este concepto industrial usa retículas estructurales robustas, rutas logísticas y ventilación dimensionada para necesidades productivas especializadas.', alt: 'Planta de manufactura moderna con circulación industrial organizada' },
+        industrialWarehouse: { title: 'Almacén logístico', location: 'Concepto industrial', summary: 'Un entorno de almacenamiento y distribución optimizado para movimiento rápido y adaptación futura.', details: 'El concepto de almacén prioriza patios de maniobra, eficiencia de andenes y sistemas adaptables a cadenas de suministro cambiantes.', alt: 'Centro logístico contemporáneo con andenes de carga' },
+        infrastructureBridge: { title: 'Sistema de puente', location: 'Concepto de infraestructura', summary: 'Un concepto de obra civil que conecta territorio con claridad estructural y resiliencia.', details: 'Este concepto de infraestructura considera comportamiento de cargas, materiales durables y secuencia constructiva para reducir interrupciones.', alt: 'Puente atirantado atravesando un valle montañoso' },
+        infrastructureTransitHub: { title: 'Centro de transporte', location: 'Concepto de infraestructura', summary: 'Un nodo de transporte orientado al pasajero, con orientación clara y circulación de alta capacidad.', details: 'El concepto de transporte equilibra manejo de multitudes, rutas legibles y conexiones multimodales para mejorar el viaje público.', alt: 'Terminal de transporte contemporánea con gran cubierta y fachada de cristal' }
+      }
     }
   }
 }

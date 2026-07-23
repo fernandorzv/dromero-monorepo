@@ -39,7 +39,8 @@ describe('local architectural imagery', () => {
     const englishImage = screen.getByAltText(
       /contemporary residence in concrete and wood surrounded by tropical vegetation/i
     )
-    expect(englishImage).toHaveAttribute('loading', 'lazy')
+    expect(englishImage).toHaveAttribute('loading', 'eager')
+    expect(englishImage).toHaveAttribute('fetchpriority', 'high')
     expect(englishImage).toHaveAttribute(
       'src',
       expect.stringContaining('project-residential-single-family')

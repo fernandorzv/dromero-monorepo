@@ -99,7 +99,7 @@ describe('App', () => {
 
     expect(
       screen.getByRole('heading', {
-        name: /explore our projects: a journey of design and innovation/i
+        name: /^projects$/i
       })
     ).toBeInTheDocument()
   })
@@ -112,24 +112,24 @@ describe('App', () => {
 
     expect(
       screen.getByRole('heading', {
-        name: /explora nuestros proyectos: un recorrido de diseño e innovación/i
+        name: /^proyectos$/i
       })
     ).toBeInTheDocument()
-    expect(screen.getByRole('tab', { name: /comercial/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /comercial/i })).toBeInTheDocument()
   })
 
   it('filters by tab and opens details drawer', () => {
     render(<App />)
 
     fireEvent.click(within(screen.getByRole('navigation', { name: /primary/i })).getByRole('link', { name: /project/i }))
-    fireEvent.click(screen.getByRole('tab', { name: /commercial/i }))
+    fireEvent.click(screen.getByRole('button', { name: /^commercial$/i }))
 
-    expect(screen.getByText(/office environments/i)).toBeInTheDocument()
+    expect(screen.getByText(/office environment/i)).toBeInTheDocument()
     expect(screen.getByText(/retail and hospitality/i)).toBeInTheDocument()
 
-    fireEvent.click(screen.getAllByRole('button', { name: /view details/i })[0])
+    fireEvent.click(screen.getAllByRole('button', { name: /view project/i })[0])
 
     expect(screen.getByRole('dialog')).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: /office environments/i })).toBeInTheDocument()
+    expect(within(screen.getByRole('dialog')).getByRole('heading', { name: /office environment/i })).toBeInTheDocument()
   })
 })
