@@ -1,6 +1,8 @@
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter, FaYoutube } from 'react-icons/fa6'
 import { NavLink } from 'react-router-dom'
 import LanguageToggle from '../components/LanguageToggle'
+import ResponsiveImage from '../components/ResponsiveImage'
+import { homeMedia } from '../data/media'
 import symetrisHomeLogo from '../images/RA-LogoB.png'
 
 function HomePage({ copy, language, languageLabels, onLanguageChange }) {
@@ -8,7 +10,16 @@ function HomePage({ copy, language, languageLabels, onLanguageChange }) {
 
   return (
     <main className="gate1-page">
-      <section className="hero-shell media-black" aria-label={home.heroAria}>
+      <section className="hero-shell" aria-label={home.heroAria}>
+        <ResponsiveImage
+          alt={home.heroImageAlt}
+          className="hero-image"
+          fetchPriority="high"
+          loading="eager"
+          src={homeMedia.hero}
+        />
+        <div className="hero-overlay" aria-hidden="true" />
+
         <header className="hero-nav" aria-label={home.navigationAria}>
           <NavLink className="brand" to="/" aria-label={common.homeAria}>
             <img className="brand-logo" src={symetrisHomeLogo} alt={common.logoAlt} />
@@ -48,9 +59,11 @@ function HomePage({ copy, language, languageLabels, onLanguageChange }) {
       <section className="overview-section" aria-label={home.overviewAria}>
         <article className="overview-left">
           <div className="thumb-rail" aria-label={home.thumbnailsAria}>
-            <div className="thumb-item media-black" />
-            <div className="thumb-item media-black" />
-            <div className="thumb-item media-black" />
+            {homeMedia.thumbnails.map((image, index) => (
+              <div className="thumb-item" key={image}>
+                <ResponsiveImage alt={home.thumbnailAlts[index]} src={image} />
+              </div>
+            ))}
             <button className="thumb-arrow" type="button" aria-label={home.previousThumbnail}>
               ‹
             </button>
@@ -64,7 +77,9 @@ function HomePage({ copy, language, languageLabels, onLanguageChange }) {
         </article>
 
         <article className="overview-right">
-          <div className="overview-preview media-black" aria-hidden="true" />
+          <div className="overview-preview">
+            <ResponsiveImage alt={home.overviewImageAlt} src={homeMedia.overview} />
+          </div>
 
           <ul className="kpi-list" aria-label={home.metricsAria}>
             {home.metrics.map((metric) => (
@@ -87,7 +102,13 @@ function HomePage({ copy, language, languageLabels, onLanguageChange }) {
       </section>
 
       <section className="recommend-section" aria-label={home.recommendationAria}>
-        <article className="recommend-media media-black" aria-label={home.recommendationMediaAria}>
+        <article className="recommend-media" aria-label={home.recommendationMediaAria}>
+          <ResponsiveImage
+            alt={home.recommendationImageAlt}
+            className="recommend-image"
+            src={homeMedia.recommendation}
+          />
+          <div className="recommend-overlay" aria-hidden="true" />
           <p className="media-caption">{home.mediaCaption}</p>
           <p className="media-index">{home.mediaIndex}</p>
         </article>

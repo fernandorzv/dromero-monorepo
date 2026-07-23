@@ -3,12 +3,12 @@ function LanguageToggle({ language, onChange, labels }) {
 
   return (
     <button
-      aria-label={`Switch language to ${labels[nextLanguage]}`}
+      aria-label={`Switch language to ${labels[nextLanguage].name}`}
       className="language-toggle"
       onClick={() => onChange(nextLanguage)}
       type="button"
     >
-      {labels[nextLanguage]}
+      {labels[nextLanguage].short}
     </button>
   )
 }

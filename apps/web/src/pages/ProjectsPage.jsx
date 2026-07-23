@@ -2,6 +2,8 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { NavLink } from 'react-router-dom'
 import LanguageToggle from '../components/LanguageToggle'
+import ResponsiveImage from '../components/ResponsiveImage'
+import { projectsById } from '../data/projects'
 import symetrisHomeLogo from '../images/RA-LogoB.png'
 
 function ProjectsPage({ copy, language, languageLabels, onLanguageChange }) {
@@ -18,6 +20,14 @@ function ProjectsPage({ copy, language, languageLabels, onLanguageChange }) {
     () =>
       projectCategories.find((category) => category.id === selectedCategory) ?? projectCategories[0],
     [projectCategories, selectedCategory]
+  )
+  const selectedCategorySlides = useMemo(
+    () =>
+      selectedCategoryData.slides.map((slide) => ({
+        ...slide,
+        image: projectsById[slide.id].image
+      })),
+    [selectedCategoryData]
   )
 
   const updateCarouselState = useCallback(() => {
@@ -150,9 +160,9 @@ function ProjectsPage({ copy, language, languageLabels, onLanguageChange }) {
         >
           <div className="projects-carousel-viewport" ref={emblaRef}>
             <div className="projects-carousel-track">
-              {selectedCategoryData.slides.map((slide) => (
+              {selectedCategorySlides.map((slide) => (
                 <article className="project-slide" key={slide.id}>
-                  <img src={slide.image} alt={`${selectedCategoryData.label} - ${slide.subtype}`} />
+                  <ResponsiveImage alt={slide.alt} src={slide.image} />
                   <p className="project-slide-title">{slide.subtype}</p>
                   <span className="project-slide-note">{slide.note}</span>
                   <button className="project-slide-details" onClick={() => openDetails(slide)} type="button">
@@ -175,7 +185,7 @@ function ProjectsPage({ copy, language, languageLabels, onLanguageChange }) {
             </button>
 
             <div className="projects-carousel-dots" aria-label={projects.paginationAria}>
-              {selectedCategoryData.slides.map((slide, index) => (
+              {selectedCategorySlides.map((slide, index) => (
                 <button
                   aria-label={`${projects.goTo} ${slide.subtype}`}
                   aria-pressed={selectedIndex === index}
@@ -216,7 +226,7 @@ function ProjectsPage({ copy, language, languageLabels, onLanguageChange }) {
             </button>
             <p className="project-drawer-category">{selectedSlide.categoryLabel}</p>
             <h2>{selectedSlide.subtype}</h2>
-            <img src={selectedSlide.image} alt={selectedSlide.subtype} />
+            <ResponsiveImage alt={selectedSlide.alt} src={selectedSlide.image} />
             <p className="project-drawer-summary">{selectedSlide.note}</p>
             <p className="project-drawer-details">{selectedSlide.details}</p>
             <p className="project-drawer-context">{selectedSlide.categoryDescription}</p>

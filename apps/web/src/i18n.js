@@ -18,11 +18,18 @@ const translations = {
     },
     home: {
       heroAria: 'Hero section',
+      heroImageAlt: 'Contemporary double-height living room integrated with tropical vegetation',
       navigationAria: 'Hero navigation',
       heading: 'Designing Dreams, Building Futures with Timeless Elegance and Innovation',
       playVideo: 'Play Video',
       overviewAria: 'Overview section',
+      overviewImageAlt: 'Residential terrace opening toward a tropical landscape',
       thumbnailsAria: 'Project thumbnails',
+      thumbnailAlts: [
+        'Exterior entrance of a contemporary residence surrounded by vegetation',
+        'Tropical interior courtyard with a central tree',
+        'Floating wooden staircase beside an interior garden'
+      ],
       previousThumbnail: 'Previous thumbnail',
       nextThumbnail: 'Next thumbnail',
       overviewTitle: 'Serenity Haven: Embracing Nature in Architecture',
@@ -37,6 +44,7 @@ const translations = {
       reviews: 'See Reviews',
       recommendationAria: 'Recommendation section',
       recommendationMediaAria: 'Recommendation media card',
+      recommendationImageAlt: 'Contemporary residence with a terrace, natural stone and reflecting pool',
       mediaCaption: 'Explore architectural collections for forward-thinking brands.',
       mediaIndex: '03 - Iconic Architecture',
       recommendationEyebrow: 'Recommendation',
@@ -77,8 +85,8 @@ const translations = {
               note: 'Private dwellings optimized for comfort, daylight, and neighborhood context.',
               details:
                 'These homes prioritize privacy, natural ventilation, and a strong indoor-outdoor connection through patios, gardens, and shaded openings.',
-              image:
-                'https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Contemporary residence in concrete and wood surrounded by tropical vegetation'
             },
             {
               id: 'residential-multifamily',
@@ -86,8 +94,8 @@ const translations = {
               note: 'Efficient apartment and condo layouts for high-density urban living.',
               details:
                 'Multifamily buildings balance shared amenities, circulation efficiency, and acoustic comfort while maximizing usable floor area.',
-              image:
-                'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Multilevel residential building with landscaped balconies'
             }
           ]
         },
@@ -103,8 +111,8 @@ const translations = {
               note: 'Flexible workplaces built for collaboration, focus, and brand identity.',
               details:
                 'Commercial office design integrates modular meeting areas, adaptable workstations, and biophilic strategies to improve productivity.',
-              image:
-                'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Contemporary office with wood, glass and interior gardens'
             },
             {
               id: 'commercial-retail',
@@ -112,8 +120,8 @@ const translations = {
               note: 'Customer-first spaces with clear flow, visibility, and experiential zoning.',
               details:
                 'Retail and hotel architecture emphasizes circulation sequencing, storefront presence, and memorable interiors that support conversion and retention.',
-              image:
-                'https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Hospitality lounge with warm lighting and integrated vegetation'
             }
           ]
         },
@@ -129,8 +137,8 @@ const translations = {
               note: 'Schools and campuses planned for inclusive, adaptable learning.',
               details:
                 'Institutional education projects combine intuitive wayfinding, safe circulation, and multi-use spaces for teaching, community events, and recreation.',
-              image:
-                'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Educational building organized around a tree-filled courtyard'
             },
             {
               id: 'institutional-healthcare',
@@ -138,8 +146,8 @@ const translations = {
               note: 'Public-service buildings balancing accessibility, resilience, and dignity.',
               details:
                 'Healthcare and civic architecture requires efficient zoning, hygienic material systems, and clear public interfaces for high daily throughput.',
-              image:
-                'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Accessible institutional center with natural stone and an illuminated entrance'
             }
           ]
         },
@@ -155,8 +163,8 @@ const translations = {
               note: 'Exhibition-oriented environments that control light, flow, and storytelling.',
               details:
                 'Cultural institutions use neutral envelope design, lighting hierarchy, and curated procession routes to frame artistic narratives.',
-              image:
-                'https://images.unsplash.com/photo-1577083552431-6e5fd01988f9?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Contemporary concrete museum with a courtyard and reflecting pool'
             },
             {
               id: 'cultural-performance',
@@ -164,8 +172,8 @@ const translations = {
               note: 'Acoustically tuned theaters and auditoriums for immersive events.',
               details:
                 'Performance buildings integrate acoustic shell geometry, audience sightlines, and backstage logistics for operational excellence.',
-              image:
-                'https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Contemporary auditorium lined with wooden acoustic panels'
             }
           ]
         },
@@ -181,8 +189,8 @@ const translations = {
               note: 'Process-driven facilities engineered for throughput and safety.',
               details:
                 'Industrial plants rely on robust structural grids, heavy-load logistics paths, and ventilation systems sized for specialized machinery.',
-              image:
-                'https://images.unsplash.com/photo-1565034946487-077786996e27?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Modern manufacturing plant with organized industrial circulation'
             },
             {
               id: 'industrial-warehouse',
@@ -190,8 +198,8 @@ const translations = {
               note: 'High-bay storage and distribution hubs optimized for rapid movement.',
               details:
                 'Warehouse architecture prioritizes truck court layout, dock efficiencies, and adaptable rack systems to support changing supply chains.',
-              image:
-                'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Contemporary logistics center with loading docks'
             }
           ]
         },
@@ -206,8 +214,8 @@ const translations = {
               note: 'Civil structures connecting regions with structural clarity and resilience.',
               details:
                 'Bridge projects demand advanced load analysis, durable materials, and phased construction planning to reduce service disruption.',
-              image:
-                'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Cable-stayed bridge crossing a mountainous valley'
             },
             {
               id: 'infrastructure-hub',
@@ -215,8 +223,8 @@ const translations = {
               note: 'Passenger-focused transport nodes with high-capacity circulation.',
               details:
                 'Transit infrastructure balances wayfinding legibility, crowd management, and multimodal integration to improve user experience.',
-              image:
-                'https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Contemporary transit terminal with a broad roof and glass facade'
             }
           ]
         }
@@ -242,11 +250,18 @@ const translations = {
     },
     home: {
       heroAria: 'Sección principal',
+      heroImageAlt: 'Sala contemporánea de doble altura integrada con vegetación tropical',
       navigationAria: 'Navegación principal',
       heading: 'Diseñamos sueños y construimos futuros con elegancia e innovación atemporales',
       playVideo: 'Ver video',
       overviewAria: 'Sección de resumen',
+      overviewImageAlt: 'Terraza residencial abierta hacia el paisaje tropical',
       thumbnailsAria: 'Miniaturas del proyecto',
+      thumbnailAlts: [
+        'Acceso exterior de una residencia contemporánea rodeada de vegetación',
+        'Patio interior tropical con árbol central',
+        'Escalera flotante de madera junto a un jardín interior'
+      ],
       previousThumbnail: 'Miniatura anterior',
       nextThumbnail: 'Miniatura siguiente',
       overviewTitle: 'Serenity Haven: arquitectura que abraza la naturaleza',
@@ -261,6 +276,7 @@ const translations = {
       reviews: 'Ver reseñas',
       recommendationAria: 'Sección de recomendaciones',
       recommendationMediaAria: 'Tarjeta multimedia de recomendación',
+      recommendationImageAlt: 'Residencia contemporánea con terraza, piedra natural y espejo de agua',
       mediaCaption: 'Explora colecciones arquitectónicas para marcas con visión de futuro.',
       mediaIndex: '03 - Arquitectura icónica',
       recommendationEyebrow: 'Recomendación',
@@ -301,8 +317,8 @@ const translations = {
               note: 'Viviendas privadas optimizadas para confort, luz natural y contexto urbano.',
               details:
                 'Estas casas priorizan privacidad, ventilación natural y una conexión interior-exterior mediante patios, jardines y vanos sombreados.',
-              image:
-                'https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Residencia contemporánea de concreto, madera y vegetación tropical'
             },
             {
               id: 'residential-multifamily',
@@ -310,8 +326,8 @@ const translations = {
               note: 'Departamentos y condominios eficientes para vida urbana de alta densidad.',
               details:
                 'Los edificios multifamiliares equilibran amenidades compartidas, circulación eficiente y confort acústico mientras maximizan el área útil.',
-              image:
-                'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Edificio residencial de varios niveles con balcones ajardinados'
             }
           ]
         },
@@ -327,8 +343,8 @@ const translations = {
               note: 'Espacios flexibles para colaboración, concentración e identidad de marca.',
               details:
                 'El diseño de oficinas integra salas modulares, estaciones adaptables y estrategias biofílicas para mejorar la productividad.',
-              image:
-                'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Oficina contemporánea con madera, cristal y jardines interiores'
             },
             {
               id: 'commercial-retail',
@@ -336,8 +352,8 @@ const translations = {
               note: 'Espacios centrados en el cliente con flujo claro, visibilidad y zonas experienciales.',
               details:
                 'La arquitectura para retail y hoteles enfatiza circulación, presencia de fachada e interiores memorables que impulsan conversión y retención.',
-              image:
-                'https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Salón de hospitalidad con iluminación cálida y vegetación integrada'
             }
           ]
         },
@@ -353,8 +369,8 @@ const translations = {
               note: 'Escuelas y campus planeados para aprendizaje inclusivo y adaptable.',
               details:
                 'Los proyectos educativos combinan orientación intuitiva, circulación segura y espacios multiuso para enseñanza, comunidad y recreación.',
-              image:
-                'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Edificio educativo organizado alrededor de un patio arbolado'
             },
             {
               id: 'institutional-healthcare',
@@ -362,8 +378,8 @@ const translations = {
               note: 'Edificios de servicio público que equilibran accesibilidad, resiliencia y dignidad.',
               details:
                 'La arquitectura de salud y cívica requiere zonificación eficiente, materiales higiénicos e interfaces públicas claras para alto flujo diario.',
-              image:
-                'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Centro institucional accesible con piedra natural y entrada iluminada'
             }
           ]
         },
@@ -379,8 +395,8 @@ const translations = {
               note: 'Ambientes expositivos que controlan luz, recorrido y narrativa.',
               details:
                 'Las instituciones culturales usan envolventes neutras, jerarquía lumínica y recorridos curados para enmarcar narrativas artísticas.',
-              image:
-                'https://images.unsplash.com/photo-1577083552431-6e5fd01988f9?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Museo contemporáneo de concreto con patio y espejo de agua'
             },
             {
               id: 'cultural-performance',
@@ -388,8 +404,8 @@ const translations = {
               note: 'Teatros y auditorios acústicamente calibrados para experiencias inmersivas.',
               details:
                 'Los edificios escénicos integran geometría acústica, visuales del público y logística tras bambalinas para excelencia operativa.',
-              image:
-                'https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Auditorio contemporáneo revestido con paneles acústicos de madera'
             }
           ]
         },
@@ -405,8 +421,8 @@ const translations = {
               note: 'Instalaciones guiadas por procesos y diseñadas para productividad y seguridad.',
               details:
                 'Las plantas industriales dependen de retículas estructurales robustas, rutas de carga pesada y ventilación para maquinaria especializada.',
-              image:
-                'https://images.unsplash.com/photo-1565034946487-077786996e27?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Planta de manufactura moderna con circulación industrial organizada'
             },
             {
               id: 'industrial-warehouse',
@@ -414,8 +430,8 @@ const translations = {
               note: 'Centros de almacenamiento y distribución optimizados para movimiento rápido.',
               details:
                 'La arquitectura de almacenes prioriza patios de maniobra, eficiencia de andenes y sistemas de racks adaptables a cadenas de suministro cambiantes.',
-              image:
-                'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Centro logístico contemporáneo con andenes de carga'
             }
           ]
         },
@@ -430,8 +446,8 @@ const translations = {
               note: 'Estructuras civiles que conectan regiones con claridad estructural y resiliencia.',
               details:
                 'Los puentes requieren análisis avanzado de cargas, materiales durables y construcción por fases para reducir interrupciones.',
-              image:
-                'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Puente atirantado atravesando un valle montañoso'
             },
             {
               id: 'infrastructure-hub',
@@ -439,8 +455,8 @@ const translations = {
               note: 'Nodos de transporte orientados al pasajero con circulación de alta capacidad.',
               details:
                 'La infraestructura de transporte equilibra orientación clara, manejo de multitudes e integración multimodal para mejorar la experiencia.',
-              image:
-                'https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=1400&q=80'
+              alt:
+                'Terminal de transporte contemporánea con gran cubierta y fachada de cristal'
             }
           ]
         }

@@ -1,21 +1,14 @@
 import { useEffect, useMemo, useState } from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import translations from './i18n'
+import { getInitialLanguage } from './language'
+import { routerBaseName } from './router'
 import HomePage from './pages/HomePage'
 import ProjectsPage from './pages/ProjectsPage'
 
-const routerBaseName = import.meta.env.BASE_URL === '/' ? undefined : import.meta.env.BASE_URL.replace(/\/$/, '')
 const languageLabels = {
-  en: 'English',
-  es: 'Español'
-}
-
-function getInitialLanguage() {
-  if (typeof window === 'undefined') {
-    return 'en'
-  }
-
-  return window.localStorage.getItem('dromero-language') === 'es' ? 'es' : 'en'
+  en: { short: 'EN', name: 'English' },
+  es: { short: 'ES', name: 'Español' }
 }
 
 function App() {
