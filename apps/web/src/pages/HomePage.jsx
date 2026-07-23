@@ -1,82 +1,78 @@
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter, FaYoutube } from 'react-icons/fa6'
 import { NavLink } from 'react-router-dom'
+import LanguageToggle from '../components/LanguageToggle'
 import symetrisHomeLogo from '../images/RA-LogoB.png'
 
-function HomePage() {
+function HomePage({ copy, language, languageLabels, onLanguageChange }) {
+  const { common, home, nav } = copy
+
   return (
     <main className="gate1-page">
-      <section className="hero-shell media-black" aria-label="Hero section">
-        <header className="hero-nav" aria-label="Hero navigation">
-          <NavLink className="brand" to="/" aria-label="Symetris home">
-            <img className="brand-logo" src={symetrisHomeLogo} alt="Symetris home" />
+      <section className="hero-shell media-black" aria-label={home.heroAria}>
+        <header className="hero-nav" aria-label={home.navigationAria}>
+          <NavLink className="brand" to="/" aria-label={common.homeAria}>
+            <img className="brand-logo" src={symetrisHomeLogo} alt={common.logoAlt} />
           </NavLink>
 
-          <nav aria-label="Primary">
+          <nav aria-label={common.primaryNav}>
             <ul className="nav-list">
               <li>
                 <NavLink className="nav-link" to="/">
-                  Home
+                  {nav.home}
                 </NavLink>
               </li>
-              <li>Service</li>
+              <li>{nav.service}</li>
               <li>
                 <NavLink className="nav-link" to="/projects">
-                  Project
+                  {nav.project}
                 </NavLink>
               </li>
-              <li>Team</li>
-              <li>Contact</li>
+              <li>{nav.team}</li>
+              <li>{nav.contact}</li>
             </ul>
           </nav>
+
+          <LanguageToggle labels={languageLabels} language={language} onChange={onLanguageChange} />
         </header>
 
         <div className="hero-content-grid">
           <section className="hero-copy">
-            <h1>Designing Dreams, Building Futures with Timeless Elegance and Innovation</h1>
+            <h1>{home.heading}</h1>
             <button className="play-cta" type="button">
-              Play Video
+              {home.playVideo}
             </button>
           </section>
         </div>
       </section>
 
-      <section className="overview-section" aria-label="Overview section">
+      <section className="overview-section" aria-label={home.overviewAria}>
         <article className="overview-left">
-          <div className="thumb-rail" aria-label="Project thumbnails">
+          <div className="thumb-rail" aria-label={home.thumbnailsAria}>
             <div className="thumb-item media-black" />
             <div className="thumb-item media-black" />
             <div className="thumb-item media-black" />
-            <button className="thumb-arrow" type="button" aria-label="Previous thumbnail">
+            <button className="thumb-arrow" type="button" aria-label={home.previousThumbnail}>
               ‹
             </button>
-            <button className="thumb-arrow" type="button" aria-label="Next thumbnail">
+            <button className="thumb-arrow" type="button" aria-label={home.nextThumbnail}>
               ›
             </button>
           </div>
 
-          <h2>Serenity Haven: Embracing Nature in Architecture</h2>
-          <p>
-            In our eco-nature-themed architecture project, we integrate natural elements such as
-            wood, stone, and natural lighting to create a soothing and refreshing environment.
-          </p>
+          <h2>{home.overviewTitle}</h2>
+          <p>{home.overviewText}</p>
         </article>
 
         <article className="overview-right">
           <div className="overview-preview media-black" aria-hidden="true" />
 
-          <ul className="kpi-list" aria-label="Project metrics">
-            <li>
-              <strong>150+</strong>
-              <span>Master Design</span>
-            </li>
-            <li>
-              <strong>1200+</strong>
-              <span>Happy Client</span>
-            </li>
-            <li>
-              <strong>5000+</strong>
-              <span>Project Finished</span>
-            </li>
+          <ul className="kpi-list" aria-label={home.metricsAria}>
+            {home.metrics.map((metric) => (
+              <li key={metric.label}>
+                <strong>{metric.value}</strong>
+                <span>{metric.label}</span>
+              </li>
+            ))}
           </ul>
 
           <div className="review-row">
@@ -84,49 +80,43 @@ function HomePage() {
               ★ 4.8
             </button>
             <button className="review-button" type="button">
-              See Reviews
+              {home.reviews}
             </button>
           </div>
         </article>
       </section>
 
-      <section className="recommend-section" aria-label="Recommendation section">
-        <article className="recommend-media media-black" aria-label="Recommendation media card">
-          <p className="media-caption">Explore architectural collections for forward-thinking brands.</p>
-          <p className="media-index">03 - Iconic Architectur</p>
+      <section className="recommend-section" aria-label={home.recommendationAria}>
+        <article className="recommend-media media-black" aria-label={home.recommendationMediaAria}>
+          <p className="media-caption">{home.mediaCaption}</p>
+          <p className="media-index">{home.mediaIndex}</p>
         </article>
 
         <article className="recommend-panel">
-          <p className="recommend-eyebrow">Recommendation</p>
-          <h2>We provide best Architectur category</h2>
-          <p className="recommend-subcopy">
-            Welcome to our curated selection of architectural wonders and inspirations.
-          </p>
+          <p className="recommend-eyebrow">{home.recommendationEyebrow}</p>
+          <h2>{home.recommendationTitle}</h2>
+          <p className="recommend-subcopy">{home.recommendationText}</p>
 
-          <ol className="category-list" aria-label="Recommendation categories">
-            <li>
-              <span className="category-number">01</span>
-              <span>Smart House</span>
-            </li>
-            <li>
-              <span className="category-number">02</span>
-              <span>Real Estate</span>
-            </li>
-            <li>
-              <span className="category-number">03</span>
-              <span>Iconic Architectur</span>
-              <span className="category-arrow" aria-hidden="true">
-                ↗
-              </span>
-            </li>
+          <ol className="category-list" aria-label={home.recommendationCategoriesAria}>
+            {home.categories.map((category, index) => (
+              <li key={category}>
+                <span className="category-number">{String(index + 1).padStart(2, '0')}</span>
+                <span>{category}</span>
+                {index === home.categories.length - 1 ? (
+                  <span className="category-arrow" aria-hidden="true">
+                    ↗
+                  </span>
+                ) : null}
+              </li>
+            ))}
           </ol>
         </article>
       </section>
 
-      <section className="social-strip" aria-label="Social media section">
-        <p className="social-title">Follow Us</p>
+      <section className="social-strip" aria-label={home.socialAria}>
+        <p className="social-title">{home.socialTitle}</p>
 
-        <ul className="social-list" aria-label="Social media links">
+        <ul className="social-list" aria-label={home.socialLinksAria}>
           <li>
             <a className="social-link" href="#" aria-label="Instagram">
               <FaInstagram aria-hidden="true" focusable="false" />

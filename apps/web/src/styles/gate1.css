@@ -872,3 +872,34 @@ button,
     width: 100%;
   }
 }
+
+.language-toggle {
+  align-items: center;
+  background: #fff;
+  border: 1px solid #bfbfbf;
+  border-radius: 999px;
+  color: #121212;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 0.8rem;
+  font-weight: 800;
+  grid-column: 3;
+  height: 34px;
+  justify-self: end;
+  line-height: 1;
+  padding: 0 13px;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.language-toggle:hover,
+.language-toggle:focus-visible {
+  background: #f4f4f4;
+  transform: scale(1.04);
+}
+
+@media (max-width: 480px) {
+  .language-toggle {
+    grid-column: auto;
+    justify-self: start;
+  }
+}

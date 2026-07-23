@@ -1,168 +1,12 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { NavLink } from 'react-router-dom'
+import LanguageToggle from '../components/LanguageToggle'
 import symetrisHomeLogo from '../images/RA-LogoB.png'
 
-const projectCategories = [
-  {
-    id: 'residential',
-    label: 'Residential',
-    description:
-      'Designed for habitation, including single-family homes, multifamily housing, condominiums, and apartment complexes.',
-    slides: [
-      {
-        id: 'residential-single-family',
-        subtype: 'Single-Family Homes',
-        note: 'Private dwellings optimized for comfort, daylight, and neighborhood context.',
-        details:
-          'These homes prioritize privacy, natural ventilation, and a strong indoor-outdoor connection through patios, gardens, and shaded openings.',
-        image:
-          'https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1400&q=80'
-      },
-      {
-        id: 'residential-multifamily',
-        subtype: 'Multifamily Housing',
-        note: 'Efficient apartment and condo layouts for high-density urban living.',
-        details:
-          'Multifamily buildings balance shared amenities, circulation efficiency, and acoustic comfort while maximizing usable floor area.',
-        image:
-          'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1400&q=80'
-      }
-    ]
-  },
-  {
-    id: 'commercial',
-    label: 'Commercial',
-    description:
-      'Focused on economic activity and services, such as offices, retail stores, shopping centers, and hotels.',
-    slides: [
-      {
-        id: 'commercial-office',
-        subtype: 'Office Environments',
-        note: 'Flexible workplaces built for collaboration, focus, and brand identity.',
-        details:
-          'Commercial office design integrates modular meeting areas, adaptable workstations, and biophilic strategies to improve productivity.',
-        image:
-          'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=80'
-      },
-      {
-        id: 'commercial-retail',
-        subtype: 'Retail and Hospitality',
-        note: 'Customer-first spaces with clear flow, visibility, and experiential zoning.',
-        details:
-          'Retail and hotel architecture emphasizes circulation sequencing, storefront presence, and memorable interiors that support conversion and retention.',
-        image:
-          'https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&w=1400&q=80'
-      }
-    ]
-  },
-  {
-    id: 'institutional-public',
-    label: 'Institutional or Public',
-    description:
-      'Created for social well-being and administration, covering schools, hospitals, libraries, and government buildings.',
-    slides: [
-      {
-        id: 'institutional-education',
-        subtype: 'Education Facilities',
-        note: 'Schools and campuses planned for inclusive, adaptable learning.',
-        details:
-          'Institutional education projects combine intuitive wayfinding, safe circulation, and multi-use spaces for teaching, community events, and recreation.',
-        image:
-          'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1400&q=80'
-      },
-      {
-        id: 'institutional-healthcare',
-        subtype: 'Healthcare and Civic',
-        note: 'Public-service buildings balancing accessibility, resilience, and dignity.',
-        details:
-          'Healthcare and civic architecture requires efficient zoning, hygienic material systems, and clear public interfaces for high daily throughput.',
-        image:
-          'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1400&q=80'
-      }
-    ]
-  },
-  {
-    id: 'cultural',
-    label: 'Cultural',
-    description:
-      'Spaces for art and social interaction, including museums, theaters, community centers, and auditoriums.',
-    slides: [
-      {
-        id: 'cultural-museum',
-        subtype: 'Museums and Galleries',
-        note: 'Exhibition-oriented environments that control light, flow, and storytelling.',
-        details:
-          'Cultural institutions use neutral envelope design, lighting hierarchy, and curated procession routes to frame artistic narratives.',
-        image:
-          'https://images.unsplash.com/photo-1577083552431-6e5fd01988f9?auto=format&fit=crop&w=1400&q=80'
-      },
-      {
-        id: 'cultural-performance',
-        subtype: 'Performance Venues',
-        note: 'Acoustically tuned theaters and auditoriums for immersive events.',
-        details:
-          'Performance buildings integrate acoustic shell geometry, audience sightlines, and backstage logistics for operational excellence.',
-        image:
-          'https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1400&q=80'
-      }
-    ]
-  },
-  {
-    id: 'industrial',
-    label: 'Industrial',
-    description:
-      'Structures for production and manufacturing, including factories, warehouses, and processing plants.',
-    slides: [
-      {
-        id: 'industrial-factory',
-        subtype: 'Manufacturing Plants',
-        note: 'Process-driven facilities engineered for throughput and safety.',
-        details:
-          'Industrial plants rely on robust structural grids, heavy-load logistics paths, and ventilation systems sized for specialized machinery.',
-        image:
-          'https://images.unsplash.com/photo-1565034946487-077786996e27?auto=format&fit=crop&w=1400&q=80'
-      },
-      {
-        id: 'industrial-warehouse',
-        subtype: 'Logistics Warehouses',
-        note: 'High-bay storage and distribution hubs optimized for rapid movement.',
-        details:
-          'Warehouse architecture prioritizes truck court layout, dock efficiencies, and adaptable rack systems to support changing supply chains.',
-        image:
-          'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1400&q=80'
-      }
-    ]
-  },
-  {
-    id: 'infrastructure',
-    label: 'Infrastructure',
-    description:
-      'Essential civil works such as bridges, transport stations, and airports.',
-    slides: [
-      {
-        id: 'infrastructure-bridge',
-        subtype: 'Bridge Systems',
-        note: 'Civil structures connecting regions with structural clarity and resilience.',
-        details:
-          'Bridge projects demand advanced load analysis, durable materials, and phased construction planning to reduce service disruption.',
-        image:
-          'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1400&q=80'
-      },
-      {
-        id: 'infrastructure-hub',
-        subtype: 'Transit and Airport Hubs',
-        note: 'Passenger-focused transport nodes with high-capacity circulation.',
-        details:
-          'Transit infrastructure balances wayfinding legibility, crowd management, and multimodal integration to improve user experience.',
-        image:
-          'https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=1400&q=80'
-      }
-    ]
-  }
-]
-
-function ProjectsPage() {
+function ProjectsPage({ copy, language, languageLabels, onLanguageChange }) {
+  const { common, nav, projects } = copy
+  const projectCategories = projects.categories
   const [selectedCategory, setSelectedCategory] = useState(projectCategories[0].id)
   const [selectedSlide, setSelectedSlide] = useState(null)
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -173,7 +17,7 @@ function ProjectsPage() {
   const selectedCategoryData = useMemo(
     () =>
       projectCategories.find((category) => category.id === selectedCategory) ?? projectCategories[0],
-    [selectedCategory]
+    [projectCategories, selectedCategory]
   )
 
   const updateCarouselState = useCallback(() => {
@@ -229,6 +73,10 @@ function ProjectsPage() {
     }
   }, [selectedSlide])
 
+  useEffect(() => {
+    setSelectedSlide(null)
+  }, [language])
+
   const openDetails = (slide) => {
     setSelectedSlide({
       ...slide,
@@ -239,37 +87,39 @@ function ProjectsPage() {
 
   return (
     <main className="gate1-page projects-page">
-      <section className="projects-shell" aria-label="Projects page">
-        <header className="hero-nav projects-nav" aria-label="Projects navigation">
-          <NavLink className="brand" to="/" aria-label="Symetris home">
-            <img className="brand-logo" src={symetrisHomeLogo} alt="Symetris home" />
+      <section className="projects-shell" aria-label={projects.pageAria}>
+        <header className="hero-nav projects-nav" aria-label={projects.navigationAria}>
+          <NavLink className="brand" to="/" aria-label={common.homeAria}>
+            <img className="brand-logo" src={symetrisHomeLogo} alt={common.logoAlt} />
           </NavLink>
 
-          <nav aria-label="Primary">
+          <nav aria-label={common.primaryNav}>
             <ul className="nav-list">
               <li>
                 <NavLink className="nav-link" to="/">
-                  Home
+                  {nav.home}
                 </NavLink>
               </li>
-              <li>Service</li>
+              <li>{nav.service}</li>
               <li>
                 <NavLink className="nav-link nav-link-active" to="/projects">
-                  Project
+                  {nav.project}
                 </NavLink>
               </li>
-              <li>Team</li>
-              <li>Contact</li>
+              <li>{nav.team}</li>
+              <li>{nav.contact}</li>
             </ul>
           </nav>
+
+          <LanguageToggle labels={languageLabels} language={language} onChange={onLanguageChange} />
         </header>
 
-        <section className="projects-intro" aria-label="Projects introduction">
-          <p className="projects-eyebrow">Our Project</p>
-          <h1>Explore Our Projects: A Journey of Design and Innovation</h1>
+        <section className="projects-intro" aria-label={projects.introAria}>
+          <p className="projects-eyebrow">{projects.eyebrow}</p>
+          <h1>{projects.heading}</h1>
         </section>
 
-        <ul className="projects-filter-list" role="tablist" aria-label="Project categories">
+        <ul className="projects-filter-list" role="tablist" aria-label={projects.categoriesAria}>
           {projectCategories.map((category) => (
             <li key={category.id}>
               <button
@@ -292,7 +142,7 @@ function ProjectsPage() {
         <p className="projects-category-description">{selectedCategoryData.description}</p>
 
         <section
-          aria-label="Project showcase"
+          aria-label={projects.showcaseAria}
           aria-labelledby={`projects-tab-${selectedCategoryData.id}`}
           className="projects-carousel-shell"
           id={`projects-panel-${selectedCategoryData.id}`}
@@ -306,16 +156,16 @@ function ProjectsPage() {
                   <p className="project-slide-title">{slide.subtype}</p>
                   <span className="project-slide-note">{slide.note}</span>
                   <button className="project-slide-details" onClick={() => openDetails(slide)} type="button">
-                    View Details
+                    {projects.viewDetails}
                   </button>
                 </article>
               ))}
             </div>
           </div>
 
-          <div className="projects-carousel-controls" aria-label="Carousel controls">
+          <div className="projects-carousel-controls" aria-label={projects.controlsAria}>
             <button
-              aria-label="Previous projects"
+              aria-label={projects.previousProjects}
               className="projects-carousel-arrow"
               disabled={!canScrollPrev}
               onClick={() => emblaApi?.scrollPrev()}
@@ -324,10 +174,10 @@ function ProjectsPage() {
               ‹
             </button>
 
-            <div className="projects-carousel-dots" aria-label="Carousel pagination">
+            <div className="projects-carousel-dots" aria-label={projects.paginationAria}>
               {selectedCategoryData.slides.map((slide, index) => (
                 <button
-                  aria-label={`Go to ${slide.subtype}`}
+                  aria-label={`${projects.goTo} ${slide.subtype}`}
                   aria-pressed={selectedIndex === index}
                   className={`projects-carousel-dot${
                     selectedIndex === index ? ' projects-carousel-dot-active' : ''
@@ -340,7 +190,7 @@ function ProjectsPage() {
             </div>
 
             <button
-              aria-label="Next projects"
+              aria-label={projects.nextProjects}
               className="projects-carousel-arrow"
               disabled={!canScrollNext}
               onClick={() => emblaApi?.scrollNext()}
@@ -355,17 +205,17 @@ function ProjectsPage() {
       {selectedSlide ? (
         <div className="project-drawer-overlay" onClick={() => setSelectedSlide(null)} role="presentation">
           <aside
-            aria-labelledby="project-details-title"
+            aria-label={projects.dialogTitle}
             aria-modal="true"
             className="project-drawer"
             onClick={(event) => event.stopPropagation()}
             role="dialog"
           >
             <button className="project-drawer-close" onClick={() => setSelectedSlide(null)} type="button">
-              Close
+              {projects.close}
             </button>
             <p className="project-drawer-category">{selectedSlide.categoryLabel}</p>
-            <h2 id="project-details-title">{selectedSlide.subtype}</h2>
+            <h2>{selectedSlide.subtype}</h2>
             <img src={selectedSlide.image} alt={selectedSlide.subtype} />
             <p className="project-drawer-summary">{selectedSlide.note}</p>
             <p className="project-drawer-details">{selectedSlide.details}</p>
