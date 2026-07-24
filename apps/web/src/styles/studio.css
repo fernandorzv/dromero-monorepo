@@ -1,11 +1,11 @@
 .studio-page {
-  --studio-accent: #777653;
-  --studio-bg: #f1ede3;
+  --studio-accent: var(--color-olive);
+  --studio-bg: var(--surface-light);
   --studio-border: #d8d1c2;
-  --studio-card: #f6f2e9;
-  --studio-dark: #292a20;
-  --studio-muted: #66665f;
-  --studio-text: #25251f;
+  --studio-card: var(--color-cream);
+  --studio-dark: var(--text-dark);
+  --studio-muted: var(--text-muted);
+  --studio-text: var(--text-dark);
   background: var(--studio-bg);
   color: var(--studio-text);
   min-height: 100vh;
@@ -13,18 +13,16 @@
 
 .studio-container {
   margin: 0 auto;
-  max-width: 1120px;
-  padding-left: 28px;
-  padding-right: 28px;
+  width: min(calc(100% - (2 * var(--page-gutter))), var(--container-content));
 }
 
 .studio-section {
-  padding-bottom: clamp(72px, 9vw, 124px);
-  padding-top: clamp(72px, 9vw, 124px);
+  padding-bottom: var(--section-space-md);
+  padding-top: var(--section-space-md);
 }
 
 .studio-section h2 {
-  font-size: clamp(2rem, 3.2vw, 3.25rem);
+  font-size: var(--font-section-title);
   font-weight: 500;
   letter-spacing: -0.035em;
   line-height: 1.08;
@@ -45,8 +43,8 @@
   display: grid;
   grid-template-rows: auto 1fr;
   margin: 20px auto 0;
-  max-width: 1180px;
-  min-height: clamp(620px, 74vh, 760px);
+  max-width: var(--container-hero);
+  min-height: clamp(34rem, 76svh, 58rem);
   overflow: hidden;
   position: relative;
 }
@@ -133,7 +131,7 @@
 
 .studio-story__media {
   aspect-ratio: 3 / 2;
-  border-radius: 14px;
+  border-radius: var(--radius-md);
   overflow: hidden;
 }
 
@@ -286,7 +284,7 @@
 
 .studio-process__media {
   aspect-ratio: 16 / 8;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   overflow: hidden;
 }
 
@@ -433,7 +431,7 @@
   font-weight: 800;
   letter-spacing: 0.06em;
   margin-top: 32px;
-  min-height: 44px;
+  min-height: var(--touch-target);
   padding: 0 25px;
   text-decoration: none;
   text-transform: uppercase;
@@ -515,10 +513,6 @@
 }
 
 @media (max-width: 760px) {
-  .studio-container {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
 
   .studio-hero {
     margin-top: 0;
@@ -549,8 +543,8 @@
 
 @media (max-width: 540px) {
   .studio-section {
-    padding-bottom: 64px;
-    padding-top: 64px;
+    padding-bottom: var(--section-space-sm);
+    padding-top: var(--section-space-sm);
   }
 
   .studio-hero {

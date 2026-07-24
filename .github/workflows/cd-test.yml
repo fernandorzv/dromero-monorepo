@@ -1,0 +1,123 @@
+name: CD Test
+
+on:
+  push:
+    branches:
+      - test
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cd-test-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify-for-test:
+    name: Verify Before Test Deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test with coverage
+        run: npm run test:coverage
+
+      - name: Build
+        run: npm run build
+
+      - name: Audit high+ vulnerabilities
+        run: npm run audit
+
+      - name: Upload build artifact for test deployment
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-dist-test
+          path: apps/web/dist
+          if-no-files-found: error
+          retention-days: 7
+
+  deploy-test:
+    name: Deploy To Test Environment
+    needs: verify-for-test
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: test
+      url: ${{ vars.TEST_ENV_URL }}
+
+    env:
+      TEST_SSH_HOST: ${{ secrets.TEST_SSH_HOST }}
+      TEST_SSH_USER: ${{ secrets.TEST_SSH_USER }}
+      TEST_SSH_PRIVATE_KEY: ${{ secrets.TEST_SSH_PRIVATE_KEY }}
+      TEST_SSH_PORT: ${{ vars.TEST_SSH_PORT || '22' }}
+      TEST_DEPLOY_ROOT: ${{ vars.TEST_DEPLOY_ROOT || '/var/www/dromero-web' }}
+      TEST_REMOTE_HEALTHCHECK_URL: ${{ vars.TEST_REMOTE_HEALTHCHECK_URL || 'http://localhost/health' }}
+      TEST_HEALTHCHECK_URL: ${{ vars.TEST_HEALTHCHECK_URL || '' }}
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: web-dist-test
+          path: dist
+
+      - name: Configure SSH
+        run: |
+          set -euo pipefail
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$TEST_SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p "$TEST_SSH_PORT" -H "$TEST_SSH_HOST" >> ~/.ssh/known_hosts
+
+      - name: Snapshot current test site for rollback
+        run: |
+          set -euo pipefail
+          RELEASE_ID="$(date +%Y%m%d%H%M%S)-${GITHUB_SHA::7}"
+          echo "RELEASE_ID=$RELEASE_ID" >> "$GITHUB_ENV"
+          ssh -p "$TEST_SSH_PORT" "$TEST_SSH_USER@$TEST_SSH_HOST" \
+            "set -euo pipefail; mkdir -p '$TEST_DEPLOY_ROOT/.rollback/$RELEASE_ID'; rsync -a --delete --exclude '.rollback/' '$TEST_DEPLOY_ROOT/' '$TEST_DEPLOY_ROOT/.rollback/$RELEASE_ID/' || true"
+
+      - name: Deploy static build to test host
+        run: |
+          set -euo pipefail
+          rsync -az --delete --exclude '.rollback/' -e "ssh -p $TEST_SSH_PORT" dist/ "$TEST_SSH_USER@$TEST_SSH_HOST:$TEST_DEPLOY_ROOT/"
+          ssh -p "$TEST_SSH_PORT" "$TEST_SSH_USER@$TEST_SSH_HOST" \
+            "set -euo pipefail; sudo nginx -t; sudo systemctl reload nginx"
+
+      - name: Validate test health endpoint on remote host
+        run: |
+          set -euo pipefail
+          ssh -p "$TEST_SSH_PORT" "$TEST_SSH_USER@$TEST_SSH_HOST" \
+            "curl --fail --silent --show-error --max-time 15 '$TEST_REMOTE_HEALTHCHECK_URL'"
+
+      - name: Validate externally reachable health endpoint
+        if: env.TEST_HEALTHCHECK_URL != ''
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error --max-time 15 "$TEST_HEALTHCHECK_URL"
+
+      - name: Roll back test site if deploy fails
+        if: failure()
+        run: |
+          set -euo pipefail
+          if [ -z "${RELEASE_ID:-}" ]; then
+            exit 0
+          fi
+          ssh -p "$TEST_SSH_PORT" "$TEST_SSH_USER@$TEST_SSH_HOST" \
+            "set -euo pipefail; if [ -d '$TEST_DEPLOY_ROOT/.rollback/$RELEASE_ID' ]; then rsync -a --delete --exclude '.rollback/' '$TEST_DEPLOY_ROOT/.rollback/$RELEASE_ID/' '$TEST_DEPLOY_ROOT/'; sudo nginx -t; sudo systemctl reload nginx; fi"

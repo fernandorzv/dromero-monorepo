@@ -58,6 +58,24 @@ describe('App', () => {
       })
     ).toBeInTheDocument()
   })
+
+  it('opens and closes the mobile navigation accessibly', () => {
+    render(<App />)
+
+    const openButton = screen.getByRole('button', { name: /open navigation menu/i })
+
+    expect(openButton).toHaveAttribute('aria-expanded', 'false')
+
+    fireEvent.click(openButton)
+
+    expect(openButton).toHaveAttribute('aria-expanded', 'true')
+    expect(screen.getByRole('button', { name: /close navigation menu/i })).toHaveFocus()
+
+    fireEvent.keyDown(window, { key: 'Escape' })
+
+    expect(openButton).toHaveAttribute('aria-expanded', 'false')
+    expect(openButton).toHaveFocus()
+  })
   it('switches home page copy to Spanish', () => {
     render(<App />)
 
@@ -68,7 +86,7 @@ describe('App', () => {
         name: /diseñamos sueños y construimos futuros/i
       })
     ).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: /ver video/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /explorar proyecto/i })).toBeInTheDocument()
   })
 
   it('renders gate 2 overview heading', () => {
@@ -86,7 +104,7 @@ describe('App', () => {
 
     expect(
       screen.getByRole('heading', {
-        name: /we provide the best architecture categories/i
+        name: /explore our architecture categories/i
       })
     ).toBeInTheDocument()
   })

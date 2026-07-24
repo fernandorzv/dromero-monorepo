@@ -1,10 +1,10 @@
 .services-page {
-  --services-accent: #777653;
-  --services-bg: #f1ede3;
+  --services-accent: var(--color-olive);
+  --services-bg: var(--surface-light);
   --services-border: #d8d1c2;
-  --services-card: #f5f1e8;
-  --services-muted: #66665f;
-  --services-text: #25251f;
+  --services-card: var(--color-cream);
+  --services-muted: var(--text-muted);
+  --services-text: var(--text-dark);
   background: var(--services-bg);
   color: var(--services-text);
   min-height: 100vh;
@@ -12,18 +12,16 @@
 
 .services-container {
   margin: 0 auto;
-  max-width: 1120px;
-  padding-left: 28px;
-  padding-right: 28px;
+  width: min(calc(100% - (2 * var(--page-gutter))), var(--container-content));
 }
 
 .services-section {
-  padding-bottom: clamp(72px, 9vw, 124px);
-  padding-top: clamp(72px, 9vw, 124px);
+  padding-bottom: var(--section-space-md);
+  padding-top: var(--section-space-md);
 }
 
 .services-section h2 {
-  font-size: clamp(2rem, 3.2vw, 3.25rem);
+  font-size: var(--font-section-title);
   font-weight: 500;
   letter-spacing: -0.035em;
   line-height: 1.05;
@@ -36,8 +34,8 @@
   display: grid;
   grid-template-rows: auto 1fr;
   margin: 20px auto 0;
-  max-width: 1180px;
-  min-height: clamp(620px, 74vh, 780px);
+  max-width: var(--container-hero);
+  min-height: clamp(34rem, 76svh, 58rem);
   overflow: hidden;
   position: relative;
 }
@@ -126,7 +124,7 @@
 
 .services-approach__media,
 .process-step__media {
-  border-radius: 14px;
+  border-radius: var(--radius-md);
   overflow: hidden;
 }
 
@@ -223,7 +221,7 @@
   align-content: start;
   background: var(--services-card);
   border: 1px solid var(--services-border);
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   display: grid;
   min-height: 250px;
   padding: 34px 30px;
@@ -321,7 +319,7 @@
   font-size: 0.92rem;
   font-weight: 700;
   margin-top: 34px;
-  min-height: 46px;
+  min-height: var(--control-height);
   padding: 0 24px;
   text-decoration: none;
   align-items: center;
@@ -354,10 +352,6 @@
 }
 
 @media (max-width: 760px) {
-  .services-container {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
 
   .services-hero {
     margin-top: 0;
@@ -390,8 +384,8 @@
 
 @media (max-width: 540px) {
   .services-section {
-    padding-bottom: 64px;
-    padding-top: 64px;
+    padding-bottom: var(--section-space-sm);
+    padding-top: var(--section-space-sm);
   }
 
   .services-hero__content h1 {

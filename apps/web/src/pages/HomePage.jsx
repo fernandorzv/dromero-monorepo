@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import ResponsiveImage from '../components/ResponsiveImage'
 import SiteFooter from '../components/SiteFooter'
 import SiteNavbar from '../components/SiteNavbar'
@@ -31,15 +32,15 @@ function HomePage({ copy, language, languageLabels, onLanguageChange }) {
         <div className="hero-content-grid">
           <section className="hero-copy">
             <h1>{home.heading}</h1>
-            <button className="play-cta" type="button">
+            <a className="play-cta" href="#home-project">
               {home.playVideo}
-            </button>
+            </a>
           </section>
         </div>
       </section>
 
-      <section className="overview-section" aria-label={home.overviewAria}>
-        <article className="overview-left">
+      <section className="overview-section home-project" id="home-project" aria-label={home.overviewAria}>
+        <article className="overview-left home-project__content">
           <div className="thumb-rail" aria-label={home.thumbnailsAria}>
             {homeMedia.thumbnails.map((image, index) => (
               <div className="thumb-item" key={image}>
@@ -54,31 +55,39 @@ function HomePage({ copy, language, languageLabels, onLanguageChange }) {
             </button>
           </div>
 
-          <h2>{home.overviewTitle}</h2>
-          <p>{home.overviewText}</p>
+          <div className="home-project__story">
+            <p className="home-project__eyebrow">{home.featuredProject}</p>
+            <h2>{home.overviewTitle}</h2>
+            <p>{home.overviewText}</p>
+            <Link className="home-project__action" to="/projects">
+              {home.viewProject}
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </article>
 
-        <article className="overview-right">
+        <article className="overview-right home-project__media-stack">
           <div className="overview-preview">
             <ResponsiveImage alt={home.overviewImageAlt} src={homeMedia.overview} />
           </div>
 
-          <ul className="kpi-list" aria-label={home.metricsAria}>
+          <div className="home-project__metrics-panel">
+            <ul className="kpi-list" aria-label={home.metricsAria}>
             {home.metrics.map((metric) => (
               <li key={metric.label}>
                 <strong>{metric.value}</strong>
                 <span>{metric.label}</span>
               </li>
             ))}
-          </ul>
+            </ul>
 
-          <div className="review-row">
-            <button className="rating-pill" type="button">
-              ★ 4.8
-            </button>
-            <button className="review-button" type="button">
-              {home.reviews}
-            </button>
+            <div className="review-row">
+              <span className="rating-pill">★ 4.8</span>
+              <span className="review-copy">{home.reviewsBasis}</span>
+              <button className="review-button" type="button">
+                {home.reviews}
+              </button>
+            </div>
           </div>
         </article>
       </section>
@@ -99,21 +108,17 @@ function HomePage({ copy, language, languageLabels, onLanguageChange }) {
           <p className="recommend-eyebrow">{home.recommendationEyebrow}</p>
           <h2>{home.recommendationTitle}</h2>
           <p className="recommend-subcopy">{home.recommendationText}</p>
-
-          <ol className="category-list" aria-label={home.recommendationCategoriesAria}>
-            {home.categories.map((category, index) => (
-              <li key={category}>
-                <span className="category-number">{String(index + 1).padStart(2, '0')}</span>
-                <span>{category}</span>
-                {index === home.categories.length - 1 ? (
-                  <span className="category-arrow" aria-hidden="true">
-                    ↗
-                  </span>
-                ) : null}
-              </li>
-            ))}
-          </ol>
         </article>
+
+        <ol className="category-list recommend-categories" aria-label={home.recommendationCategoriesAria}>
+          {home.categories.map((category, index) => (
+            <li key={category}>
+              <span className="category-number">{String(index + 1).padStart(2, '0')}</span>
+              <span>{category}</span>
+              <span className="category-arrow" aria-hidden="true">—</span>
+            </li>
+          ))}
+        </ol>
       </section>
 
       </main>

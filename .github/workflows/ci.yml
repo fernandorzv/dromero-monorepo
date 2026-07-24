@@ -3,12 +3,28 @@ name: CI
 on:
   push:
     branches:
+      - test
+      - qa
       - main
   pull_request:
+    branches:
+      - test
+      - qa
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   verify:
+    name: Verify Quality Gates
     runs-on: ubuntu-latest
+    timeout-minutes: 20
 
     steps:
       - name: Checkout
@@ -26,11 +42,44 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Test
-        run: npm run test
+      - name: Test with coverage
+        run: npm run test:coverage
 
       - name: Build
         run: npm run build
 
       - name: Audit high+ vulnerabilities
         run: npm run audit
+
+      - name: Upload web build artifact
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-dist-${{ github.sha }}
+          path: apps/web/dist
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload coverage artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-coverage-${{ github.sha }}
+          path: apps/web/coverage
+          if-no-files-found: warn
+          retention-days: 14
+
+  dependency-review:
+    name: Dependency Review (PR)
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Review dependency changes
+        uses: actions/dependency-review-action@v4

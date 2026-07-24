@@ -57,7 +57,7 @@ function SiteFooter({ copy }) {
         </div>
 
         <nav
-          className="site-footer__desktop-column"
+          className="site-footer__desktop-column site-footer__navigation"
           aria-label={footer.navigationAria}
         >
           <h2 className="site-footer__heading">{footer.navigationTitle}</h2>
@@ -73,7 +73,7 @@ function SiteFooter({ copy }) {
         </nav>
 
         <section
-          className="site-footer__desktop-column"
+          className="site-footer__desktop-column site-footer__services"
           aria-labelledby="site-footer-services-title"
         >
           <h2 className="site-footer__heading" id="site-footer-services-title">

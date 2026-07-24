@@ -1,10 +1,10 @@
 .contact-page {
-  --contact-accent: #777653;
-  --contact-bg: #f1ede3;
+  --contact-accent: var(--color-olive);
+  --contact-bg: var(--surface-light);
   --contact-border: #d8d1c2;
-  --contact-dark: #2f3023;
-  --contact-muted: #66665f;
-  --contact-text: #25251f;
+  --contact-dark: var(--text-dark);
+  --contact-muted: var(--text-muted);
+  --contact-text: var(--text-dark);
   background: var(--contact-bg);
   color: var(--contact-text);
   min-height: 100vh;
@@ -12,18 +12,16 @@
 
 .contact-container {
   margin: 0 auto;
-  max-width: 1120px;
-  padding-left: 28px;
-  padding-right: 28px;
+  width: min(calc(100% - (2 * var(--page-gutter))), var(--container-content));
 }
 
 .contact-section {
-  padding-bottom: clamp(72px, 9vw, 124px);
-  padding-top: clamp(72px, 9vw, 124px);
+  padding-bottom: var(--section-space-md);
+  padding-top: var(--section-space-md);
 }
 
 .contact-section h2 {
-  font-size: clamp(2rem, 3.2vw, 3.25rem);
+  font-size: var(--font-section-title);
   font-weight: 500;
   letter-spacing: -0.035em;
   line-height: 1.08;
@@ -36,7 +34,7 @@
   display: grid;
   grid-template-rows: auto 1fr;
   margin: 20px auto 0;
-  max-width: 1180px;
+  max-width: var(--container-hero);
   min-height: clamp(560px, 72vh, 720px);
   overflow: hidden;
   position: relative;
@@ -228,7 +226,7 @@
   display: grid;
   grid-template-columns: minmax(0, 0.72fr) minmax(0, 1fr);
   margin: 0 auto;
-  max-width: 1180px;
+  max-width: var(--container-hero);
   min-height: 500px;
 }
 
@@ -442,10 +440,6 @@
 }
 
 @media (max-width: 760px) {
-  .contact-container {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
 
   .contact-hero {
     margin-top: 0;
@@ -472,8 +466,8 @@
 
 @media (max-width: 540px) {
   .contact-section {
-    padding-bottom: 64px;
-    padding-top: 64px;
+    padding-bottom: var(--section-space-sm);
+    padding-top: var(--section-space-sm);
   }
 
   .contact-hero {

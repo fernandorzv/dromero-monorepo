@@ -6,6 +6,8 @@ apps/*/node_modules/
 dist/
 build/
 apps/*/dist/
+coverage/
+apps/*/coverage/
 
 # Environment variables
 .env

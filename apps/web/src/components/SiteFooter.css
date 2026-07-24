@@ -11,9 +11,7 @@
 .site-footer__main,
 .site-footer__bottom {
   margin: 0 auto;
-  max-width: 1120px;
-  padding-left: 28px;
-  padding-right: 28px;
+  width: min(calc(100% - (2 * var(--page-gutter))), var(--container-content));
 }
 
 .site-footer__main {
@@ -192,18 +190,13 @@
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .site-footer__main {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 767px) {
-  .site-footer__main,
-  .site-footer__bottom {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
 
   .site-footer__main {
     gap: 34px;
@@ -251,5 +244,185 @@
     max-height: 46px;
     max-width: 220px;
     width: 190px;
+  }
+}
+
+@media (max-width: 767px) {
+  .site-footer__main,
+  .site-footer__bottom {
+    width: min(calc(100% - 32px), var(--container-content));
+  }
+
+  .site-footer__main {
+    gap: 28px;
+    padding-bottom: 32px;
+    padding-top: 44px;
+  }
+
+  .site-footer__logo img {
+    height: 58px;
+  }
+
+  .site-footer__statement {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-top: 20px;
+  }
+
+  .site-footer__socials {
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .site-footer__contact {
+    display: none;
+  }
+
+  .site-footer__bottom {
+    border-top: 1px solid rgba(212, 193, 172, 0.22);
+    gap: 0;
+    padding-bottom: 24px;
+    padding-top: 22px;
+  }
+
+  .site-footer__closing {
+    display: none;
+  }
+}
+
+/* Tablet footer refinement */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .site-footer__main,
+  .site-footer__bottom {
+    width: min(calc(100% - 40px), var(--container-content));
+  }
+
+  .site-footer__main {
+    gap: 32px;
+    grid-template-columns: minmax(0, 1.2fr) minmax(140px, 0.7fr) minmax(150px, 0.8fr);
+    padding-bottom: 38px;
+    padding-top: 52px;
+  }
+
+  .site-footer__services {
+    display: none;
+  }
+
+  .site-footer__logo img {
+    height: 64px;
+  }
+
+  .site-footer__statement {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    margin-top: 18px;
+    max-width: 280px;
+  }
+
+  .site-footer__socials {
+    gap: 8px;
+    margin-top: 22px;
+  }
+
+  .site-footer__social-link {
+    height: 42px;
+    width: 42px;
+  }
+
+  .site-footer__heading {
+    margin-bottom: 18px;
+  }
+
+  .site-footer__unavailable {
+    display: none;
+  }
+
+  .site-footer__bottom {
+    justify-content: flex-start;
+    padding-bottom: 22px;
+    padding-top: 22px;
+  }
+
+  .site-footer__closing {
+    display: none;
+  }
+}
+
+
+/* Desktop footer refinement */
+@media (min-width: 1024px) {
+  .site-footer__main,
+  .site-footer__bottom {
+    width: min(calc(100% - 64px), var(--desktop-container-small, 1140px));
+  }
+
+  .site-footer__main {
+    gap: clamp(40px, 4vw, 56px);
+    grid-template-columns: minmax(260px, 1.2fr) minmax(160px, 0.6fr) minmax(220px, 0.8fr);
+    padding-bottom: 40px;
+    padding-top: 58px;
+  }
+
+  .site-footer__services,
+  .site-footer__unavailable,
+  .site-footer__closing {
+    display: none;
+  }
+
+  .site-footer__logo img {
+    height: 64px;
+  }
+
+  .site-footer__statement {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    margin-top: 20px;
+    max-width: 300px;
+  }
+
+  .site-footer__socials {
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .site-footer__social-link {
+    height: 44px;
+    width: 44px;
+  }
+
+  .site-footer__heading {
+    margin: 4px 0 18px;
+  }
+
+  .site-footer__links,
+  .site-footer__contact-list {
+    gap: 11px;
+  }
+
+  .site-footer__bottom {
+    justify-content: flex-start;
+    padding-bottom: 24px;
+    padding-top: 22px;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1439px) {
+  .site-footer__main,
+  .site-footer__bottom {
+    width: min(calc(100% - 80px), var(--desktop-container-medium, 1280px));
+  }
+}
+
+@media (min-width: 1440px) {
+  .site-footer__main,
+  .site-footer__bottom {
+    width: min(calc(100% - 112px), var(--desktop-container-large, 1440px));
+  }
+}
+
+@media (min-width: 1920px) {
+  .site-footer__main,
+  .site-footer__bottom {
+    width: min(calc(100% - 128px), var(--desktop-container-large, 1440px));
   }
 }
