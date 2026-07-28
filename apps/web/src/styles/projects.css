@@ -1,14 +1,18 @@
 .projects-page {
   --projects-border: rgba(212, 193, 172, 0.18);
-  background: var(--color-black);
-  color: var(--color-cream);
+  background: var(--surface-page);
+  color: var(--text-on-dark);
   min-height: 100vh;
 }
 
 .projects-shell {
-  margin: 0 auto;
-  max-width: var(--container-wide);
-  padding: var(--space-6) var(--page-gutter) var(--section-space-sm);
+  background: var(--surface-dark);
+  border-radius: var(--radius-card);
+  color: var(--text-on-dark);
+  margin: 32px auto 64px;
+  overflow: hidden;
+  padding: clamp(20px, 3vw, 40px);
+  width: min(calc(100% - (2 * var(--page-gutter))), var(--container-page));
 }
 
 .projects-nav {
@@ -62,7 +66,7 @@
 .projects-filter-tab {
   background: rgba(11, 11, 8, 0.76);
   border: 1px solid var(--projects-border);
-  border-radius: 6px;
+  border-radius: var(--radius-pill);
   color: var(--color-sand);
   cursor: pointer;
   flex: 0 0 auto;
@@ -103,7 +107,7 @@
 .projects-grid-card {
   background: linear-gradient(180deg, rgba(16, 16, 13, 0.96), rgba(8, 8, 6, 0.98));
   border: 1px solid var(--projects-border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-card);
   overflow: hidden;
   transition: border-color 220ms ease;
 }
@@ -275,7 +279,7 @@
   align-items: center;
   background: linear-gradient(135deg, #4b4326, #6f602f);
   border: 1px solid rgba(212, 193, 172, 0.28);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-card);
   display: grid;
   gap: 24px;
   grid-template-columns: auto 1fr auto;
@@ -367,7 +371,7 @@
 
 .project-drawer-image {
   aspect-ratio: 4 / 3;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-image);
   display: block;
   object-fit: cover;
   width: 100%;
@@ -402,7 +406,8 @@
 
 @media (max-width: 767px) {
   .projects-shell {
-    padding: var(--space-5) var(--page-gutter) var(--section-space-sm);
+    border-radius: var(--radius-mobile-card);
+    padding: 18px;
   }
 
   .projects-nav {

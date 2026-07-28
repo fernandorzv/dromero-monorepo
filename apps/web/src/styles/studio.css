@@ -40,13 +40,6 @@
 .studio-hero {
   background: #15150f;
   color: #fff;
-  display: grid;
-  grid-template-rows: auto 1fr;
-  margin: 20px auto 0;
-  max-width: var(--container-hero);
-  min-height: clamp(34rem, 76svh, 58rem);
-  overflow: hidden;
-  position: relative;
 }
 
 .studio-hero__image,
@@ -455,7 +448,7 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023.98px) {
   .studio-process__timeline {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     row-gap: 48px;
@@ -624,98 +617,6 @@
 
   .studio-statement {
     min-height: 380px;
-  }
-}
-
-
-/* Shared desktop alignment polish */
-@media (min-width: 1024px) {
-  .services-container,
-  .studio-container,
-  .contact-container {
-    width: min(calc(100% - 64px), var(--desktop-container-small, 1140px));
-  }
-
-  .services-hero,
-  .studio-hero,
-  .contact-hero {
-    border-radius: var(--desktop-card-radius, 16px);
-    margin-top: 32px;
-    max-width: none;
-    min-height: min(78svh, 680px);
-    width: min(calc(100% - 64px), var(--desktop-container-small, 1140px));
-  }
-
-  .services-nav,
-  .studio-nav,
-  .contact-nav {
-    padding: 0 var(--desktop-gutter-small, 32px);
-  }
-
-  .services-section,
-  .studio-section,
-  .contact-section {
-    padding-bottom: clamp(52px, 5vw, 72px);
-    padding-top: clamp(52px, 5vw, 72px);
-  }
-}
-
-@media (min-width: 1280px) and (max-width: 1439px) {
-  .services-container,
-  .studio-container,
-  .contact-container,
-  .services-hero,
-  .studio-hero,
-  .contact-hero {
-    width: min(calc(100% - 80px), var(--desktop-container-medium, 1280px));
-  }
-
-  .services-nav,
-  .studio-nav,
-  .contact-nav {
-    padding-inline: var(--desktop-gutter-medium, 40px);
-  }
-}
-
-@media (min-width: 1440px) {
-  .services-container,
-  .studio-container,
-  .contact-container,
-  .services-hero,
-  .studio-hero,
-  .contact-hero {
-    width: min(calc(100% - 112px), 1313px);
-  }
-
-  .services-nav,
-  .studio-nav,
-  .contact-nav {
-    padding-inline: var(--desktop-gutter-large, 56px);
-  }
-}
-
-@media (min-width: 1920px) {
-  .services-container,
-  .studio-container,
-  .contact-container,
-  .services-hero,
-  .studio-hero,
-  .contact-hero {
-    width: min(calc(100% - 128px), 1312px);
-  }
-
-  .services-nav,
-  .studio-nav,
-  .contact-nav {
-    padding-inline: var(--desktop-gutter-xl, 64px);
-  }
-}
-
-@media (min-width: 1024px) and (max-height: 800px) {
-  .services-hero,
-  .studio-hero,
-  .contact-hero {
-    min-height: 620px;
   }
 }
 

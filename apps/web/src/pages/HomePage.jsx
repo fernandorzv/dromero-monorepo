@@ -10,13 +10,16 @@ function HomePage({ copy, language, languageLabels, onLanguageChange }) {
   return (
     <>
       <main className="gate1-page">
-      <section className="hero-shell" aria-label={home.heroAria}>
+      <section className="hero-shell page-hero page-hero--home" aria-label={home.heroAria}>
         <ResponsiveImage
           alt={home.heroImageAlt}
           className="hero-image"
           fetchPriority="high"
+          height={941}
           loading="eager"
+          sizes="100vw"
           src={homeMedia.hero}
+          width={1672}
         />
         <div className="hero-overlay" aria-hidden="true" />
 
@@ -39,15 +42,15 @@ function HomePage({ copy, language, languageLabels, onLanguageChange }) {
         </div>
       </section>
 
-      <section className="overview-section home-project" id="home-project" aria-label={home.overviewAria}>
-        <article className="overview-left home-project__content">
-          <div className="thumb-rail" aria-label={home.thumbnailsAria}>
+      <section className="overview-section home-project home-featured-project" id="home-project" aria-label={home.overviewAria}>
+        <div className="home-featured-project__main">
+          <div className="thumb-rail home-featured-project__primary-media" aria-label={home.thumbnailsAria}>
             <div className="thumb-item">
-              <ResponsiveImage alt={home.thumbnailAlts[0]} src={homeMedia.thumbnails[0]} />
+              <ResponsiveImage alt={home.thumbnailAlts[0]} height={1024} sizes="(max-width: 1023px) 100vw, 40vw" src={homeMedia.thumbnails[0]} width={1536} />
             </div>
           </div>
 
-          <div className="home-project__story">
+          <div className="home-project__story home-featured-project__story">
             <p className="home-project__eyebrow">{home.featuredProject}</p>
             <h2>{home.overviewTitle}</h2>
             <p>{home.overviewText}</p>
@@ -56,21 +59,15 @@ function HomePage({ copy, language, languageLabels, onLanguageChange }) {
               <span aria-hidden="true">→</span>
             </Link>
           </div>
-        </article>
 
-        <article className="overview-right home-project__media-stack">
-          <div className="overview-preview">
-            <ResponsiveImage alt={home.overviewImageAlt} src={homeMedia.overview} />
-          </div>
-
-          <div className="home-project__metrics-panel">
+          <div className="home-project__metrics-panel home-featured-project__metrics">
             <ul className="kpi-list" aria-label={home.metricsAria}>
-            {home.metrics.map((metric) => (
-              <li key={metric.label}>
-                <strong>{metric.value}</strong>
-                <span>{metric.label}</span>
-              </li>
-            ))}
+              {home.metrics.map((metric) => (
+                <li key={metric.label}>
+                  <strong>{metric.value}</strong>
+                  <span>{metric.label}</span>
+                </li>
+              ))}
             </ul>
 
             <div className="review-row">
@@ -81,7 +78,11 @@ function HomePage({ copy, language, languageLabels, onLanguageChange }) {
               </button>
             </div>
           </div>
-        </article>
+        </div>
+
+        <div className="overview-preview home-featured-project__secondary-media">
+          <ResponsiveImage alt={home.overviewImageAlt} height={1086} sizes="(max-width: 1023px) 100vw, 80vw" src={homeMedia.overview} width={1448} />
+        </div>
       </section>
 
       <section className="recommend-section" aria-label={home.recommendationAria}>
@@ -89,7 +90,10 @@ function HomePage({ copy, language, languageLabels, onLanguageChange }) {
           <ResponsiveImage
             alt={home.recommendationImageAlt}
             className="recommend-image"
+            height={1402}
+            sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 34vw"
             src={homeMedia.recommendation}
+            width={1122}
           />
           <div className="recommend-overlay" aria-hidden="true" />
           <p className="media-caption">{home.mediaCaption}</p>

@@ -28,7 +28,7 @@ function StudioPage({ copy, language, languageLabels, onLanguageChange }) {
   return (
     <>
       <main className="studio-page">
-        <section className="studio-hero" aria-label={studioProcess.hero.sectionAria}>
+        <section className="studio-hero page-hero page-hero--center" aria-label={studioProcess.hero.sectionAria}>
           <ResponsiveImage
             alt={studioProcess.hero.imageAlt}
             className="studio-hero__image"
@@ -249,11 +249,11 @@ function StudioPage({ copy, language, languageLabels, onLanguageChange }) {
           <h2>{studioProcess.statement.text}</h2>
         </section>
 
-        <section className="studio-cta studio-section">
+        <section className="studio-cta studio-section cta-section cta-section--light">
           <div className="studio-container">
             <h2>{studioProcess.cta.title}</h2>
             <p>{studioProcess.cta.body}</p>
-            <Link className="studio-cta__button" to="/contact">
+            <Link className="studio-cta__button button button--outline" to="/contact">
               {studioProcess.cta.button}
             </Link>
           </div>

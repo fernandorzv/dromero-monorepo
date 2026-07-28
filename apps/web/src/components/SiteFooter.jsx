@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom'
 import symetrisHomeLogo from '../images/RA-LogoB.png'
-import footerSignatureLogo from '../images/footer-signature.png'
 import {
   footerContact,
   footerNavigation,
@@ -109,9 +108,6 @@ function SiteFooter({ copy }) {
 
       <div className="site-footer__bottom">
         <p>© {currentYear} {footer.legal}</p>
-        <div className="site-footer__closing">
-          <img src={footerSignatureLogo} alt={footer.closingStatement} />
-        </div>
       </div>
     </footer>
   )

@@ -12,7 +12,7 @@ function ServicesPage({ copy, language, languageLabels, onLanguageChange }) {
   return (
     <>
       <main className="services-page">
-        <section className="services-hero" aria-label={services.hero.sectionAria}>
+        <section className="services-hero page-hero page-hero--center" aria-label={services.hero.sectionAria}>
           <ResponsiveImage
             alt={services.hero.imageAlt}
             className="services-hero__image"
@@ -133,11 +133,11 @@ function ServicesPage({ copy, language, languageLabels, onLanguageChange }) {
           <h2>{services.statement.text}</h2>
         </section>
 
-        <section className="services-cta services-section">
+        <section className="services-cta services-section cta-section cta-section--light">
           <div className="services-container">
             <h2>{services.cta.title}</h2>
             <p>{services.cta.body}</p>
-            <Link className="services-cta__button" to="/contact">
+            <Link className="services-cta__button button button--outline" to="/contact">
               {services.cta.button}
             </Link>
           </div>

@@ -46,7 +46,7 @@ function ContactPage({ copy, language, languageLabels, onLanguageChange }) {
   return (
     <>
       <main className="contact-page">
-        <section className="contact-hero" aria-label={contact.hero.sectionAria}>
+        <section className="contact-hero page-hero page-hero--center" aria-label={contact.hero.sectionAria}>
           <ResponsiveImage
             alt={contact.hero.imageAlt}
             className="contact-hero__image"
@@ -208,7 +208,7 @@ function ContactPage({ copy, language, languageLabels, onLanguageChange }) {
           </div>
         </section>
 
-        <section className="contact-cta" aria-label={contact.cta.sectionAria}>
+        <section className="contact-cta cta-section cta-section--image" aria-label={contact.cta.sectionAria}>
           <ResponsiveImage
             alt={contact.cta.imageAlt}
             className="contact-cta__image"
@@ -221,7 +221,7 @@ function ContactPage({ copy, language, languageLabels, onLanguageChange }) {
           <div className="contact-cta__content">
             <h2>{contact.cta.title}</h2>
             <p>{contact.cta.body}</p>
-            <button className="contact-cta__button" onClick={focusContactForm} type="button">
+            <button className="contact-cta__button button button--light" onClick={focusContactForm} type="button">
               {contact.cta.button}
             </button>
           </div>

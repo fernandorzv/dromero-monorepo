@@ -208,7 +208,7 @@ function ProjectsPage({ copy, language, languageLabels, onLanguageChange }) {
             ) : null}
           </section>
 
-          <section className="projects-cta" aria-label={projects.cta.sectionAria}>
+          <section className="projects-cta cta-section cta-section--olive" aria-label={projects.cta.sectionAria}>
             <FaEnvelope aria-hidden="true" focusable="false" />
             <div>
               <h2>{projects.cta.title}</h2>
