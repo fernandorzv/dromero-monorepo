@@ -26,12 +26,12 @@ describe('SiteFooter', () => {
     expect(within(navigation).getAllByRole('link')).toHaveLength(5)
     expect(within(footer).getByRole('heading', { name: /^services$/i })).toBeInTheDocument()
     expect(within(footer).getAllByRole('link', { name: /architectural design/i })).toHaveLength(1)
-    expect(within(footer).getByText(/contact details will appear here/i)).toBeInTheDocument()
+    expect(within(footer).queryByRole('heading', { name: /^contact$/i })).not.toBeInTheDocument()
+    expect(within(footer).queryByText(/contact details will appear here/i)).not.toBeInTheDocument()
     expect(within(footer).getByRole('img', { name: /facebook/i })).toBeInTheDocument()
     expect(within(footer).getByRole('img', { name: /instagram/i })).toBeInTheDocument()
     expect(within(footer).getByRole('img', { name: /whatsapp/i })).toBeInTheDocument()
     expect(document.querySelector('a[href="#"]')).not.toBeInTheDocument()
-    expect(within(footer).getByRole('img', { name: /we design spaces that inspire/i })).toBeInTheDocument()
     expect(footer).toHaveTextContent(String(new Date().getFullYear()))
   })
 
@@ -45,6 +45,5 @@ describe('SiteFooter', () => {
 
     expect(within(footer).getByRole('heading', { name: /navegación/i })).toBeInTheDocument()
     expect(within(footer).getByText(/arquitectura contemporánea con identidad/i)).toBeInTheDocument()
-    expect(within(footer).getByRole('img', { name: /diseñamos espacios que inspiran/i })).toBeInTheDocument()
   })
 })

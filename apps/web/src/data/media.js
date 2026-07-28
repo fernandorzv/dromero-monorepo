@@ -2,8 +2,6 @@ import homeHero from '../assets/home/home-hero.png'
 import homeOverview from '../assets/home/home-overview.png'
 import homeRecommendation from '../assets/home/home-recommendation.png'
 import homeThumb01 from '../assets/home/home-thumb-01.png'
-import homeThumb02 from '../assets/home/home-thumb-02.png'
-import homeThumb03 from '../assets/home/home-thumb-03.png'
 import contactCtaBanner from '../assets/contact/contact-cta-banner.png'
 import contactHero from '../assets/contact/contact-hero.png'
 import contactSupport from '../assets/contact/contact-support.png'
@@ -38,7 +36,7 @@ import residentialSingleFamily from '../assets/projects/residential/project-resi
 
 export const homeMedia = {
   hero: homeHero,
-  thumbnails: [homeThumb01, homeThumb02, homeThumb03],
+  thumbnails: [homeThumb01],
   overview: homeOverview,
   recommendation: homeRecommendation
 }

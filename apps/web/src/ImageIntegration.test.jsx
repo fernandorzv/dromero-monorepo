@@ -19,8 +19,6 @@ describe('local architectural imagery', () => {
 
     const supportingImages = [
       screen.getByAltText(/exterior entrance of a contemporary residence/i),
-      screen.getByAltText(/tropical interior courtyard with a central tree/i),
-      screen.getByAltText(/floating wooden staircase beside an interior garden/i),
       screen.getByAltText(/residential terrace opening toward a tropical landscape/i),
       screen.getByAltText(/contemporary residence with a terrace, natural stone/i)
     ]

@@ -2527,7 +2527,7 @@ button {
 
 @media (min-width: 1280px) and (max-width: 1439px) {
   .gate1-page {
-    max-width: var(--desktop-container-medium);
+    max-width: none;
     padding-inline: var(--desktop-gutter-medium);
   }
 
@@ -2575,6 +2575,45 @@ button {
   .nav-link::after,
   .home-project__action span {
     transition: none;
+  }
+}
+
+
+
+/* Desktop polish follow-up */
+@media (min-width: 1024px) {
+  .language-toggle__item,
+  .language-toggle__button,
+  .language-toggle__separator {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .language-toggle__item {
+    min-height: var(--desktop-control-height);
+  }
+
+  .recommend-image {
+    filter: saturate(1.08) contrast(1.06);
+    object-position: center 46%;
+  }
+
+  .recommend-overlay {
+    background:
+      linear-gradient(0deg, rgba(0, 0, 0, 0.76) 0%, rgba(0, 0, 0, 0.36) 30%, rgba(0, 0, 0, 0.06) 66%),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.08), transparent 38%);
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --desktop-display: 4.75rem;
+  }
+
+  .hero-copy h1 {
+    max-width: 640px;
   }
 }
 

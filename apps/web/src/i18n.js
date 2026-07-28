@@ -5,7 +5,7 @@ const translations = {
     nav: {
       home: 'Home',
       service: 'Services',
-      project: 'Project',
+      project: 'Projects',
       team: 'Studio',
       contact: 'Contact'
     },
@@ -43,9 +43,9 @@ const translations = {
         'In our eco-nature-themed architecture project, we integrate natural elements such as wood, stone, and natural lighting to create a soothing and refreshing environment.',
       metricsAria: 'Project metrics',
       metrics: [
-        { value: '150+', label: 'Master Design' },
-        { value: '1200+', label: 'Happy Client' },
-        { value: '5000+', label: 'Project Finished' }
+        { value: '150+', label: 'Concept designs' },
+        { value: '1200+', label: 'Client interactions' },
+        { value: '5000+', label: 'Project decisions' }
       ],
       reviews: 'See Reviews',
       recommendationAria: 'Recommendation section',
@@ -507,9 +507,9 @@ const translations = {
         'En nuestro proyecto de arquitectura eco-natural integramos madera, piedra e iluminación natural para crear un ambiente sereno, fresco y acogedor.',
       metricsAria: 'Métricas del proyecto',
       metrics: [
-        { value: '150+', label: 'Diseños maestros' },
-        { value: '1200+', label: 'Clientes satisfechos' },
-        { value: '5000+', label: 'Proyectos terminados' }
+        { value: '150+', label: 'Diseños conceptuales' },
+        { value: '1200+', label: 'Interacciones con clientes' },
+        { value: '5000+', label: 'Decisiones de proyecto' }
       ],
       reviews: 'Ver reseñas',
       recommendationAria: 'Sección de recomendaciones',

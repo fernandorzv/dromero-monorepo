@@ -16,7 +16,7 @@ function SiteFooter({ copy }) {
 
   return (
     <footer className="site-footer">
-      <div className="site-footer__main">
+      <div className={activeContact.length > 0 ? 'site-footer__main' : 'site-footer__main site-footer__main--compact'}>
         <div className="site-footer__brand">
           <NavLink className="site-footer__logo" to="/" aria-label={common.homeAria}>
             <img src={symetrisHomeLogo} alt={footer.logoAlt} />
@@ -88,10 +88,9 @@ function SiteFooter({ copy }) {
           </ul>
         </section>
 
-        <address className="site-footer__contact">
-          <h2 className="site-footer__heading">{footer.contactTitle}</h2>
-
-          {activeContact.length > 0 ? (
+        {activeContact.length > 0 ? (
+          <address className="site-footer__contact">
+            <h2 className="site-footer__heading">{footer.contactTitle}</h2>
             <ul className="site-footer__contact-list">
               {activeContact.map((item) => {
                 const Icon = item.icon
@@ -104,10 +103,8 @@ function SiteFooter({ copy }) {
                 )
               })}
             </ul>
-          ) : (
-            <p className="site-footer__unavailable">{footer.contactUnavailable}</p>
-          )}
-        </address>
+          </address>
+        ) : null}
       </div>
 
       <div className="site-footer__bottom">

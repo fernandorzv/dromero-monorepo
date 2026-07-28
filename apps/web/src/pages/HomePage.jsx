@@ -42,17 +42,9 @@ function HomePage({ copy, language, languageLabels, onLanguageChange }) {
       <section className="overview-section home-project" id="home-project" aria-label={home.overviewAria}>
         <article className="overview-left home-project__content">
           <div className="thumb-rail" aria-label={home.thumbnailsAria}>
-            {homeMedia.thumbnails.map((image, index) => (
-              <div className="thumb-item" key={image}>
-                <ResponsiveImage alt={home.thumbnailAlts[index]} src={image} />
-              </div>
-            ))}
-            <button className="thumb-arrow" type="button" aria-label={home.previousThumbnail}>
-              ‹
-            </button>
-            <button className="thumb-arrow" type="button" aria-label={home.nextThumbnail}>
-              ›
-            </button>
+            <div className="thumb-item">
+              <ResponsiveImage alt={home.thumbnailAlts[0]} src={homeMedia.thumbnails[0]} />
+            </div>
           </div>
 
           <div className="home-project__story">

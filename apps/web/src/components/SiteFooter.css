@@ -426,3 +426,18 @@
     width: min(calc(100% - 128px), var(--desktop-container-large, 1440px));
   }
 }
+
+
+/* Desktop footer compact state */
+@media (min-width: 1024px) {
+  .site-footer__main--compact {
+    grid-template-columns: minmax(300px, 1.1fr) minmax(180px, 0.6fr);
+  }
+}
+
+@media (min-width: 1920px) {
+  .site-footer__main,
+  .site-footer__bottom {
+    width: min(calc(100% - 128px), 1312px);
+  }
+}
