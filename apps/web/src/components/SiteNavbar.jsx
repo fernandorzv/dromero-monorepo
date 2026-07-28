@@ -36,6 +36,11 @@ function SiteNavbar({
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
     closeButtonRef.current?.focus()
+    const focusTimers = [0, 80].map((delay) =>
+      window.setTimeout(() => {
+        closeButtonRef.current?.focus()
+      }, delay)
+    )
 
     function handleKeyDown(event) {
       if (event.key === 'Escape') {
@@ -47,6 +52,7 @@ function SiteNavbar({
     window.addEventListener('keydown', handleKeyDown)
 
     return () => {
+      focusTimers.forEach((focusTimer) => window.clearTimeout(focusTimer))
       document.body.style.overflow = previousOverflow
       window.removeEventListener('keydown', handleKeyDown)
     }

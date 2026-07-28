@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, within } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import App from './App'
 
 const originalLanguages = Object.getOwnPropertyDescriptor(window.navigator, 'languages')
@@ -17,6 +17,7 @@ afterAll(() => {
 })
 
 beforeEach(() => {
+  window.history.pushState({}, '', '/')
   window.localStorage.clear()
   setBrowserLanguages(['en-US'])
 })
@@ -59,8 +60,8 @@ describe('App', () => {
     ).toBeInTheDocument()
   })
 
-  it('opens and closes the mobile navigation accessibly', () => {
-    render(<App />)
+  it('opens, closes, and restores the mobile navigation accessibly', async () => {
+    const { unmount } = render(<App />)
 
     const openButton = screen.getByRole('button', { name: /open navigation menu/i })
 
@@ -69,12 +70,28 @@ describe('App', () => {
     fireEvent.click(openButton)
 
     expect(openButton).toHaveAttribute('aria-expanded', 'true')
-    expect(screen.getByRole('button', { name: /close navigation menu/i })).toHaveFocus()
+    expect(document.body.style.overflow).toBe('hidden')
+    await waitFor(() => expect(screen.getByRole('button', { name: /close navigation menu/i })).toHaveFocus())
+    expect(within(screen.getByRole('navigation', { name: /primary/i })).getByRole('link', { name: /services/i })).toBeInTheDocument()
 
     fireEvent.keyDown(window, { key: 'Escape' })
 
     expect(openButton).toHaveAttribute('aria-expanded', 'false')
     expect(openButton).toHaveFocus()
+    expect(document.body.style.overflow).toBe('')
+
+    fireEvent.click(openButton)
+    fireEvent.click(within(screen.getByRole('navigation', { name: /primary/i })).getByRole('link', { name: /services/i }))
+
+    expect(screen.getByRole('heading', { level: 1, name: /^services$/i })).toBeInTheDocument()
+    const routedOpenButton = screen.getByRole('button', { name: /open navigation menu/i })
+    expect(routedOpenButton).toHaveAttribute('aria-expanded', 'false')
+    expect(document.body.style.overflow).toBe('')
+
+    fireEvent.click(routedOpenButton)
+    expect(document.body.style.overflow).toBe('hidden')
+    unmount()
+    expect(document.body.style.overflow).toBe('')
   })
   it('switches home page copy to Spanish', () => {
     render(<App />)
