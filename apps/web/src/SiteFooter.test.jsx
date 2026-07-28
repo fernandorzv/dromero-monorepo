@@ -28,11 +28,21 @@ describe('SiteFooter', () => {
     expect(within(footer).getAllByRole('link', { name: /architectural design/i })).toHaveLength(1)
     expect(within(footer).queryByRole('heading', { name: /^contact$/i })).not.toBeInTheDocument()
     expect(within(footer).queryByText(/contact details will appear here/i)).not.toBeInTheDocument()
+    expect(document.querySelector('.site-footer__closing')).not.toBeInTheDocument()
     expect(within(footer).getByRole('img', { name: /facebook/i })).toBeInTheDocument()
     expect(within(footer).getByRole('img', { name: /instagram/i })).toBeInTheDocument()
     expect(within(footer).getByRole('img', { name: /whatsapp/i })).toBeInTheDocument()
     expect(document.querySelector('a[href="#"]')).not.toBeInTheDocument()
     expect(footer).toHaveTextContent(String(new Date().getFullYear()))
+  })
+
+  it('keeps a single footer logo lockup and no duplicate legal block', () => {
+    window.history.pushState({}, '', '/projects')
+    render(<App />)
+
+    const footer = screen.getByRole('contentinfo')
+    expect(within(footer).getAllByRole('link', { name: /symetris home/i })).toHaveLength(1)
+    expect(within(footer).getAllByText(/all rights reserved/i)).toHaveLength(1)
   })
 
   it('switches all footer copy to Spanish', () => {

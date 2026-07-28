@@ -99,6 +99,33 @@ describe('App', () => {
     ).toBeInTheDocument()
   })
 
+  it('renders the stable Home featured-project structure', () => {
+    render(<App />)
+
+    const section = document.querySelector('.home-featured-project')
+    const main = section?.querySelector('.home-featured-project__main')
+    const primary = section?.querySelector('.home-featured-project__primary-media')
+    const story = section?.querySelector('.home-featured-project__story')
+    const metrics = section?.querySelector('.home-featured-project__metrics')
+    const secondary = section?.querySelector('.home-featured-project__secondary-media')
+
+    expect(section).toBeInTheDocument()
+    expect(main).toBeInTheDocument()
+    expect(primary).toBeInTheDocument()
+    expect(story).toBeInTheDocument()
+    expect(metrics).toBeInTheDocument()
+    expect(secondary).toBeInTheDocument()
+    expect(main?.children).toHaveLength(3)
+  })
+
+  it('keeps locale selector controls in Navbar', () => {
+    render(<App />)
+
+    expect(screen.getByRole('group', { name: /language selector/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /switch language to español/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /current language: english/i })).toBeInTheDocument()
+  })
+
   it('renders gate 3 recommendation heading', () => {
     render(<App />)
 
@@ -134,6 +161,14 @@ describe('App', () => {
       })
     ).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /comercial/i })).toBeInTheDocument()
+  })
+
+  it('renders projects content inside the dark projects shell', () => {
+    render(<App />)
+
+    fireEvent.click(within(screen.getByRole('navigation', { name: /primary/i })).getByRole('link', { name: /project/i }))
+
+    expect(document.querySelector('.projects-shell')).toBeInTheDocument()
   })
 
   it('filters by tab and opens details drawer', () => {

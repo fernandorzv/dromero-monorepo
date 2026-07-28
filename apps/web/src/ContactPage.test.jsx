@@ -20,6 +20,9 @@ describe('Contact page', () => {
     expect(screen.getByLabelText(/^phone$/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/project type/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/^message$/i)).toBeInTheDocument()
+    expect(screen.getByRole('combobox', { name: /project type/i })).toHaveDisplayValue(
+      /select a project type/i
+    )
     expect(screen.getByRole('button', { name: /send message/i })).toBeDisabled()
 
     const hero = screen.getByAltText(/contemporary stone residence illuminated at dusk/i)
