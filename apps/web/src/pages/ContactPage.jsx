@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   FaEnvelope,
@@ -29,6 +30,19 @@ const projectTypeOptions = [
 
 function ContactPage({ copy, language, languageLabels, onLanguageChange }) {
   const { common, contact, nav } = copy
+  const [submissionState, setSubmissionState] = useState('idle')
+
+  function handleDemoSubmit(event) {
+    event.preventDefault()
+
+    if (!event.currentTarget.checkValidity()) {
+      event.currentTarget.reportValidity()
+      setSubmissionState('invalid')
+      return
+    }
+
+    setSubmissionState('success')
+  }
 
   return (
     <>
@@ -82,7 +96,7 @@ function ContactPage({ copy, language, languageLabels, onLanguageChange }) {
             <form
               className="contact-form"
               aria-label={contact.form.formAria}
-              onSubmit={(event) => event.preventDefault()}
+              onSubmit={handleDemoSubmit}
             >
               <div className="contact-field">
                 <label htmlFor="contact-full-name">{contact.form.fullName}</label>
@@ -125,16 +139,11 @@ function ContactPage({ copy, language, languageLabels, onLanguageChange }) {
               </div>
 
               <div className="contact-form__actions">
-                <button
-                  className="contact-form__submit"
-                  aria-describedby="contact-form-notice"
-                  disabled
-                  type="submit"
-                >
+                <button className="contact-form__submit" aria-describedby="contact-form-notice" type="submit">
                   {contact.form.submit}
                 </button>
-                <p className="contact-form__notice" id="contact-form-notice">
-                  {contact.form.integrationNotice}
+                <p className="contact-form__notice" id="contact-form-notice" role="status" aria-live="polite">
+                  {submissionState === 'success' ? contact.form.demoSuccess : contact.form.integrationNotice}
                 </p>
               </div>
             </form>

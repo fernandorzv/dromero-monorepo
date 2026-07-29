@@ -395,7 +395,9 @@ const translations = {
         message: 'Message',
         submit: 'Send message',
         integrationNotice:
-          'Message delivery will be enabled after a verified contact endpoint is provided.',
+          'Demo mode: the form validates locally and does not send data to a backend yet.',
+        demoSuccess:
+          'Demo: the form was validated successfully. The send integration will be configured in the final implementation.',
         options: {
           residential: 'Residential',
           commercial: 'Commercial',
@@ -860,7 +862,9 @@ const translations = {
         message: 'Mensaje',
         submit: 'Enviar mensaje',
         integrationNotice:
-          'El envío de mensajes se habilitará cuando se proporcione un canal de contacto verificado.',
+          'Modo demostración: el formulario valida localmente y todavía no envía datos a un backend.',
+        demoSuccess:
+          'Demostración: el formulario fue validado correctamente. La integración de envío se configura en la implementación final.',
         options: {
           residential: 'Residencial',
           commercial: 'Comercial',

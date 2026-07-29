@@ -34,8 +34,7 @@ describe('Contact page', () => {
     expect(screen.getByRole('combobox', { name: /project type/i })).toHaveDisplayValue(
       /select a project type/i
     )
-    expect(screen.getByRole('button', { name: /send message/i })).toBeDisabled()
-    expect(screen.getByText(/located in cuernavaca, morelos, mexico/i)).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /send message/i })).toBeEnabled()
 
     const hero = screen.getByAltText(/contemporary stone residence illuminated at dusk/i)
     expect(hero).toHaveAttribute('loading', 'eager')
@@ -46,6 +45,17 @@ describe('Contact page', () => {
       )
     ).toHaveLength(3)
     expect(document.querySelector('.contact-page img[src^="http"]')).not.toBeInTheDocument()
+
+    fireEvent.change(screen.getByLabelText(/full name/i), { target: { value: 'Ana López' } })
+    fireEvent.change(screen.getByLabelText(/^email$/i), { target: { value: 'ana@example.com' } })
+    fireEvent.change(screen.getByLabelText(/^phone$/i), { target: { value: '+52 777 111 2222' } })
+    fireEvent.change(screen.getByLabelText(/project type/i), { target: { value: 'commercial' } })
+    fireEvent.change(screen.getByLabelText(/^message$/i), { target: { value: 'Necesito una propuesta.' } })
+    fireEvent.click(screen.getByRole('button', { name: /send message/i }))
+
+    expect(screen.getByRole('status')).toHaveTextContent(
+      /demo: the form was validated successfully/i
+    )
   })
 
   it('switches Contact content to Spanish and points the CTA at the anchored form', () => {

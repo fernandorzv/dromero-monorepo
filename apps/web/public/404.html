@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        var pathname = window.location.pathname
+        var parts = pathname.split('/')
+        var baseName = parts.length > 2 ? '/' + parts[1] + '/' : '/'
+
+        if (baseName === '/') {
+          return
+        }
+
+        var redirectPath = pathname.startsWith(baseName) ? pathname.replace(baseName, '/') : '/'
+        if (!redirectPath || redirectPath === '/404.html') {
+          redirectPath = '/'
+        }
+
+        window.sessionStorage.setItem('dromero-github-pages-redirect', redirectPath + window.location.search + window.location.hash)
+        window.location.replace(baseName)
+      })()
+    </script>
+    <title>D’Romero Arquitectura</title>
+  </head>
+  <body></body>
+</html>
