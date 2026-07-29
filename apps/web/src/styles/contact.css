@@ -20,6 +20,10 @@
   padding-top: var(--section-space-md);
 }
 
+#contact-form {
+  scroll-margin-top: calc(var(--navbar-height) + 24px);
+}
+
 .contact-section h2 {
   font-size: var(--font-section-title);
   font-weight: 500;

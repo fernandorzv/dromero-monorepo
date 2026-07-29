@@ -138,7 +138,7 @@ function ServicesPage({ copy, language, languageLabels, onLanguageChange }) {
           <div className="services-container">
             <h2>{services.cta.title}</h2>
             <p>{services.cta.body}</p>
-            <Link className="services-cta__button button button--outline" to="/contact">
+            <Link className="services-cta__button button button--outline" to="/contact#contact-form">
               {services.cta.button}
             </Link>
           </div>

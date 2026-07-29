@@ -1,21 +1,37 @@
 import { NavLink } from 'react-router-dom'
+import { FaEnvelope, FaLocationDot, FaPhone } from 'react-icons/fa6'
 import symetrisHomeLogo from '../images/RA-LogoB.png'
-import {
-  footerContact,
-  footerNavigation,
-  footerServices,
-  footerSocials
-} from '../data/footer'
+import { studioContact } from '../data/contact'
+import { footerNavigation, footerSocials } from '../data/footer'
 import './SiteFooter.css'
 
 function SiteFooter({ copy }) {
-  const { common, footer, nav, services } = copy
+  const { common, footer, nav } = copy
   const currentYear = new Date().getFullYear()
-  const activeContact = footerContact.filter((item) => item.href && item.value)
+  const contactItems = [
+    {
+      href: `mailto:${studioContact.email}`,
+      icon: FaEnvelope,
+      id: 'email',
+      value: studioContact.email
+    },
+    {
+      href: studioContact.phoneHref,
+      icon: FaPhone,
+      id: 'phone',
+      value: studioContact.phoneDisplay
+    },
+    {
+      href: null,
+      icon: FaLocationDot,
+      id: 'location',
+      value: studioContact.location
+    }
+  ]
 
   return (
     <footer className="site-footer">
-      <div className={activeContact.length > 0 ? 'site-footer__main' : 'site-footer__main site-footer__main--compact'}>
+      <div className="site-footer__main">
         <div className="site-footer__brand">
           <NavLink className="site-footer__logo" to="/" aria-label={common.homeAria}>
             <img src={symetrisHomeLogo} alt={footer.logoAlt} />
@@ -71,39 +87,21 @@ function SiteFooter({ copy }) {
           </ul>
         </nav>
 
-        <section
-          className="site-footer__desktop-column site-footer__services"
-          aria-labelledby="site-footer-services-title"
-        >
-          <h2 className="site-footer__heading" id="site-footer-services-title">
-            {footer.servicesTitle}
-          </h2>
-          <ul className="site-footer__services-list">
-            {footerServices.map((service) => (
-              <li key={service}>
-                <NavLink to="/services">{services.areas.items[service].title}</NavLink>
+        <address className="site-footer__contact">
+          <h2 className="site-footer__heading">{footer.contactTitle}</h2>
+          <ul className="site-footer__contact-list">
+            {contactItems.map((item) => (
+              <li key={item.id}>
+                <item.icon aria-hidden="true" focusable="false" />
+                {item.href ? (
+                  <a href={item.href}>{item.value}</a>
+                ) : (
+                  <span>{item.value}</span>
+                )}
               </li>
             ))}
           </ul>
-        </section>
-
-        {activeContact.length > 0 ? (
-          <address className="site-footer__contact">
-            <h2 className="site-footer__heading">{footer.contactTitle}</h2>
-            <ul className="site-footer__contact-list">
-              {activeContact.map((item) => {
-                const Icon = item.icon
-
-                return (
-                  <li key={item.id}>
-                    <Icon aria-hidden="true" focusable="false" />
-                    <a href={item.href}>{item.value}</a>
-                  </li>
-                )
-              })}
-            </ul>
-          </address>
-        ) : null}
+        </address>
       </div>
 
       <div className="site-footer__bottom">

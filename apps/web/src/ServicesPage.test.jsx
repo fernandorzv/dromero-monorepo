@@ -30,7 +30,10 @@ describe('Services page', () => {
     expect(screen.getByRole('heading', { level: 1, name: /^servicios$/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /nuestro proceso/i })).toBeInTheDocument()
 
-    fireEvent.click(screen.getByRole('link', { name: /^contactar$/i }))
+    const contactLink = screen.getByRole('link', { name: /^contactar$/i })
+    expect(contactLink).toHaveAttribute('href', '/contact#contact-form')
+
+    fireEvent.click(contactLink)
 
     expect(screen.getByRole('heading', { level: 1, name: /^contacto$/i })).toBeInTheDocument()
   })

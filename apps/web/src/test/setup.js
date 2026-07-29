@@ -1,6 +1,12 @@
 import '@testing-library/jest-dom'
 import { vi } from 'vitest'
 
+window.scrollTo = vi.fn()
+
+if (!HTMLElement.prototype.scrollIntoView) {
+	HTMLElement.prototype.scrollIntoView = vi.fn()
+}
+
 if (!window.matchMedia) {
 	Object.defineProperty(window, 'matchMedia', {
 		writable: true,

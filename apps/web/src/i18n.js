@@ -421,9 +421,9 @@ const translations = {
       },
       map: {
         title: 'Where are we?',
-        locationPending: 'The verified studio location is pending confirmation.',
-        placeholderAria: 'Map placeholder awaiting a verified studio location',
-        placeholderText: 'Map available after location confirmation'
+        locationPending: 'Located in Cuernavaca, Morelos, Mexico.',
+        placeholderAria: 'Map for the verified studio location in Cuernavaca, Morelos, Mexico',
+        placeholderText: 'Cuernavaca, Morelos, Mexico'
       },
       cta: {
         sectionAria: 'Start a project',
@@ -886,10 +886,10 @@ const translations = {
       },
       map: {
         title: '¿Dónde estamos?',
-        locationPending: 'La ubicación verificada del estudio está pendiente de confirmación.',
+        locationPending: 'Ubicados en Cuernavaca, Morelos, México.',
         placeholderAria:
-          'Espacio para mapa pendiente de una ubicación verificada del estudio',
-        placeholderText: 'Mapa disponible al confirmar la ubicación'
+          'Mapa de la ubicación verificada del estudio en Cuernavaca, Morelos, México',
+        placeholderText: 'Cuernavaca, Morelos, México'
       },
       cta: {
         sectionAria: 'Iniciar un proyecto',

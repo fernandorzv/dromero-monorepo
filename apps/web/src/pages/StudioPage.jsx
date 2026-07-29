@@ -254,7 +254,7 @@ function StudioPage({ copy, language, languageLabels, onLanguageChange }) {
           <div className="studio-container">
             <h2>{studioProcess.cta.title}</h2>
             <p>{studioProcess.cta.body}</p>
-            <Link className="studio-cta__button button button--outline" to="/contact">
+            <Link className="studio-cta__button button button--outline" to="/contact#contact-form">
               {studioProcess.cta.button}
             </Link>
           </div>

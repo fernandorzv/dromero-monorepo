@@ -1,6 +1,5 @@
-import { useRef } from 'react'
+import { Link } from 'react-router-dom'
 import {
-  FaClock,
   FaEnvelope,
   FaLocationDot,
   FaMapLocationDot,
@@ -9,14 +8,14 @@ import {
 import ResponsiveImage from '../components/ResponsiveImage'
 import SiteFooter from '../components/SiteFooter'
 import SiteNavbar from '../components/SiteNavbar'
+import { studioContact } from '../data/contact'
 import { contactMedia } from '../data/media'
 import '../styles/contact.css'
 
 const contactInfoItems = [
-  { icon: FaEnvelope, id: 'email' },
-  { icon: FaPhone, id: 'phone' },
-  { icon: FaLocationDot, id: 'location' },
-  { icon: FaClock, id: 'schedule' }
+  { icon: FaEnvelope, href: `mailto:${studioContact.email}`, id: 'email', value: studioContact.email },
+  { icon: FaPhone, href: studioContact.phoneHref, id: 'phone', value: studioContact.phoneDisplay },
+  { icon: FaLocationDot, id: 'location', value: studioContact.location }
 ]
 
 const projectTypeOptions = [
@@ -29,19 +28,7 @@ const projectTypeOptions = [
 ]
 
 function ContactPage({ copy, language, languageLabels, onLanguageChange }) {
-  const formHeadingRef = useRef(null)
   const { common, contact, nav } = copy
-
-  function focusContactForm() {
-    const heading = formHeadingRef.current
-
-    if (!heading) {
-      return
-    }
-
-    heading.scrollIntoView?.({ behavior: 'smooth', block: 'start' })
-    heading.focus({ preventScroll: true })
-  }
 
   return (
     <>
@@ -76,12 +63,16 @@ function ContactPage({ copy, language, languageLabels, onLanguageChange }) {
           </div>
         </section>
 
-        <section className="contact-form-section contact-section" id="contact-form">
+        <section
+          className="contact-form-section contact-section"
+          id="contact-form"
+          aria-labelledby="contact-form-title"
+        >
           <div className="contact-container contact-form-section__grid">
             <div className="contact-intro">
               <div className="contact-intro__line" aria-hidden="true" />
               <div>
-                <h2 ref={formHeadingRef} tabIndex="-1">
+                <h2 id="contact-form-title">
                   {contact.intro.title}
                 </h2>
                 <p>{contact.intro.body}</p>
@@ -154,7 +145,6 @@ function ContactPage({ copy, language, languageLabels, onLanguageChange }) {
           <div className="contact-info__grid">
             <div className="contact-info__panel">
               <h2 id="contact-info-title">{contact.info.title}</h2>
-              <p className="contact-info__pending">{contact.info.pending}</p>
 
               <ul className="contact-info__list">
                 {contactInfoItems.map((item) => {
@@ -167,7 +157,13 @@ function ContactPage({ copy, language, languageLabels, onLanguageChange }) {
                         <span className="contact-info__label">
                           {contact.info.items[item.id]}
                         </span>
-                        <span className="contact-info__value">{contact.info.unavailable}</span>
+                        {item.href ? (
+                          <a className="contact-info__value" href={item.href}>
+                            {item.value}
+                          </a>
+                        ) : (
+                          <span className="contact-info__value">{item.value}</span>
+                        )}
                       </div>
                     </li>
                   )
@@ -222,9 +218,9 @@ function ContactPage({ copy, language, languageLabels, onLanguageChange }) {
           <div className="contact-cta__content">
             <h2>{contact.cta.title}</h2>
             <p>{contact.cta.body}</p>
-            <button className="contact-cta__button button button--light" onClick={focusContactForm} type="button">
+            <Link className="contact-cta__button button button--light" to="/contact#contact-form">
               {contact.cta.button}
-            </button>
+            </Link>
           </div>
         </section>
       </main>

@@ -8,6 +8,7 @@ import ContactPage from './pages/ContactPage'
 import ProjectsPage from './pages/ProjectsPage'
 import ServicesPage from './pages/ServicesPage'
 import StudioPage from './pages/StudioPage'
+import HashScrollHandler from './components/HashScrollHandler'
 
 const languageLabels = {
   en: { short: 'EN', name: 'English' },
@@ -25,6 +26,7 @@ function App() {
 
   return (
     <BrowserRouter basename={routerBaseName}>
+      <HashScrollHandler />
       <Routes>
         <Route
           path="/"

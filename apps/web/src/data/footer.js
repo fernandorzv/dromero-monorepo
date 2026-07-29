@@ -2,8 +2,6 @@ import {
   FaEnvelope,
   FaFacebookF,
   FaInstagram,
-  FaLocationDot,
-  FaPhone,
   FaWhatsapp
 } from 'react-icons/fa6'
 
@@ -29,10 +27,4 @@ export const footerSocials = [
   { href: null, icon: FaInstagram, id: 'instagram' },
   { href: null, icon: FaWhatsapp, id: 'whatsapp' },
   { href: null, icon: FaEnvelope, id: 'email' }
-]
-
-export const footerContact = [
-  { href: null, icon: FaEnvelope, id: 'email', value: null },
-  { href: null, icon: FaPhone, id: 'phone', value: null },
-  { href: null, icon: FaLocationDot, id: 'location', value: null }
 ]

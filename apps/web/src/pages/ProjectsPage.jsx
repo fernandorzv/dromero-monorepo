@@ -216,7 +216,7 @@ function ProjectsPage({ copy, language, languageLabels, onLanguageChange }) {
                 <h2>{projects.cta.title}</h2>
                 <p>{projects.cta.body}</p>
               </div>
-              <NavLink to="/contact">
+              <NavLink to="/contact#contact-form">
                 <span>{projects.cta.button}</span>
                 <span aria-hidden="true">→</span>
               </NavLink>

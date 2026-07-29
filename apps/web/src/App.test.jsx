@@ -209,6 +209,10 @@ describe('App', () => {
     fireEvent.click(within(screen.getByRole('navigation', { name: /primary/i })).getByRole('link', { name: /project/i }))
 
     expect(document.querySelector('.projects-shell')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /^contact us$/i })).toHaveAttribute(
+      'href',
+      '/contact#contact-form'
+    )
   })
 
   it('filters by tab and opens details drawer', () => {

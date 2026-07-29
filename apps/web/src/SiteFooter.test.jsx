@@ -1,5 +1,6 @@
 import { fireEvent, render, screen, within } from '@testing-library/react'
 import App from './App'
+import { studioContact } from './data/contact'
 
 beforeEach(() => {
   window.localStorage.clear()
@@ -22,13 +23,20 @@ describe('SiteFooter', () => {
 
     const footer = screen.getByRole('contentinfo')
     const navigation = within(footer).getByRole('navigation', { name: /footer navigation/i })
+    const contact = footer.querySelector('.site-footer__contact')
 
     expect(within(navigation).getAllByRole('link')).toHaveLength(5)
-    expect(within(footer).getByRole('heading', { name: /^services$/i })).toBeInTheDocument()
-    expect(within(footer).getAllByRole('link', { name: /architectural design/i })).toHaveLength(1)
-    expect(within(footer).queryByRole('heading', { name: /^contact$/i })).not.toBeInTheDocument()
-    expect(within(footer).queryByText(/contact details will appear here/i)).not.toBeInTheDocument()
-    expect(document.querySelector('.site-footer__closing')).not.toBeInTheDocument()
+    expect(within(footer).getByRole('heading', { name: /^contact$/i })).toBeInTheDocument()
+    expect(contact).toBeInTheDocument()
+    expect(within(contact).getByRole('link', { name: studioContact.email })).toHaveAttribute(
+      'href',
+      `mailto:${studioContact.email}`
+    )
+    expect(within(contact).getByRole('link', { name: studioContact.phoneDisplay })).toHaveAttribute(
+      'href',
+      studioContact.phoneHref
+    )
+    expect(within(contact).getByText(studioContact.location)).toBeInTheDocument()
     expect(within(footer).getByRole('img', { name: /facebook/i })).toBeInTheDocument()
     expect(within(footer).getByRole('img', { name: /instagram/i })).toBeInTheDocument()
     expect(within(footer).getByRole('img', { name: /whatsapp/i })).toBeInTheDocument()
@@ -54,6 +62,7 @@ describe('SiteFooter', () => {
     const footer = screen.getByRole('contentinfo')
 
     expect(within(footer).getByRole('heading', { name: /navegación/i })).toBeInTheDocument()
+    expect(within(footer).getByRole('heading', { name: /contacto/i })).toBeInTheDocument()
     expect(within(footer).getByText(/arquitectura contemporánea con identidad/i)).toBeInTheDocument()
   })
 })

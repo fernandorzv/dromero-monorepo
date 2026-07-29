@@ -46,7 +46,10 @@ describe('Studio and Process page', () => {
     ).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /cómo trabajamos/i })).toBeInTheDocument()
 
-    fireEvent.click(screen.getByRole('link', { name: /^contactar$/i }))
+    const contactLink = screen.getByRole('link', { name: /^contactar$/i })
+    expect(contactLink).toHaveAttribute('href', '/contact#contact-form')
+
+    fireEvent.click(contactLink)
 
     expect(screen.getByRole('heading', { level: 1, name: /^contacto$/i })).toBeInTheDocument()
   })
