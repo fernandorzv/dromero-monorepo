@@ -12,6 +12,7 @@ function SiteNavbar({
   common,
   language,
   languageLabels,
+  mode = 'overlay',
   nav,
   navigationAria,
   onLanguageChange
@@ -64,7 +65,7 @@ function SiteNavbar({
   }
 
   return (
-    <header className={`hero-nav site-navbar ${className}`.trim()} aria-label={navigationAria}>
+    <header className={`hero-nav site-navbar site-navbar--${mode} ${className}`.trim()} aria-label={navigationAria}>
       <NavLink className="brand" to="/" aria-label={common.homeAria} onClick={() => setIsMenuOpen(false)}>
         <img className="brand-logo" src={symetrisHomeLogo} alt={common.logoAlt} />
       </NavLink>
@@ -104,21 +105,23 @@ function SiteNavbar({
 
       {isMenuOpen ? <button aria-hidden="true" className="site-nav-backdrop" onClick={closeMenu} tabIndex={-1} type="button" /> : null}
 
-      <LanguageToggle labels={languageLabels} language={language} onChange={onLanguageChange} />
+      <div className="site-navbar__actions">
+        <LanguageToggle labels={languageLabels} language={language} onChange={onLanguageChange} />
 
-      <button
-        aria-controls={panelId}
-        aria-expanded={isMenuOpen}
-        aria-label={common.openMenu}
-        className="mobile-menu-button"
-        onClick={() => setIsMenuOpen(true)}
-        ref={menuButtonRef}
-        type="button"
-      >
-        <span aria-hidden="true" />
-        <span aria-hidden="true" />
-        <span aria-hidden="true" />
-      </button>
+        <button
+          aria-controls={panelId}
+          aria-expanded={isMenuOpen}
+          aria-label={common.openMenu}
+          className="mobile-menu-button site-navbar__menu-button"
+          onClick={() => setIsMenuOpen(true)}
+          ref={menuButtonRef}
+          type="button"
+        >
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+        </button>
+      </div>
     </header>
   )
 }

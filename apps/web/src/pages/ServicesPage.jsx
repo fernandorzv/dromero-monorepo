@@ -30,6 +30,7 @@ function ServicesPage({ copy, language, languageLabels, onLanguageChange }) {
             common={common}
             language={language}
             languageLabels={languageLabels}
+            mode="overlay"
             nav={nav}
             navigationAria={services.navigationAria}
             onLanguageChange={onLanguageChange}

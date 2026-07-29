@@ -143,82 +143,85 @@ function ProjectsPage({ copy, language, languageLabels, onLanguageChange }) {
             common={common}
             language={language}
             languageLabels={languageLabels}
+            mode="dark"
             nav={nav}
             navigationAria={projects.navigationAria}
             onLanguageChange={onLanguageChange}
           />
 
-          <section className="projects-intro" aria-label={projects.introAria}>
-            <h1>{projects.header.title}</h1>
-            <p>{projects.header.statement}</p>
-          </section>
+          <div className="projects-shell__content">
+            <section className="projects-intro" aria-label={projects.introAria}>
+              <h1>{projects.header.title}</h1>
+              <p>{projects.header.statement}</p>
+            </section>
 
-          <div className="projects-toolbar">
-            <div className="projects-filter-list" aria-label={projects.categoriesAria}>
-              {categoryFilters.map((category) => (
-                <button
-                  aria-pressed={selectedCategory === category.id}
-                  className={`projects-filter-tab${
-                    selectedCategory === category.id ? ' projects-filter-active' : ''
-                  }`}
-                  key={category.id}
-                  onClick={() => setSelectedCategory(category.id)}
-                  type="button"
-                >
-                  {category.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <section className="projects-showcase" aria-label={projects.showcaseAria}>
-            {featuredProject ? (
-              <FeaturedProject
-                categoryLabel={projects.filters[featuredProject.category]}
-                onOpen={(event) => openProject(featuredProject, event)}
-                project={featuredProject}
-                projectCopy={getProjectCopy(projects, featuredProject)}
-                projectsCopy={projects}
-              />
-            ) : null}
-
-            {secondaryProject ? (
-              <SecondaryProject
-                categoryLabel={projects.filters[secondaryProject.category]}
-                onOpen={(event) => openProject(secondaryProject, event)}
-                project={secondaryProject}
-                projectCopy={getProjectCopy(projects, secondaryProject)}
-                projectsCopy={projects}
-              />
-            ) : null}
-
-            {gridProjects.length > 0 ? (
-              <div className="projects-grid" aria-label={projects.gridAria}>
-                {gridProjects.map((project) => (
-                  <ProjectCard
-                    categoryLabel={projects.filters[project.category]}
-                    key={project.id}
-                    onOpen={(event) => openProject(project, event)}
-                    project={project}
-                    projectCopy={getProjectCopy(projects, project)}
-                    projectsCopy={projects}
-                  />
+            <div className="projects-toolbar">
+              <div className="projects-filter-list" aria-label={projects.categoriesAria}>
+                {categoryFilters.map((category) => (
+                  <button
+                    aria-pressed={selectedCategory === category.id}
+                    className={`projects-filter-tab${
+                      selectedCategory === category.id ? ' projects-filter-active' : ''
+                    }`}
+                    key={category.id}
+                    onClick={() => setSelectedCategory(category.id)}
+                    type="button"
+                  >
+                    {category.label}
+                  </button>
                 ))}
               </div>
-            ) : null}
-          </section>
-
-          <section className="projects-cta cta-section cta-section--olive" aria-label={projects.cta.sectionAria}>
-            <FaEnvelope aria-hidden="true" focusable="false" />
-            <div>
-              <h2>{projects.cta.title}</h2>
-              <p>{projects.cta.body}</p>
             </div>
-            <NavLink to="/contact">
-              <span>{projects.cta.button}</span>
-              <span aria-hidden="true">→</span>
-            </NavLink>
-          </section>
+
+            <section className="projects-showcase" aria-label={projects.showcaseAria}>
+              {featuredProject ? (
+                <FeaturedProject
+                  categoryLabel={projects.filters[featuredProject.category]}
+                  onOpen={(event) => openProject(featuredProject, event)}
+                  project={featuredProject}
+                  projectCopy={getProjectCopy(projects, featuredProject)}
+                  projectsCopy={projects}
+                />
+              ) : null}
+
+              {secondaryProject ? (
+                <SecondaryProject
+                  categoryLabel={projects.filters[secondaryProject.category]}
+                  onOpen={(event) => openProject(secondaryProject, event)}
+                  project={secondaryProject}
+                  projectCopy={getProjectCopy(projects, secondaryProject)}
+                  projectsCopy={projects}
+                />
+              ) : null}
+
+              {gridProjects.length > 0 ? (
+                <div className="projects-grid" aria-label={projects.gridAria}>
+                  {gridProjects.map((project) => (
+                    <ProjectCard
+                      categoryLabel={projects.filters[project.category]}
+                      key={project.id}
+                      onOpen={(event) => openProject(project, event)}
+                      project={project}
+                      projectCopy={getProjectCopy(projects, project)}
+                      projectsCopy={projects}
+                    />
+                  ))}
+                </div>
+              ) : null}
+            </section>
+
+            <section className="projects-cta cta-section cta-section--olive" aria-label={projects.cta.sectionAria}>
+              <FaEnvelope aria-hidden="true" focusable="false" />
+              <div>
+                <h2>{projects.cta.title}</h2>
+                <p>{projects.cta.body}</p>
+              </div>
+              <NavLink to="/contact">
+                <span>{projects.cta.button}</span>
+                <span aria-hidden="true">→</span>
+              </NavLink>
+            </section>
+          </div>
         </section>
 
         {selectedProject && selectedProjectCopy ? (

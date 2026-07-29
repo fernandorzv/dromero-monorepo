@@ -64,6 +64,7 @@ function ContactPage({ copy, language, languageLabels, onLanguageChange }) {
             common={common}
             language={language}
             languageLabels={languageLabels}
+            mode="overlay"
             nav={nav}
             navigationAria={contact.navigationAria}
             onLanguageChange={onLanguageChange}

@@ -143,6 +143,29 @@ describe('App', () => {
     expect(screen.getByRole('button', { name: /current language: english/i })).toBeInTheDocument()
   })
 
+  it('uses the shared navbar geometry markup across routes', () => {
+    const routes = [
+      { path: '/', shell: '.page-hero', mode: 'site-navbar--overlay' },
+      { path: '/services', shell: '.page-hero', mode: 'site-navbar--overlay' },
+      { path: '/projects', shell: '.projects-shell', mode: 'site-navbar--dark' },
+      { path: '/studio', shell: '.page-hero', mode: 'site-navbar--overlay' },
+      { path: '/contact', shell: '.page-hero', mode: 'site-navbar--overlay' }
+    ]
+
+    routes.forEach(({ path, shell, mode }) => {
+      window.history.pushState({}, '', path)
+      const { unmount } = render(<App />)
+      const navbar = document.querySelector('.site-navbar')
+
+      expect(navbar).toHaveClass(mode)
+      expect(navbar?.querySelectorAll('.language-toggle')).toHaveLength(1)
+      expect(navbar?.querySelector('.site-navbar__actions')).toBeInTheDocument()
+      expect(document.querySelector(shell)).toBeInTheDocument()
+
+      unmount()
+    })
+  })
+
   it('renders gate 3 recommendation heading', () => {
     render(<App />)
 
