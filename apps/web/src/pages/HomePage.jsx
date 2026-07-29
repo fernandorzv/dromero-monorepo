@@ -61,12 +61,12 @@ function HomePage({ copy, language, languageLabels, onLanguageChange }) {
               </Link>
             </div>
 
-            <div className="home-project__metrics-panel home-featured-project__metrics">
+            <div className="home-project__metrics-panel home-featured-project__metrics metrics-panel">
               <ul className="kpi-list" aria-label={home.metricsAria}>
                 {home.metrics.map((metric) => (
-                  <li key={metric.label}>
-                    <strong>{metric.value}</strong>
-                    <span>{metric.label}</span>
+                  <li className="kpi-item" key={metric.label}>
+                    <strong className="kpi-value">{metric.value}</strong>
+                    <span className="kpi-label">{metric.label}</span>
                   </li>
                 ))}
               </ul>

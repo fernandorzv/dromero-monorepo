@@ -33,6 +33,7 @@ describe('App', () => {
     ).toBeInTheDocument()
     expect(document.querySelector('main.home-page')).toBeInTheDocument()
     expect(document.querySelector('.home-page .page-hero__content')).toBeInTheDocument()
+    expect(document.querySelector('.home-page .page-hero')).toBeInTheDocument()
   })
 
 
@@ -136,6 +137,9 @@ describe('App', () => {
     expect(secondary).toBeInTheDocument()
     expect(main?.children).toHaveLength(3)
     expect(document.querySelector('.home-featured-project__metrics .kpi-list')).toBeInTheDocument()
+    expect(document.querySelectorAll('.home-featured-project__metrics .kpi-item')).toHaveLength(3)
+    expect(document.querySelectorAll('.home-featured-project__metrics .kpi-value')).toHaveLength(3)
+    expect(document.querySelector('.home-featured-project__metrics.metrics-panel')).toBeInTheDocument()
   })
 
   it('keeps locale selector controls in Navbar', () => {

@@ -3144,6 +3144,7 @@ button {
 
 .home-page.gate1-page {
   max-width: none;
+  padding-inline: 0;
   width: 100%;
 }
 
@@ -3524,6 +3525,8 @@ button {
   overflow: hidden;
 }
 
+.home-project__metrics-panel,
+.metrics-panel,
 .home-featured-project__metrics {
   container-type: inline-size;
 }
@@ -3533,22 +3536,25 @@ button {
   grid-template-columns: 1fr;
 }
 
-.kpi-list li {
+.kpi-list li,
+.kpi-item {
   min-width: 0;
   padding-inline: 8px;
   text-align: center;
 }
 
-.kpi-list strong {
+.kpi-list strong,
+.kpi-value {
   display: block;
   font-size: clamp(1.2rem, 1.35vw, 1.5rem);
   line-height: 1.1;
   white-space: nowrap;
 }
 
-.kpi-list span {
+.kpi-list span,
+.kpi-label {
   display: block;
-  font-size: max(0.75rem, 12px);
+  font-size: 12px;
   line-height: 1.3;
   margin-top: 6px;
 }
@@ -3558,18 +3564,22 @@ button {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .kpi-list li + li {
+  .kpi-list li + li,
+  .kpi-item + .kpi-item {
     border-left: 1px solid rgba(212, 193, 172, 0.18);
   }
 }
 
 @container (max-width: 419.98px) {
-  .kpi-list li + li {
+  .kpi-list li + li,
+  .kpi-item + .kpi-item {
     border-left: 0;
   }
 }
 
-.review-row {
+.review-row,
+.metrics-review-row,
+.kpi-review-row {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
@@ -3607,7 +3617,7 @@ button {
 @media (min-width: 1024px) and (max-height: 800px) {
   .home-page .page-hero,
   .home-page .hero-shell {
-    height: min(74svh, 620px);
+    height: min(72svh, 620px);
     min-height: 520px;
   }
 }
