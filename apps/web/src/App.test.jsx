@@ -31,6 +31,8 @@ describe('App', () => {
         name: /designing dreams, building futures with timeless elegance and innovation/i
       })
     ).toBeInTheDocument()
+    expect(document.querySelector('main.home-page')).toBeInTheDocument()
+    expect(document.querySelector('.home-page .page-hero__content')).toBeInTheDocument()
   })
 
 
@@ -133,6 +135,7 @@ describe('App', () => {
     expect(metrics).toBeInTheDocument()
     expect(secondary).toBeInTheDocument()
     expect(main?.children).toHaveLength(3)
+    expect(document.querySelector('.home-featured-project__metrics .kpi-list')).toBeInTheDocument()
   })
 
   it('keeps locale selector controls in Navbar', () => {
