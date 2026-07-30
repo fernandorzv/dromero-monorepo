@@ -151,6 +151,14 @@ describe('App', () => {
     expect(document.querySelectorAll('.home-featured-project__metrics .kpi-item')).toHaveLength(3)
     expect(document.querySelectorAll('.home-featured-project__metrics .kpi-value')).toHaveLength(3)
     expect(document.querySelector('.home-featured-project__metrics.metrics-panel')).toBeInTheDocument()
+    const metricsPanel = document.querySelector('.home-featured-project__metrics')
+    const reviewRow = document.querySelector('.review-row')
+
+    expect(metricsPanel).toBeInTheDocument()
+    expect(within(metricsPanel).getAllByText(/illustrative/i)).toHaveLength(5)
+    expect(reviewRow).toBeInTheDocument()
+    expect(within(reviewRow).getAllByText(/illustrative/i)).toHaveLength(2)
+    expect(within(reviewRow).getByText(/presentation-only metrics pending verification/i)).toBeInTheDocument()
     expect(document.querySelector('.review-button')?.tagName).toBe('SPAN')
     expect(screen.queryByRole('button', { name: /see reviews/i })).not.toBeInTheDocument()
   })
@@ -248,5 +256,6 @@ describe('App', () => {
 
     expect(screen.getByRole('dialog')).toBeInTheDocument()
     expect(within(screen.getByRole('dialog')).getByRole('heading', { name: /office environment/i })).toBeInTheDocument()
+    expect(within(screen.getByRole('dialog')).getByText(/reference image/i)).toBeInTheDocument()
   })
 })

@@ -37,17 +37,18 @@ const translations = {
       nextThumbnail: 'Next thumbnail',
       featuredProject: 'Featured project',
       viewProject: 'View project',
-      reviewsBasis: 'Based on real reviews',
+      reviewsBasis: 'Presentation-only metrics pending verification.',
+      reviewBadge: 'Illustrative',
       overviewTitle: 'Serenity Haven: Embracing Nature in Architecture',
       overviewText:
         'In our eco-nature-themed architecture project, we integrate natural elements such as wood, stone, and natural lighting to create a soothing and refreshing environment.',
       metricsAria: 'Project metrics',
       metrics: [
-        { value: '150+', label: 'Concept designs' },
-        { value: '1200+', label: 'Client interactions' },
-        { value: '5000+', label: 'Project decisions' }
+        { value: 'Illustrative', label: 'Concept references' },
+        { value: 'Illustrative', label: 'Client touchpoints' },
+        { value: 'Illustrative', label: 'Project directions' }
       ],
-      reviews: 'See Reviews',
+      reviews: 'Illustrative',
       recommendationAria: 'Recommendation section',
       recommendationMediaAria: 'Recommendation media card',
       recommendationImageAlt: 'Contemporary residence with a terrace, natural stone and reflecting pool',
@@ -452,7 +453,7 @@ const translations = {
       dialogTitle: 'Project details',
       header: { title: 'Projects', statement: 'Architecture that responds\nto context, people\nand place.' },
       filters: { all: 'All', residential: 'Residential', commercial: 'Commercial', institutional: 'Institutional', cultural: 'Cultural', industrial: 'Industrial', infrastructure: 'Infrastructure' },
-      labels: { featured: 'Featured project', conceptual: 'Conceptual visualization based on the project category.', viewProject: 'View project' },
+      labels: { featured: 'Featured project', imageReference: 'Reference image', viewProject: 'View project' },
       cta: { sectionAria: 'Start a project', title: 'Have a project in mind?', body: 'Let’s create spaces with purpose.', button: 'Contact us' },
       items: {
         residentialSingleFamily: { title: 'Single-family residence', location: 'Residential concept', summary: 'A private dwelling shaped around daylight, privacy and a direct relationship with landscape.', details: 'This residential concept prioritizes natural ventilation, shaded openings and a calm indoor-outdoor sequence for everyday living.', alt: 'Contemporary residence in concrete and wood surrounded by tropical vegetation' },
@@ -508,17 +509,18 @@ const translations = {
       nextThumbnail: 'Miniatura siguiente',
       featuredProject: 'Proyecto destacado',
       viewProject: 'Ver proyecto',
-      reviewsBasis: 'Basado en reseñas reales',
+      reviewsBasis: 'Métricas de presentación pendientes de verificación.',
+      reviewBadge: 'Ilustrativo',
       overviewTitle: 'Serenity Haven: arquitectura que abraza la naturaleza',
       overviewText:
         'En nuestro proyecto de arquitectura eco-natural integramos madera, piedra e iluminación natural para crear un ambiente sereno, fresco y acogedor.',
       metricsAria: 'Métricas del proyecto',
       metrics: [
-        { value: '150+', label: 'Diseños conceptuales' },
-        { value: '1200+', label: 'Interacciones con clientes' },
-        { value: '5000+', label: 'Decisiones de proyecto' }
+        { value: 'Ilustrativo', label: 'Referencias conceptuales' },
+        { value: 'Ilustrativo', label: 'Puntos de contacto con clientes' },
+        { value: 'Ilustrativo', label: 'Direcciones de proyecto' }
       ],
-      reviews: 'Ver reseñas',
+      reviews: 'Ilustrativo',
       recommendationAria: 'Sección de recomendaciones',
       recommendationMediaAria: 'Tarjeta multimedia de recomendación',
       recommendationImageAlt: 'Residencia contemporánea con terraza, piedra natural y espejo de agua',
@@ -925,7 +927,7 @@ const translations = {
       dialogTitle: 'Detalles del proyecto',
       header: { title: 'Proyectos', statement: 'Arquitectura que responde\nal contexto, a las personas\ny al lugar.' },
       filters: { all: 'Todos', residential: 'Residencial', commercial: 'Comercial', institutional: 'Institucional', cultural: 'Cultural', industrial: 'Industrial', infrastructure: 'Infraestructura' },
-      labels: { featured: 'Proyecto destacado', conceptual: 'Visualización conceptual basada en la categoría del proyecto.', viewProject: 'Ver proyecto' },
+      labels: { featured: 'Proyecto destacado', imageReference: 'Imagen de referencia', viewProject: 'Ver proyecto' },
       cta: { sectionAria: 'Iniciar un proyecto', title: '¿Tienes un proyecto en mente?', body: 'Creemos espacios con propósito.', button: 'Contactar' },
       items: {
         residentialSingleFamily: { title: 'Residencia unifamiliar', location: 'Concepto residencial', summary: 'Una vivienda privada definida por luz natural, privacidad y relación directa con el paisaje.', details: 'Este concepto residencial prioriza ventilación natural, vanos sombreados y una secuencia interior-exterior serena para la vida diaria.', alt: 'Residencia contemporánea de concreto, madera y vegetación tropical' },

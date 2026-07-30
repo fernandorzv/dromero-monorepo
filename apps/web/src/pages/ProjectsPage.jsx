@@ -250,7 +250,7 @@ function ProjectsPage({ copy, language, languageLabels, onLanguageChange }) {
               />
               <p className="project-drawer-summary">{selectedProjectCopy.summary}</p>
               <p className="project-drawer-details">{selectedProjectCopy.details}</p>
-              <p className="project-drawer-context">{projects.labels.conceptual}</p>
+              <p className="project-drawer-context">{projects.labels.imageReference}</p>
             </aside>
           </div>
         ) : null}

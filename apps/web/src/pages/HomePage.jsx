@@ -72,7 +72,7 @@ function HomePage({ copy, language, languageLabels, onLanguageChange }) {
               </ul>
 
             <div className="review-row">
-              <span className="rating-pill">★ 4.8</span>
+              <span className="rating-pill">{home.reviewBadge}</span>
               <span className="review-copy">{home.reviewsBasis}</span>
               <span className="review-button">
                 {home.reviews}
