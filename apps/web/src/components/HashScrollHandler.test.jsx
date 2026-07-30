@@ -43,7 +43,10 @@ describe('HashScrollHandler', () => {
     HTMLElement.prototype.scrollIntoView = scrollIntoView
 
     render(
-      <MemoryRouter initialEntries={['/contact#contact-form']}>
+      <MemoryRouter
+        future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
+        initialEntries={['/contact#contact-form']}
+      >
         <Routes>
           <Route
             path="/contact"
@@ -81,7 +84,10 @@ describe('HashScrollHandler', () => {
     }))
 
     render(
-      <MemoryRouter initialEntries={['/contact']}>
+      <MemoryRouter
+        future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
+        initialEntries={['/contact']}
+      >
         <Routes>
           <Route
             path="/contact"

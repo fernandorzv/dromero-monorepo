@@ -89,6 +89,15 @@
   font-style: normal;
 }
 
+.site-footer__business-name {
+  color: var(--footer-sand);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin: -6px 0 18px;
+  text-transform: uppercase;
+}
+
 .site-footer__contact-list li {
   align-items: start;
   display: grid;

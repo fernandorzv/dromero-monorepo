@@ -17,14 +17,26 @@ describe('Contact page', () => {
     expect(document.getElementById('contact-form')).toHaveAttribute('aria-labelledby', 'contact-form-title')
     expect(screen.getByRole('heading', { name: /contact information/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /where are we/i })).toBeInTheDocument()
+    expect(within(contactInfoSection).getAllByText(studioContact.businessName)).toHaveLength(2)
     expect(within(contactInfoSection).getByRole('link', { name: studioContact.email })).toHaveAttribute(
       'href',
       `mailto:${studioContact.email}`
     )
-    expect(within(contactInfoSection).getByRole('link', { name: studioContact.phoneDisplay })).toHaveAttribute(
+    expect(
+      within(contactInfoSection)
+        .getAllByRole('link', { name: studioContact.phoneDisplay })
+        .find((link) => link.getAttribute('href') === studioContact.phoneHref)
+    ).toBeInTheDocument()
+    expect(
+      within(contactInfoSection)
+        .getAllByRole('link', { name: studioContact.whatsappDisplay })
+        .find((link) => link.getAttribute('href') === studioContact.whatsappHref)
+    ).toBeInTheDocument()
+    expect(within(contactInfoSection).getByRole('link', { name: studioContact.location })).toHaveAttribute(
       'href',
-      studioContact.phoneHref
+      studioContact.mapsHref
     )
+    expect(within(contactInfoSection).getByText(studioContact.hours)).toBeInTheDocument()
     expect(within(contactInfoSection).getByText(studioContact.location)).toBeInTheDocument()
     expect(screen.getByLabelText(/full name/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/^email$/i)).toBeInTheDocument()
@@ -67,6 +79,7 @@ describe('Contact page', () => {
     expect(screen.getByRole('heading', { level: 1, name: /^contacto$/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /cuéntanos sobre tu proyecto/i })).toBeInTheDocument()
     expect(document.getElementById('contact-form')).toBeInTheDocument()
+    expect(within(contactInfoSection).getAllByText(studioContact.businessName)).toHaveLength(2)
     expect(within(contactInfoSection).getByText(studioContact.location)).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /^contactar$/i })).toHaveAttribute(
       'href',

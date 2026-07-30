@@ -20,6 +20,7 @@ function SiteNavbar({
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const menuButtonRef = useRef(null)
   const closeButtonRef = useRef(null)
+  const panelRef = useRef(null)
   const panelId = 'site-mobile-menu'
   const navItems = [
     { end: true, label: nav.home, to: '/' },
@@ -36,24 +37,51 @@ function SiteNavbar({
 
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
-    closeButtonRef.current?.focus()
-    const focusTimers = [0, 80].map((delay) =>
-      window.setTimeout(() => {
-        closeButtonRef.current?.focus()
-      }, delay)
-    )
+    const focusFrame = window.requestAnimationFrame(() => {
+      closeButtonRef.current?.focus()
+    })
 
     function handleKeyDown(event) {
       if (event.key === 'Escape') {
+        event.preventDefault()
         setIsMenuOpen(false)
         menuButtonRef.current?.focus()
+        return
       }
+
+      if (event.key !== 'Tab') {
+        return
+      }
+
+      const focusableElements = panelRef.current?.querySelectorAll(
+        'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )
+
+      if (!focusableElements || focusableElements.length === 0) {
+        event.preventDefault()
+        return
+      }
+
+      const activeElement = document.activeElement
+      const currentIndex = Array.from(focusableElements).indexOf(activeElement)
+
+      if (currentIndex === -1) {
+        return
+      }
+
+      event.preventDefault()
+
+      const nextIndex = event.shiftKey
+        ? (currentIndex - 1 + focusableElements.length) % focusableElements.length
+        : (currentIndex + 1) % focusableElements.length
+
+      focusableElements[nextIndex].focus()
     }
 
     window.addEventListener('keydown', handleKeyDown)
 
     return () => {
-      focusTimers.forEach((focusTimer) => window.clearTimeout(focusTimer))
+      window.cancelAnimationFrame(focusFrame)
       document.body.style.overflow = previousOverflow
       window.removeEventListener('keydown', handleKeyDown)
     }
@@ -74,6 +102,7 @@ function SiteNavbar({
         aria-label={common.primaryNav}
         className={isMenuOpen ? 'site-nav-panel site-nav-panel--open' : 'site-nav-panel'}
         id={panelId}
+        ref={panelRef}
       >
         <div className="site-nav-panel__header">
           <span>{common.menuTitle}</span>
@@ -103,7 +132,7 @@ function SiteNavbar({
         </ul>
       </nav>
 
-      {isMenuOpen ? <button aria-hidden="true" className="site-nav-backdrop" onClick={closeMenu} tabIndex={-1} type="button" /> : null}
+      {isMenuOpen ? <div aria-hidden="true" className="site-nav-backdrop" onClick={closeMenu} role="presentation" /> : null}
 
       <div className="site-navbar__actions">
         <LanguageToggle labels={languageLabels} language={language} onChange={onLanguageChange} />

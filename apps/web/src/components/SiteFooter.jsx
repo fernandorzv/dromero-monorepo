@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import { FaEnvelope, FaLocationDot, FaPhone } from 'react-icons/fa6'
+import { FaEnvelope, FaLocationDot, FaPhone, FaWhatsapp } from 'react-icons/fa6'
 import symetrisHomeLogo from '../images/RA-LogoB.png'
 import { studioContact } from '../data/contact'
 import { footerNavigation, footerSocials } from '../data/footer'
@@ -22,10 +22,22 @@ function SiteFooter({ copy }) {
       value: studioContact.phoneDisplay
     },
     {
-      href: null,
+      href: studioContact.whatsappHref,
+      icon: FaWhatsapp,
+      id: 'whatsapp',
+      value: studioContact.whatsappDisplay
+    },
+    {
+      href: studioContact.mapsHref,
       icon: FaLocationDot,
       id: 'location',
       value: studioContact.location
+    },
+    {
+      href: null,
+      icon: null,
+      id: 'hours',
+      value: studioContact.hours
     }
   ]
 
@@ -89,10 +101,11 @@ function SiteFooter({ copy }) {
 
         <address className="site-footer__contact">
           <h2 className="site-footer__heading">{footer.contactTitle}</h2>
+          <p className="site-footer__business-name">{studioContact.businessName}</p>
           <ul className="site-footer__contact-list">
             {contactItems.map((item) => (
               <li key={item.id}>
-                <item.icon aria-hidden="true" focusable="false" />
+                {item.icon ? <item.icon aria-hidden="true" focusable="false" /> : <span aria-hidden="true" />}
                 {item.href ? (
                   <a href={item.href}>{item.value}</a>
                 ) : (

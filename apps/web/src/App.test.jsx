@@ -77,6 +77,17 @@ describe('App', () => {
     await waitFor(() => expect(screen.getByRole('button', { name: /close navigation menu/i })).toHaveFocus())
     expect(within(screen.getByRole('navigation', { name: /primary/i })).getByRole('link', { name: /services/i })).toBeInTheDocument()
 
+    fireEvent.keyDown(screen.getByRole('button', { name: /close navigation menu/i }), {
+      key: 'Tab',
+      shiftKey: true
+    })
+    expect(within(screen.getByRole('navigation', { name: /primary/i })).getByRole('link', { name: /contact/i })).toHaveFocus()
+
+    fireEvent.keyDown(within(screen.getByRole('navigation', { name: /primary/i })).getByRole('link', { name: /contact/i }), {
+      key: 'Tab'
+    })
+    expect(screen.getByRole('button', { name: /close navigation menu/i })).toHaveFocus()
+
     fireEvent.keyDown(window, { key: 'Escape' })
 
     expect(openButton).toHaveAttribute('aria-expanded', 'false')
@@ -140,6 +151,8 @@ describe('App', () => {
     expect(document.querySelectorAll('.home-featured-project__metrics .kpi-item')).toHaveLength(3)
     expect(document.querySelectorAll('.home-featured-project__metrics .kpi-value')).toHaveLength(3)
     expect(document.querySelector('.home-featured-project__metrics.metrics-panel')).toBeInTheDocument()
+    expect(document.querySelector('.review-button')?.tagName).toBe('SPAN')
+    expect(screen.queryByRole('button', { name: /see reviews/i })).not.toBeInTheDocument()
   })
 
   it('keeps locale selector controls in Navbar', () => {

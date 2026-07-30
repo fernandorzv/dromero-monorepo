@@ -28,15 +28,26 @@ describe('SiteFooter', () => {
     expect(within(navigation).getAllByRole('link')).toHaveLength(5)
     expect(within(footer).getByRole('heading', { name: /^contact$/i })).toBeInTheDocument()
     expect(contact).toBeInTheDocument()
+    expect(within(contact).getByText(studioContact.businessName)).toBeInTheDocument()
     expect(within(contact).getByRole('link', { name: studioContact.email })).toHaveAttribute(
       'href',
       `mailto:${studioContact.email}`
     )
-    expect(within(contact).getByRole('link', { name: studioContact.phoneDisplay })).toHaveAttribute(
+    expect(
+      within(contact)
+        .getAllByRole('link', { name: studioContact.phoneDisplay })
+        .find((link) => link.getAttribute('href') === studioContact.phoneHref)
+    ).toBeInTheDocument()
+    expect(
+      within(contact)
+        .getAllByRole('link', { name: studioContact.whatsappDisplay })
+        .find((link) => link.getAttribute('href') === studioContact.whatsappHref)
+    ).toBeInTheDocument()
+    expect(within(contact).getByRole('link', { name: studioContact.location })).toHaveAttribute(
       'href',
-      studioContact.phoneHref
+      studioContact.mapsHref
     )
-    expect(within(contact).getByText(studioContact.location)).toBeInTheDocument()
+    expect(within(contact).getByText(studioContact.hours)).toBeInTheDocument()
     expect(within(footer).getByRole('img', { name: /facebook/i })).toBeInTheDocument()
     expect(within(footer).getByRole('img', { name: /instagram/i })).toBeInTheDocument()
     expect(within(footer).getByRole('img', { name: /whatsapp/i })).toBeInTheDocument()

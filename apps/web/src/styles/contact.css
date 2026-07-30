@@ -247,6 +247,15 @@
   font-size: clamp(1.8rem, 3vw, 2.8rem);
 }
 
+.contact-info__brand {
+  color: #bebc8e;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin: 10px 0 0;
+  text-transform: uppercase;
+}
+
 .contact-info__pending {
   color: #c7c4b7;
   font-size: 0.88rem;

@@ -25,7 +25,7 @@ function App() {
   }, [language])
 
   return (
-    <BrowserRouter basename={routerBaseName}>
+    <BrowserRouter basename={routerBaseName} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <HashScrollHandler />
       <Routes>
         <Route

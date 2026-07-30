@@ -3142,6 +3142,12 @@ button {
   }
 }
 
+.review-button {
+  cursor: default;
+  pointer-events: none;
+  user-select: text;
+}
+
 .home-page.gate1-page {
   max-width: none;
   padding-inline: 0;

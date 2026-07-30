@@ -4,7 +4,8 @@ import {
   FaEnvelope,
   FaLocationDot,
   FaMapLocationDot,
-  FaPhone
+  FaPhone,
+  FaWhatsapp
 } from 'react-icons/fa6'
 import ResponsiveImage from '../components/ResponsiveImage'
 import SiteFooter from '../components/SiteFooter'
@@ -14,9 +15,22 @@ import { contactMedia } from '../data/media'
 import '../styles/contact.css'
 
 const contactInfoItems = [
+  { href: null, id: 'businessName', value: studioContact.businessName },
   { icon: FaEnvelope, href: `mailto:${studioContact.email}`, id: 'email', value: studioContact.email },
   { icon: FaPhone, href: studioContact.phoneHref, id: 'phone', value: studioContact.phoneDisplay },
-  { icon: FaLocationDot, id: 'location', value: studioContact.location }
+  {
+    href: studioContact.whatsappHref,
+    icon: FaWhatsapp,
+    id: 'whatsapp',
+    value: studioContact.whatsappDisplay
+  },
+  {
+    href: studioContact.mapsHref,
+    icon: FaLocationDot,
+    id: 'location',
+    value: studioContact.location
+  },
+  { href: null, icon: FaLocationDot, id: 'hours', value: studioContact.hours }
 ]
 
 const projectTypeOptions = [
@@ -154,6 +168,7 @@ function ContactPage({ copy, language, languageLabels, onLanguageChange }) {
           <div className="contact-info__grid">
             <div className="contact-info__panel">
               <h2 id="contact-info-title">{contact.info.title}</h2>
+              <p className="contact-info__brand">{studioContact.businessName}</p>
 
               <ul className="contact-info__list">
                 {contactInfoItems.map((item) => {
@@ -161,7 +176,7 @@ function ContactPage({ copy, language, languageLabels, onLanguageChange }) {
 
                   return (
                     <li className="contact-info__item" key={item.id}>
-                      <Icon aria-hidden="true" focusable="false" />
+                      {Icon ? <Icon aria-hidden="true" focusable="false" /> : <span aria-hidden="true" />}
                       <div>
                         <span className="contact-info__label">
                           {contact.info.items[item.id]}

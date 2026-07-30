@@ -75,6 +75,7 @@ const translations = {
       socialsAria: 'D’Romero social media',
       legal: 'D’Romero Architecture. All rights reserved.',
       closingStatement: 'We design spaces that inspire and endure.',
+      businessName: 'D’Romero',
       socialLabels: {
         facebook: 'D’Romero on Facebook',
         instagram: 'D’Romero on Instagram',
@@ -415,10 +416,14 @@ const translations = {
         imageAlt:
           'Warm contemporary residence opening onto a tropical garden at dusk',
         items: {
+          businessName: 'Business name',
           email: 'Email',
           phone: 'Phone',
+          whatsapp: 'WhatsApp',
           location: 'Location',
-          schedule: 'Schedule'
+          maps: 'Google Maps',
+          schedule: 'Schedule',
+          hours: 'Hours'
         }
       },
       map: {
@@ -541,6 +546,7 @@ const translations = {
       socialsAria: 'Redes sociales de D’Romero',
       legal: 'D’Romero Arquitectura. Todos los derechos reservados.',
       closingStatement: 'Diseñamos espacios que inspiran y perduran.',
+      businessName: 'D’Romero',
       socialLabels: {
         facebook: 'D’Romero en Facebook',
         instagram: 'D’Romero en Instagram',
@@ -882,10 +888,14 @@ const translations = {
         imageAlt:
           'Residencia contemporánea de ambiente cálido abierta hacia un jardín tropical al atardecer',
         items: {
+          businessName: 'Nombre comercial',
           email: 'Correo electrónico',
           phone: 'Teléfono',
+          whatsapp: 'WhatsApp',
           location: 'Ubicación',
-          schedule: 'Horario'
+          maps: 'Google Maps',
+          schedule: 'Horario',
+          hours: 'Horario'
         }
       },
       map: {
