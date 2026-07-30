@@ -34,10 +34,22 @@ describe('Contact page', () => {
     ).toBeInTheDocument()
     expect(within(contactInfoSection).getByRole('link', { name: studioContact.location })).toHaveAttribute(
       'href',
-      studioContact.mapsHref
+      studioContact.mapUrl
     )
     expect(within(contactInfoSection).getByText(studioContact.hours)).toBeInTheDocument()
     expect(within(contactInfoSection).getByText(studioContact.location)).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /open location in google maps/i })).toHaveAttribute(
+      'href',
+      studioContact.mapUrl
+    )
+    expect(screen.getByRole('link', { name: /open location in google maps/i })).toHaveAttribute(
+      'target',
+      '_blank'
+    )
+    expect(screen.getByRole('link', { name: /open location in google maps/i })).toHaveAttribute(
+      'rel',
+      expect.stringContaining('noopener')
+    )
     expect(screen.getByLabelText(/full name/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/^email$/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/^phone$/i)).toBeInTheDocument()
@@ -81,6 +93,10 @@ describe('Contact page', () => {
     expect(document.getElementById('contact-form')).toBeInTheDocument()
     expect(within(contactInfoSection).getAllByText(studioContact.businessName)).toHaveLength(2)
     expect(within(contactInfoSection).getByText(studioContact.location)).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /abrir ubicación en google maps/i })).toHaveAttribute(
+      'href',
+      studioContact.mapUrl
+    )
     expect(screen.getByRole('link', { name: /^contactar$/i })).toHaveAttribute(
       'href',
       '/contact#contact-form'

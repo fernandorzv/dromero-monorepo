@@ -319,6 +319,13 @@
   margin: 18px 0 0;
 }
 
+.contact-map__card {
+  color: inherit;
+  display: block;
+  margin-top: 42px;
+  text-decoration: none;
+}
+
 .contact-map__placeholder {
   align-items: center;
   background:
@@ -326,13 +333,15 @@
     linear-gradient(142deg, transparent 46%, rgba(119, 118, 83, 0.1) 47%, rgba(119, 118, 83, 0.1) 49%, transparent 50%),
     #e8e5da;
   border: 1px solid var(--contact-border);
+  cursor: pointer;
   display: grid;
   justify-items: center;
-  margin-top: 42px;
   min-height: 300px;
   overflow: hidden;
   padding: 40px 24px;
   position: relative;
+  transition: border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 .contact-map__placeholder::before,
@@ -368,6 +377,33 @@
   margin: 12px 0 0;
   position: relative;
   z-index: 1;
+}
+
+.contact-map__external {
+  color: var(--contact-dark);
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  z-index: 1;
+}
+
+.contact-map__external svg {
+  font-size: 1rem;
+}
+
+.contact-map__card:hover .contact-map__placeholder,
+.contact-map__card:focus-visible .contact-map__placeholder {
+  background:
+    linear-gradient(37deg, transparent 43%, rgba(119, 118, 83, 0.16) 44%, rgba(119, 118, 83, 0.16) 46%, transparent 47%),
+    linear-gradient(142deg, transparent 46%, rgba(119, 118, 83, 0.14) 47%, rgba(119, 118, 83, 0.14) 49%, transparent 50%),
+    #e1ddcf;
+  border-color: var(--contact-accent);
+  box-shadow: 0 10px 22px rgba(11, 11, 8, 0.08);
+  transform: translateY(-1px);
+}
+
+.contact-map__card:focus-visible {
+  outline: 0;
 }
 
 .contact-cta {
@@ -439,6 +475,10 @@
 
 @media (prefers-reduced-motion: reduce) {
   .contact-cta__button {
+    transition: none;
+  }
+
+  .contact-map__placeholder {
     transition: none;
   }
 }

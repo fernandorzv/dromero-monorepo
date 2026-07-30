@@ -28,7 +28,7 @@ function SiteFooter({ copy }) {
       value: studioContact.whatsappDisplay
     },
     {
-      href: studioContact.mapsHref,
+      href: studioContact.mapUrl,
       icon: FaLocationDot,
       id: 'location',
       value: studioContact.location
@@ -107,7 +107,13 @@ function SiteFooter({ copy }) {
               <li key={item.id}>
                 {item.icon ? <item.icon aria-hidden="true" focusable="false" /> : <span aria-hidden="true" />}
                 {item.href ? (
-                  <a href={item.href}>{item.value}</a>
+                  <a
+                    href={item.href}
+                    rel="noopener noreferrer"
+                    target={item.id === 'location' ? '_blank' : undefined}
+                  >
+                    {item.value}
+                  </a>
                 ) : (
                   <span>{item.value}</span>
                 )}

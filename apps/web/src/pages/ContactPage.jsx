@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   FaEnvelope,
+  FaArrowUpRightFromSquare,
   FaLocationDot,
   FaMapLocationDot,
   FaPhone,
@@ -25,7 +26,7 @@ const contactInfoItems = [
     value: studioContact.whatsappDisplay
   },
   {
-    href: studioContact.mapsHref,
+    href: studioContact.mapUrl,
     icon: FaLocationDot,
     id: 'location',
     value: studioContact.location
@@ -214,18 +215,29 @@ function ContactPage({ copy, language, languageLabels, onLanguageChange }) {
               <p>{contact.map.locationPending}</p>
             </div>
 
-            <div
-              className="contact-map__placeholder"
-              aria-label={contact.map.placeholderAria}
-              role="img"
+            <a
+              className="contact-map__card"
+              aria-label={contact.map.linkLabel}
+              href={studioContact.mapUrl}
+              rel="noopener noreferrer"
+              target="_blank"
             >
-              <FaMapLocationDot
-                className="contact-map__marker"
-                aria-hidden="true"
-                focusable="false"
-              />
-              <p>{contact.map.placeholderText}</p>
-            </div>
+              <div
+                className="contact-map__placeholder"
+                aria-label={contact.map.placeholderAria}
+                role="img"
+              >
+                <FaMapLocationDot
+                  className="contact-map__marker"
+                  aria-hidden="true"
+                  focusable="false"
+                />
+                <p>{contact.map.placeholderText}</p>
+                <span className="contact-map__external" aria-hidden="true">
+                  <FaArrowUpRightFromSquare focusable="false" />
+                </span>
+              </div>
+            </a>
           </div>
         </section>
 

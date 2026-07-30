@@ -429,9 +429,10 @@ const translations = {
       },
       map: {
         title: 'Where are we?',
-        locationPending: 'Located in Cuernavaca, Morelos, Mexico.',
-        placeholderAria: 'Map for the verified studio location in Cuernavaca, Morelos, Mexico',
-        placeholderText: 'Cuernavaca, Morelos, Mexico'
+        locationPending: 'Located in Jiutepec, Morelos, Mexico.',
+        linkLabel: 'Open location in Google Maps',
+        placeholderAria: 'Map for the verified studio location in Jiutepec, Morelos, Mexico',
+        placeholderText: 'Bo. de los Arcos #2, Fracc. Las Fincas, Jiutepec, Mor.'
       },
       cta: {
         sectionAria: 'Start a project',
@@ -902,10 +903,11 @@ const translations = {
       },
       map: {
         title: '¿Dónde estamos?',
-        locationPending: 'Ubicados en Cuernavaca, Morelos, México.',
+        locationPending: 'Ubicados en Jiutepec, Morelos, México.',
+        linkLabel: 'Abrir ubicación en Google Maps',
         placeholderAria:
-          'Mapa de la ubicación verificada del estudio en Cuernavaca, Morelos, México',
-        placeholderText: 'Cuernavaca, Morelos, México'
+          'Mapa de la ubicación verificada del estudio en Jiutepec, Morelos, México',
+        placeholderText: 'Bo. de los Arcos #2, Fracc. Las Fincas, Jiutepec, Mor.'
       },
       cta: {
         sectionAria: 'Iniciar un proyecto',

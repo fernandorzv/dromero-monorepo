@@ -45,7 +45,15 @@ describe('SiteFooter', () => {
     ).toBeInTheDocument()
     expect(within(contact).getByRole('link', { name: studioContact.location })).toHaveAttribute(
       'href',
-      studioContact.mapsHref
+      studioContact.mapUrl
+    )
+    expect(within(contact).getByRole('link', { name: studioContact.location })).toHaveAttribute(
+      'target',
+      '_blank'
+    )
+    expect(within(contact).getByRole('link', { name: studioContact.location })).toHaveAttribute(
+      'rel',
+      expect.stringContaining('noopener')
     )
     expect(within(contact).getByText(studioContact.hours)).toBeInTheDocument()
     expect(within(footer).getByRole('img', { name: /facebook/i })).toBeInTheDocument()
